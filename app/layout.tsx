@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Metadata } from 'next'
 import './globals.css'
-import ThemeRegistry from './components/ThemeRegistry'
+import ThemeRegistry from '../components/ThemeRegistry'
 
 export const metadata: Metadata = {
   title: 'Next App MUI',

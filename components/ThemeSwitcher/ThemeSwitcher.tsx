@@ -1,6 +1,6 @@
-import React, {FC, MouseEvent} from 'react';
-import { FormControlLabel, IconButton, IconButtonProps, Switch, Theme } from "@mui/material";
-import { Brightness4 as LightIcon } from "@mui/icons-material";
+import React from 'react';
+import { FormControlLabel, Switch, Theme } from "@mui/material";
+// import { Brightness4 as LightIcon } from '@mui/icons-material';
 
 interface ThemeSwitcherProps {
   oChange: (event:React.ChangeEvent<HTMLInputElement>) => void;
@@ -19,7 +19,7 @@ export const ThemeSwitcher = (props: ThemeSwitcherProps): JSX.Element => {
 
   const handleThemeSwitch = (
     event: React.ChangeEvent<HTMLInputElement>,
-  ) => {};
+  ) => {console.log(event)};
 
   return (
     <FormControlLabel

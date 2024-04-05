@@ -1,19 +1,30 @@
-import { Theme} from '@mui/material/styles/createTheme';
+
+import React from 'react';
+import { Theme } from '@mui/material/styles/createTheme';
 import { Dispatch, SetStateAction } from 'react';
 
 // interface ActiveElementArray<T> {};
 
 
-// function useMultipleThemes<Theme>(): MuiThemeState;
-declare module '@mui/material/styles/createTheme' {
-  interface ThemeOptions {
-    name?: string;
-  }
+// declare module '@mui/material/styles' {
+//   interface ThemeOptions {
+//     name?: string;
+//   }
+//   interface Theme {
+//     name?: string;
+//   }
+// }
 
-  interface Theme {
-    name?: string;
-  }
-}
+// function useMultipleThemes<Theme>(): MuiThemeState;
+// declare module '@mui/material/styles/createTheme' {
+//   interface ThemeOptions {
+//     name?: string;
+//   }
+
+//   interface Theme {
+//     name?: string;
+//   }
+// }
 
 import "@mui/material/styles/createPalette";
 declare module "@mui/material/styles/createPalette" {
@@ -53,4 +64,4 @@ declare module '@mui/material/Typography' {
 
 type MuiThemeTuple = [Theme, Theme];
 type MuiThemeState = [Theme | undefined, React.Dispatch<React.SetStateAction<Theme | undefined>>];
-type MuiThemeStateTuple<Theme> = [Theme, Dispatch<SetStateAction<Theme>>] ;
+type MuiThemeStateTuple<Theme> = [Theme, Dispatch<SetStateAction<Theme>>];

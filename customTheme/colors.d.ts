@@ -1,8 +1,8 @@
 /* module augmentation for Material-UI customizization */
 
-import {} from "@mui/material/styles";
-import {} from '@mui/material/Typography'
-import {} from "@mui/material/styles/createPalette";
+import { } from "@mui/material/styles";
+import { } from '@mui/material/Typography'
+import { } from "@mui/material/styles/createPalette";
 import { ColorGuide } from "./colorGuide";
 import { PaletteMode } from "@mui/material";
 
@@ -25,7 +25,7 @@ declare module '@mui/material/styles' {
 }
 
 declare module "@mui/material/styles/createPalette" {
-   export interface PaletteOptions {
+  export interface PaletteOptions {
     primary?: PaletteColorOptions;
     secondary?: PaletteColorOptions;
     error?: PaletteColorOptions;
@@ -63,7 +63,7 @@ declare module "@mui/material/styles/createPalette" {
     ext?: any;
   }
 
-  export interface PaletteColor extends ColorPartial<Color> {}
+  export interface PaletteColor extends ColorPartial<Color> { }
 }
 
 
