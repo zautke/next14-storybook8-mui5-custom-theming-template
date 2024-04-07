@@ -34,6 +34,7 @@ module.exports = {
     "sort-keys": "off",
     "react-in-jsx-scope": "off",
     "no-extra-semi": "off",
+    "no-prototype-builtins": "off",
     "@typescript-eslint/indent": [1, 2],
     "@typescript-eslint/no-unused-vars": 1,
     "@typescript-eslint/no-explicit-any": 0,

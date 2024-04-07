@@ -1,4 +1,4 @@
-import { createTheme,  Theme,  ThemeOptions } from '@mui/material/styles';
+import { createTheme, Theme } from '@mui/material/styles';
 import breakpoints from './breakpoints';
 import palette from './palette';
 import shape from './shape';
@@ -7,20 +7,19 @@ import typography from './typography';
 import zDepth from './z-depth';
 
 /* leave `createTheme' to define commented-out objects */
-export const baseThemeExtensions: Theme = createTheme({
-  //mixins:
-  //components:
-  palette: palette,
-  //shadows:
-  //transitions:
-  typography: typography,
-  unstable_strictMode: false
-},{
-  breakpoints,
-  shape,
-  spacing
+export const customBaseThemeOverrides: Theme = createTheme({
+  //mixins,
+  //components,
+  palette,
+  //shadows,
+  //transitions,
+  typography,
+}, {
+  //breakpoints,
+  //shape,
+  //spacing,
   //zDepth
 });
 
 
-export default baseThemeExtensions
+export default customBaseThemeOverrides

@@ -1,23 +1,54 @@
-// app/ThemeRegistry.tsx
 'use client';
+
 import createCache from '@emotion/cache';
 import { useServerInsertedHTML } from 'next/navigation';
 import { CacheProvider } from '@emotion/react';
-import { ThemeProvider, createTheme, Theme } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
+// import { ThemeContext } from '@mui/material/styles';
+import {Theme} from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline';
-import React, { useEffect, useState } from 'react';
-// import { theme } from '../theme/theme';
-import theme from '../customTheme';
+import React, { Context, Dispatch, FC, PropsWithChildren, ProviderProps, ReactNode, SetStateAction, useEffect, useState } from 'react';
+import theme, { defaultTheme} from '../customTheme';
 import { MuiThemeStateTuple, MuiThemeTuple } from '../customTheme/mui5';
 import { FormControlLabel, Switch } from '@mui/material';
 
-// import type {Theme, t} from '../mui-theme';
+import type  { t } from '../mui-theme';
+import { ThemeProviderProps } from '@mui/material/styles/ThemeProvider';
 
-const defaultTheme = createTheme()
+// const defaultTheme = createTheme({name: 'Default'})
+interface ActiveThemeProps {
+  activeTheme: Theme
+  children?: ReactNode
+}
 
-export const ThemeSwitcher = () => {
-  const [activeTheme, setActiveTheme]:MuiThemeStateTuple<Theme> = useState<Theme>(theme);
-  const themes: MuiThemeTuple = [theme, defaultTheme];
+interface ThemeSwitcherProps extends ActiveThemeProps {
+  themes: MuiThemeTuple,
+  setActiveTheme: Dispatch<SetStateAction<Theme>>
+}
+interface ThemeSwitcherProviderProps extends
+  ThemeProviderProps,
+  ActiveThemeProps
+{
+  children: React.ReactNode
+}
+
+
+
+const SwitcherContext: Context<Theme> = React.createContext(defaultTheme)
+const ThemeSwitcherProvider = ({theme, children}: ThemeProviderProps) =>
+  <ThemeProvider theme={theme}>
+    {children && children}
+  </ThemeProvider>
+
+
+const themes: MuiThemeTuple = [theme, defaultTheme];
+
+
+
+
+export const ThemeSwitcher: FC<PropsWithChildren<any>> = ({children}): JSX.Element => {
+  const [activeTheme, setActiveTheme]:MuiThemeStateTuple<Theme> = useState<Theme>(defaultTheme)
+
 
   const isEnhancedTheme: boolean = themes[0] === activeTheme;
 
@@ -28,23 +59,24 @@ export const ThemeSwitcher = () => {
   };
 
   useEffect( () => {
-    console.log("activeTheme", activeTheme);
-    console.log("defaultTheme", defaultTheme);
+    console.log(activeTheme.name);
   }, [activeTheme])
 
   return (
-    <FormControlLabel
-      label={activeTheme.name}
-      labelPlacement={'top'}
-      control={
-        <Switch
-          checked={isEnhancedTheme}
-          onChange={handleThemeSwitch}
-          color="primary"
-          value="dynamic-class-name"
-        />
-      }
-    />
+    <ThemeProvider theme={activeTheme}>
+      <FormControlLabel
+        label={activeTheme.name}
+        labelPlacement={'top'}
+        control={
+          <Switch
+            checked={isEnhancedTheme}
+            onChange={handleThemeSwitch}
+            color="primary"
+          />
+        }
+      />
+      {children && children}
+    </ThemeProvider>
   )
 }
 
@@ -52,12 +84,11 @@ export const ThemeSwitcher = () => {
 // https://github.com/emotion-js/emotion/issues/2928#issuecomment-1319747902
 export default function ThemeRegistry({
   children
-}: {
-  children: React.ReactNode
-}) {
+}:  {children: React.ReactNode}
+) {
   const options = {key: 'mui'}
 
-  const [{ cache, flush }] = React.useState(() => {
+  const [{ cache, flush }] = useState(() => {
     const cache = createCache(options);
     cache.compat = true;
     const prevInsert = cache.insert;
@@ -99,10 +130,10 @@ export default function ThemeRegistry({
 
   return (
     <CacheProvider value={cache}>
-      <ThemeProvider theme={createTheme()}>
+      <ThemeSwitcher>
         <CssBaseline enableColorScheme/>
         {children}
-      </ThemeProvider>
+      </ThemeSwitcher>
     </CacheProvider>
   );
 }

@@ -1,21 +1,15 @@
-import React from 'react';
-import {ThemeSwitcher} from '../components/ThemeRegistry';
-import { Typography } from '@mui/material';
+import React from 'react'
+import ThemeRegistry from '../components/ThemeRegistry'
+import { Typography } from '@mui/material'
 
-// import Container from '@mui/material/Container';
-// import Paper from '@mui/material/Paper';
-// import Typography from '@mui/material/Typography';
-// import Box from '@mui/material/Box';
-// import Link from '@mui/material/Link';
 
 function Home() {
   return (
-    <>
-      <ThemeSwitcher />
+    <ThemeRegistry>
       <Typography variant="h2">Hello, world!</Typography>
-    </>
-  );
+    </ThemeRegistry>
+  )
 }
 
 
-export default Home;
+export default Home

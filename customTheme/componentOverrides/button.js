@@ -1,11 +1,11 @@
-import theme from '../buildBaseTheme';
-console.log("baseTheme", theme)
+import theme from '../buildBaseTheme'
+console.log("button.js")
 
 const MuiButton = {
   root: {
     ...theme.typography.button,
     padding: '4px 12px 6px 12px',
-    minHeight: 0, // changed from MUI default 36
+    minHeight: 0, // default: 36
     textAlign: 'center',
     textTransform: 'capitalize',
     borderRadius: 3,

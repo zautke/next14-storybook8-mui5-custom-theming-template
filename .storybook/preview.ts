@@ -2,27 +2,23 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import { createTheme } from '@mui/material/styles';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes'
 import { theme, Mode } from '../app/theme/theme'
+import customTheme, { defaultTheme } from '../customTheme'
+// import roboto from 'next/font/google'
 
-const defaultTheme = createTheme();
-
-// import '@fontsource/roboto/300.css'
-// import '@fontsource/roboto/400.css'
-// import '@fontsource/roboto/500.css'
-// import '@fontsource/roboto/700.css'
-// import '@fontsource/material-icons'
+// const defaultTheme = createTheme();
 
 export const decorators = [
   withThemeFromJSXProvider({
     themes: {
       default: defaultTheme,
-      //enhanced: enhancedTheme,
+      custom: customTheme,
       light: theme(Mode.LIGHT),
       dark: theme(Mode.DARK),
     },
     defaultTheme: 'default',
     Provider: ThemeProvider,
     GlobalStyles: CssBaseline,
-  })];
+  })]
 
 export const globalTypes = {
   theme: {
@@ -35,13 +31,15 @@ export const globalTypes = {
       dynamicTitle: true,
       items: [
         { value: 'default', left: '*', title: 'MUI Default theme' },
-        //{ value: 'enhanced', left: '+', title: 'MUI Enhanced theme' },
+        { value: 'custom', left: '+', title: 'MUI Customized theme' },
         { value: 'light', left: '☀️', title: 'Light mode' },
         { value: 'dark', left: '🌙', title: 'Dark mode' },
       ],
     },
   },
-};
+}
+
+console.log("Storybook globalTypes", globalTypes)
 
 const preview = {
   parameters: {
@@ -52,9 +50,9 @@ const preview = {
       },
     },
   },
-};
+}
 
-export default preview;
+export default preview
 
 
 

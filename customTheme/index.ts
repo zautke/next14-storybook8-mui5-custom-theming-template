@@ -1,28 +1,29 @@
-import enhancedBaseTheme from './buildBaseTheme';
+import customBaseTheme from './buildBaseTheme';
 import styleOverrides from './componentOverrides';
 import defaultPropOverrides from './defaultProps';
 import { createTheme, Theme, ThemeOptions } from '@mui/material/styles';
+
+
 
 const mergeStyleOverrides = {
   components: {
     ...styleOverrides
   }
-};
-
-const enhancedThemeOptions = {
-  ...enhancedBaseTheme,
-  name: 'Enhanced'
-};
+}
 
 const defaultThemeOptions: ThemeOptions = {
   name: 'Default'
-};
-
+}
 export const defaultTheme: Theme = createTheme(defaultThemeOptions);
-const enhancedTheme: Theme = createTheme(
-  enhancedThemeOptions,
+
+const customThemeOptions = {
+  ...customBaseTheme,
+  name: 'custom'
+}
+const customTheme: Theme = createTheme(
+  customThemeOptions,
   mergeStyleOverrides
-);
+)
 
 
 
@@ -31,18 +32,17 @@ const enhancedTheme: Theme = createTheme(
 
 const mergePropOverrides = {
   components: {
-    ...enhancedBaseTheme.components,
-    ...defaultPropOverrides
-
+    ...customBaseTheme.components,
+    ///...defaultPropOverrides
   }
-};
+}
 
-export const finalTheme: Theme = createTheme(enhancedTheme, mergePropOverrides)
+export const finalTheme: Theme = createTheme(customTheme, mergePropOverrides)
+
+// console.log("defaultTheme", JSON.stringify(defaultTheme, null, 2))
 
 
-
-
-
+// console.log('THEME DELTA', { ...defaultTheme, ...customTheme })
 
 export default finalTheme;
 
