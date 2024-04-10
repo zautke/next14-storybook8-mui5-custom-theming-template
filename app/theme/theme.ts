@@ -1,5 +1,5 @@
 // import { Roboto } from 'next/font/google'
-import { createTheme } from '@mui/material/styles'
+import { createTheme, Theme } from '@mui/material/styles'
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -27,22 +27,11 @@ export enum Mode {
   LIGHT = 'light'
 }
 
-export const theme = (mode?: ThemeMode) => createTheme({
+export const theme = (theme: Theme, mode?: ThemeMode) => createTheme({
+  ...theme,
   palette: {
-    primary: {
-      main: '#000000',
-    },
-    secondary: {
-      main: '#ffffff',
-    },
     mode: mode ? mode : Mode.LIGHT,
   },
-  typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    fontSize: 14,
-  },
-
-
   // components: {
   //     MainMenuFrameComponent: {
   //         styleOverrides: {

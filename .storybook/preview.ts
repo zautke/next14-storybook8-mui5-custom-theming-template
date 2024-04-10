@@ -12,8 +12,8 @@ export const decorators = [
     themes: {
       default: defaultTheme,
       custom: customTheme,
-      light: theme(Mode.LIGHT),
-      dark: theme(Mode.DARK),
+      defaultDark: theme(defaultTheme, Mode.DARK),
+      customDark: theme(customTheme, Mode.DARK),
     },
     defaultTheme: 'default',
     Provider: ThemeProvider,
@@ -32,14 +32,28 @@ export const globalTypes = {
       items: [
         { value: 'default', left: '*', title: 'MUI Default theme' },
         { value: 'custom', left: '+', title: 'MUI Customized theme' },
+        { value: 'defaultDark', left: '☀️', title: 'defaultDark' },
+        { value: 'customDark', left: '🌙', title: 'customDark' },
+      ],
+    },
+  },
+  toggler: {
+    name: 'ThemeModeToggler',
+    title: 'ThemeModeTogger',
+    description: 'Light/Dark Theme Mode for your components',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'paintbrush',
+      dynamicTitle: true,
+      items: [
+        { value: 'default', left: '*', title: 'MUI Default theme' },
+        { value: 'custom', left: '+', title: 'MUI Customized theme' },
         { value: 'light', left: '☀️', title: 'Light mode' },
         { value: 'dark', left: '🌙', title: 'Dark mode' },
       ],
     },
-  },
+  }
 }
-
-console.log("Storybook globalTypes", globalTypes)
 
 const preview = {
   parameters: {

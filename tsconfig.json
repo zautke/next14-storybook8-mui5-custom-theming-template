@@ -6,13 +6,12 @@
       "esnext"
     ],
     "allowJs": true,
-    "baseUrl": "./",
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "importHelpers": true,
@@ -26,7 +25,7 @@
     ],
     "paths": {
       "@/*": [
-        "./components/*"
+        "./*"
       ]
     },
     "typeRoots": [
@@ -39,12 +38,13 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "@/customTheme/mui5.d.ts",
+    "customTheme/mui5.d.ts",
+    "libdb/*.ts"
   ],
   "exclude": [
     "node_modules"
   ],
-  "types": [
-    "app/**/*.d.ts",
-  ]
+  // "types": [
+  //   "app/**/*.d.ts",
+  // ]
 }

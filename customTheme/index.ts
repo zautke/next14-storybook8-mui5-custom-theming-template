@@ -1,7 +1,7 @@
-import customBaseTheme from './buildBaseTheme';
-import styleOverrides from './componentOverrides';
-import defaultPropOverrides from './defaultProps';
-import { createTheme, Theme, ThemeOptions } from '@mui/material/styles';
+import customBaseTheme from './buildBaseTheme'
+import styleOverrides from './componentOverrides'
+import defaultPropOverrides from './defaultProps'
+import { createTheme, Theme, ThemeOptions } from '@mui/material/styles'
 
 
 
@@ -14,7 +14,7 @@ const mergeStyleOverrides = {
 const defaultThemeOptions: ThemeOptions = {
   name: 'Default'
 }
-export const defaultTheme: Theme = createTheme(defaultThemeOptions);
+export const defaultTheme: Theme = createTheme(defaultThemeOptions)
 
 const customThemeOptions = {
   ...customBaseTheme,
@@ -33,7 +33,7 @@ const customTheme: Theme = createTheme(
 const mergePropOverrides = {
   components: {
     ...customBaseTheme.components,
-    ///...defaultPropOverrides
+    ...defaultPropOverrides
   }
 }
 
