@@ -14,15 +14,14 @@ const customJestConfig = {
     "\\.(css|less|sass|scss)$": "identity-obj-proxy",
     "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js",
   },
-  // Add more setup options here
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 };
 
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts'],
+  collectCoverageFrom: ['**/*.ts'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
