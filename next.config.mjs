@@ -13,7 +13,4 @@ const nextConfig = {
   // },
 };
 
-
-
-
 export default bundleAnalyzer(nextConfig);
