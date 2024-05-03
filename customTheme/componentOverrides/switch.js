@@ -16,7 +16,7 @@ const MuiSwitch = {
     height: 20,
     marginTop: -10,
     marginLeft: -17,
-    backgroundColor: theme.palette.interface['grey-05'],
+    backgroundColor: theme.palette.colorGuide['grey-05'],
     opacity: 1,
   },
   icon: {
@@ -34,11 +34,11 @@ const MuiSwitch = {
     '&$switchBase': {
       color: 'white',
       '&$checked& + $bar': {
-        backgroundColor: theme.palette.interface['blue-disabled'],
+        backgroundColor: theme.palette.colorGuide['blue-disabled'],
         opacity: 1,
       },
       '& + $bar': {
-        backgroundColor: theme.palette.interface['grey-04'],
+        backgroundColor: theme.palette.colorGuide['grey-04'],
         opacity: 1,
       },
     },

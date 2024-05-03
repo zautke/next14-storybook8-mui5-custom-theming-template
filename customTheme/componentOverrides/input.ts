@@ -1,6 +1,6 @@
-import { convertCompilerOptionsFromJson } from 'typescript';
-import theme from '../buildBaseTheme';
-import { ClassNameMap } from '@mui/material';
+import { convertCompilerOptionsFromJson } from 'typescript'
+import theme from '../buildBaseTheme'
+import { ClassNameMap } from '@mui/material'
 
 const MuiInput = {
   styleOverrides: {
@@ -57,7 +57,7 @@ const MuiInput = {
       },
     },
   },
-};
+}
 
 const MuiInputAdornment = {
   styleOverrides: {
@@ -80,18 +80,18 @@ const MuiInputLabel = {
     formControl: {
       // retaining the native relative-absolute parent/child scheme, mimic left-padding
       left: 8,
-      transform: 'translate(0, 0px) scale(1)', // reset from default: 'translate(0, 24px) scale(1)',
+      //transform: 'translate(0, 0px) scale(1)', // reset from default: 'translate(0, 24px) scale(1)',
       //...theme.typography.inputLabel,
     },
     shrink: {
-      transform: 'translate(-8px, -4px) ', // default: 'translate(0, 1.5px) scale(0.75)'
+      //transform: 'translate(-8px, -4px) ', // default: 'translate(0, 1.5px) scale(0.75)'
       //...theme.typography.inputLabel,
     },
   },
-};
+}
 
 export default {
   MuiInput,
   MuiInputAdornment,
   MuiInputLabel,
-};
+}

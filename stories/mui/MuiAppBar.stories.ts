@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { MuiAppBar } from './MuiAppBar';
+import type { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import { MuiAppBar } from './MuiAppBar'
 
 const meta = {
   title: 'MUI/AppBar',
@@ -14,10 +14,10 @@ const meta = {
   args: {
 
   },
-} satisfies Meta<typeof MuiAppBar>;
+} satisfies Meta<typeof MuiAppBar>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const LoggedIn: Story = {
   args: {
@@ -25,4 +25,3 @@ export const LoggedIn: Story = {
   },
 };
 
-export const LoggedOut: Story = {};

@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles'
 import { withThemeFromJSXProvider } from '@storybook/addon-themes'
 import { theme, Mode } from '../app/theme/theme'
 import customTheme, { defaultTheme } from '../customTheme'
@@ -15,9 +15,9 @@ export const decorators = [
       defaultDark: theme(defaultTheme, Mode.DARK),
       customDark: theme(customTheme, Mode.DARK),
     },
-    defaultTheme: 'default',
+    defaultTheme: 'custom',
     Provider: ThemeProvider,
-    GlobalStyles: CssBaseline,
+    //GlobalStyles: CssBaseline,
   })]
 
 export const globalTypes = {
@@ -30,8 +30,8 @@ export const globalTypes = {
       icon: 'paintbrush',
       dynamicTitle: true,
       items: [
-        { value: 'default', left: '*', title: 'MUI Default theme' },
         { value: 'custom', left: '+', title: 'MUI Customized theme' },
+        { value: 'default', left: '*', title: 'MUI Default theme' },
         { value: 'defaultDark', left: '☀️', title: 'defaultDark' },
         { value: 'customDark', left: '🌙', title: 'customDark' },
       ],

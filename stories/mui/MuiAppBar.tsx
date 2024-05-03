@@ -1,10 +1,9 @@
-import React from 'react';
-import {AppBar as MuiAppBar, AppBarProps} from '@mui/material'
+import React from 'react'
+import AppBarExample from '../../components/MuiComponentSamples/Samples/AppBar'
+import { AppBarProps } from '@mui/material'
 
+// eslint-disable-next-line react/prop-types
+export const MuiAppBar = (props: AppBarProps): JSX.Element => (
+  <AppBarExample { ...props } />
+)
 
-import { Button } from '@mui/material'
-// import './header.css';
-
-
-
-export {MuiAppBar}

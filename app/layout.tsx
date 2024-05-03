@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import type { Metadata } from 'next'
-//import './globals.css'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'NextJS Storybook MUI Custom Theme',

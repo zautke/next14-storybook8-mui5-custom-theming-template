@@ -1,4 +1,4 @@
-import '../../assets/fonts/barlow/barlow.css';
+import '../../assets/fonts/barlow/barlow.css'
 
 // styleOverrides: {
 //   root: ({ ownerState }) => ({
@@ -11,11 +11,11 @@ import '../../assets/fonts/barlow/barlow.css';
 
 // import avatar from './avatar';
 // import badge from './badge';
-// import button from './button';
+import button from './button'
 // import card from './card';
 // import checkbox from './checkbox';
 // import chip from './chip';
-// import cssBaseLine from './cssBaseLine';
+import cssBaseLine from './cssBaseLine'
 // import dialog from './dialog';
 // import drawer from './drawer';
 // import expansionPanel from './expansion-panel';
@@ -26,10 +26,10 @@ import '../../assets/fonts/barlow/barlow.css';
 // import paper from './paper';
 // import popover from './popover';
 // import radio from './radio';
-// import select from './select';
+import select from './select'
 // import snackbar from './snackbar';
 // import stepper from './stepper';
-// import switchSelect from './switch';
+import switchSelect from './switch'
 // import table from './table';
 // import tabs from './tabs';
 // import toolbar from './toolbar';
@@ -38,11 +38,11 @@ import '../../assets/fonts/barlow/barlow.css';
 export const styleOverrides = {
   // ...avatar,
   // ...badge,
-  // ...button,
+  ...button,
   // ...card,
   // ...checkbox,
   // ...chip,
-  // ...cssBaseLine,
+  ...cssBaseLine,
   // ...dialog,
   // ...drawer,
   // ...expansionPanel,
@@ -53,10 +53,10 @@ export const styleOverrides = {
   // ...paper,
   // ...popover,
   // ...radio,
-  // ...select,
+  ...select,
   // ...snackbar,
   // ...stepper,
-  // ...switchSelect,
+  ...switchSelect,
   // ...table,
   // ...tabs,
   // ...toolbar,
@@ -69,11 +69,11 @@ console.log("componentOverrides/index.ts -- partial styleOverrides", styleOverri
 export default {
   // ...avatar,
   // ...badge,
-  // ...button,
+  ...button,
   // ...card,
   // ...checkbox,
   // ...chip,
-  // ...cssBaseLine,
+  ...cssBaseLine,
   // ...dialog,
   // ...drawer,
   // ...expansionPanel,
@@ -84,10 +84,10 @@ export default {
   // ...paper,
   // ...popover,
   // ...radio,
-  // ...select,
+  ...select,
   // ...snackbar,
   // ...stepper,
-  // ...switchSelect,
+  ...switchSelect,
   // ...table,
   // ...tabs,
   // ...toolbar,

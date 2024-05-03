@@ -1,7 +1,7 @@
 
-import React from 'react';
-import { Theme } from '@mui/material/styles/createTheme';
-import { Dispatch, SetStateAction } from 'react';
+import React from 'react'
+import { Theme } from '@mui/material/styles/createTheme'
+import { Dispatch, SetStateAction } from 'react'
 
 // interface ActiveElementArray<T> {};
 
@@ -25,10 +25,12 @@ import { Dispatch, SetStateAction } from 'react';
 //     name?: string;
 //   }
 // }
+import " @mui/material/styles/createTypography"
 
-import "@mui/material/styles/createPalette";
+import "@mui/material/styles/createPalette"
 declare module "@mui/material/styles/createPalette" {
-  interface CommonColors {
+  interface CommonColors
+  {
     // tan: string;
     // lightRed: string;
     // red: string;
@@ -38,30 +40,41 @@ declare module "@mui/material/styles/createPalette" {
 
 /* augmentations to facilitate a new custom Typography Variant */
 declare module '@mui/material/styles' {
-  interface TypographyVariants {
+  interface TypographyVariants
+  {
     //inputLabel: React.CSSProperties;
     //inputPlaceholder: React.CSSProperties;
     //inputTypedText: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
-  interface TypographyVariantsOptions {
+  interface TypographyVariantsOptions
+  {
     //inputLabel?: React.CSSProperties;
     //inputPlaceholder?: React.CSSProperties
     //inputTypedText?: React.CSSProperties
-  }
-}
-
-// Update the Typography's variant prop options
-declare module '@mui/material/Typography' {
-  interface TypographyPropsVariantOverrides {
-    //inputLabel: true;
-    //inputPlaceholder: true;
-    //inputTypedText: true;
     //h3: false;         <-- disable `h3' variant
   }
 }
 
-type MuiThemeTuple = [Theme, Theme];
-type MuiThemeState = [Theme | undefined, React.Dispatch<React.SetStateAction<Theme | undefined>>];
-type MuiThemeStateTuple<Theme> = [Theme, Dispatch<SetStateAction<Theme>>];
+// // Update the Typography's variant prop options
+// declare module '@mui/material/styles/createTypography' {
+//   export interface FontStyle
+//     extends Required<{
+//       fontFamily: React.CSSProperties['fontFamily']
+//       fontSize: number
+//       fontWeightLight: React.CSSProperties['fontWeight']
+//       fontWeightRegular: React.CSSProperties['fontWeight']
+//       fontWeightMedium: React.CSSProperties['fontWeight']
+//       fontWeightBold: React.CSSProperties['fontWeight']
+//       htmlFontSize: number
+//     }>
+//   {
+//     fontWeightSemiBold: React.CSSProperties['fontWeight'],
+//     whiteText: React.CSSProperties['color'] | string,
+//   }
+// }
+
+type MuiThemeTuple = [Theme, Theme]
+type MuiThemeState = [Theme | undefined, React.Dispatch<React.SetStateAction<Theme | undefined>>]
+type MuiThemeStateTuple<Theme> = [Theme, Dispatch<SetStateAction<Theme>>]

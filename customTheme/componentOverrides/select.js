@@ -7,9 +7,9 @@ const MuiSelect = {
     ...theme.zDepth.for('select'),
 
     disabled: {
-      backgroundColor: theme.palette.interface['grey-02'],
+      backgroundColor: theme.palette.colorGuide['grey-02'],
       '& svg': {
-        color: theme.palette.icon.disabled,
+        color: theme.palette.common.white,
       }
     },
   },
@@ -20,7 +20,7 @@ const MuiSelect = {
     //width: 'calc(100% - 32px)',
   },
   icon: {
-    color: theme.palette.icon.main,
+    color: theme.palette.colorGuide['grey-03'],
     width: 22,
     height: 'auto',
     padding: '4px 6px 2px 0'

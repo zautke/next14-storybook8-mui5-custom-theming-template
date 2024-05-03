@@ -1,3 +1,25 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+body {
+
+
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+
+  font-variant-numeric: diagonal-fractions, lining-nums, oldstyle-nums;
+  font-variant-ligatures: discretionary-ligatures;
+  font-variant-caps: small-caps;
+
+  -moz-font-feature-settings: "dlig" 1;
+  -webkit-font-feature-settings: "dlig" 1;
+
+  font-feature-settings: "dlig", "frac";
+  font-feature-settings: "ss07" 1, "unic" 1;
+ }
+
 /* :root {
   --max-width: 1100px;
   --border-radius: 12px;

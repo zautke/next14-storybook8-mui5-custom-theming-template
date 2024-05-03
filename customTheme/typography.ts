@@ -1,61 +1,77 @@
 
+import React from 'react'
 import extendedPalette from './palette'
 // import colorGuide, { ColorGuide } from './colorGuide'
 import colorGuide from './colorGuide'
 
-// import createTypography, { TypographyOptions, TypographyStyle, TypographyUtils } from '@mui/material/styles/createTypography';
-import createTypography, { TypographyStyle, TypographyUtils } from '@mui/material/styles/createTypography';
+import createTypography, { TypographyOptions, TypographyStyle, TypographyStyleOptions, TypographyUtils } from '@mui/material/styles/createTypography'
+import FontFamily from '@mui/material/Typography'
+// Supports weights 100-700
+import '@fontsource-variable/victor-mono'
+//import createTypography, { TypographyStyle, TypographyUtils } from '@mui/material/styles/createTypography'
 
 // import { Palette } from '@mui/material/styles/createPalette';
 
 const palette = extendedPalette
 
-
-const fontSize = 14; // material default
-const htmlFontSize = 16; // browser default
-
-const coef = fontSize / 14;
-export function pxToRem(value: number): string {
-  return `${(value / htmlFontSize) * coef}rem`;
+const fontSize = 14 // material default
+const htmlFontSize = 16 // browser default
+const coef = fontSize / 14
+export function pxToRem (value: number): string
+{
+  return `${(value / htmlFontSize) * coef}rem`
 }
 
-// const barlowFont = {
-//   fontFamily: [
-//     'Barlow', 'Lato', 'sans-serif'
-//   ].join(', '),
-// }
+
+const fontFallbacks = [
+  'Lato',
+  '-apple-system',
+  'BlinkMacSystemFont',
+  '"Segoe UI"',
+  'sans-serif'
+]
 
 const barlowFont = {
   fontFamily: [
     '"Barlow"',
-    '"Lato"',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'sans-serif'
+    [...fontFallbacks]
   ].join(', '),
 }
 
 const cormorantFont = {
   fontFamily: [
     '"cormorant"',
-    '"Lato"',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'sans-serif'
+    [...fontFallbacks]
+  ].join(', '),
+}
+
+const palmBeachFont = {
+  fontFamily: [
+    '"PalmBeach"',
+    [...fontFallbacks]
+  ].join(', '),
+}
+
+const victorMonoFont = {
+  fontFamily: [
+    '"Victor Mono Variable"',
+    [...fontFallbacks]
   ].join(', '),
 }
 
 const fontFamily = {
-  ...barlowFont,
+  ...victorMonoFont,
   fontSize: 16,
+  htmlFontSize: 14,
+  fontWeightThin: 100,
+  fontWeightExtraLight: 200,
   fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
+  fontWeightSemiBold: 600,
   fontWeightBold: 700,
-  htmlFontSize: 14
-};
+  fontWeightExtraBold: 800,
+}
 
 const buttonOverrides = {
   ...barlowFont,
@@ -80,19 +96,26 @@ const typographyOverrides = {
     color: colorGuide['greyscale'],
     fontVariant: 'italic'
   },
-  fontFamily: fontFamily
-};
+  fontFamily
+}
 
 export interface FontStyle
   extends Required<{
-    fontFamily: React.CSSProperties['fontFamily'];
-    fontSize: number;
-    fontWeightLight: React.CSSProperties['fontWeight'];
-    fontWeightRegular: React.CSSProperties['fontWeight'];
-    fontWeightMedium: React.CSSProperties['fontWeight'];
-    fontWeightBold: React.CSSProperties['fontWeight'];
-    htmlFontSize: number;
-  }> { }
+    fontFamily: React.CSSProperties['fontFamily']
+    fontSize: number
+    fontWeightLight: React.CSSProperties['fontWeight']
+    fontWeightRegular: React.CSSProperties['fontWeight']
+    fontWeightMedium: React.CSSProperties['fontWeight']
+    fontWeightBold: React.CSSProperties['fontWeight']
+    htmlFontSize: number
+  }>
+{
+  fontWeightThin?: React.CSSProperties['fontWeight'],
+  fontWeightExtraLight?: React.CSSProperties['fontWeight'],
+  fontWeightSemiBold?: React.CSSProperties['fontWeight'],
+  fontWeightExtraBold?: React.CSSProperties['fontWeight'],
+  whiteText?: React.CSSProperties['color'] | string,
+}
 
 export type Variant =
   | 'h1'
@@ -107,47 +130,47 @@ export type Variant =
   | 'body2'
   | 'caption'
   | 'button'
-  | 'overline';
-
-export interface FontStyle
-  extends Required<{
-    fontFamily: React.CSSProperties['fontFamily'];
-    fontSize: number;
-    fontWeightLight: React.CSSProperties['fontWeight'];
-    fontWeightRegular: React.CSSProperties['fontWeight'];
-    fontWeightMedium: React.CSSProperties['fontWeight'];
-    fontWeightBold: React.CSSProperties['fontWeight'];
-    htmlFontSize: number;
-  }> { }
+  | 'overline'
+  | 'banner'
+  | 'poster'
 
 //typography: TypographyOptions | ((palette: Palette) => TypographyOptions),
 
 export interface Typography extends Record<Variant, TypographyStyle>, FontStyle, TypographyUtils { }
 
-// export interface TypographyOptions
+//export interface TypographyOptions
 //   extends Partial<Record<Variant, TypographyStyleOptions> & FontStyleOptions> {}
+
+const fontWeightSemiBold = {
+  fontWeight: 600
+}
+
+const typographyOptions: Typography = {
+  h1: {},
+  h2: {},
+  h3: {},
+  h4: {},
+  h5: {},
+  h6: {},
+  subtitle1: {},
+  subtitle2: {},
+  body1: {},
+  body2: {},
+  caption: {},
+  overline: {},
+  banner: {},
+  poster: {},
+  ...palmBeachFont,
+  ...fontFamily,
+  //...typographyOverrides,
+  button: buttonOverrides,
+  pxToRem,
+}
+
 
 export default createTypography(
   palette,
-  {
-    // h1: '',
-    // h2: '',
-    // h3: '',
-    // h4: '',
-    // h5: '',
-    // h6: '',
-    // subtitle1: '',
-    // subtitle2: '',
-    // body1: '',
-    // body2: '',
-    // caption: '',
-    button: buttonOverrides,
-    // overline: '',
-    ...barlowFont
-    // pxToRem: function (px: number): string {
-    //   throw new Error('Function not implemented.');
-    // }
-  }
+  typographyOptions
 )
 
 

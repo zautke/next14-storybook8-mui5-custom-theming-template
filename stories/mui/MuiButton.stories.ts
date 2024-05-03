@@ -18,7 +18,6 @@ const meta = {
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
 } satisfies Meta<typeof MuiButton>
-
 export default meta
 type Story = StoryObj<typeof meta>
 
@@ -26,21 +25,21 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story & ButtonProps = {
   args: {
     label: 'primary',
-    variant: 'contained',
+    // variant: 'contained',
   },
 }
 
 export const Secondary: Story & ButtonProps = {
   args: {
     label: 'secondary',
-    variant: 'outlined',
+    // variant: 'outlined',
   },
 }
 
 export const Text: Story & ButtonProps = {
   args: {
     label: 'secondary',
-    variant: 'text',
+    // variant: 'text',
   },
 }
 

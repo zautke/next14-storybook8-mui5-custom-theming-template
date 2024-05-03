@@ -1,13 +1,13 @@
 const MuiCssBaseline = {
   styleOverrides: {
-    "@font-face": {
-      fontFamily: "barlowblack",
-      src: `url('barlow-black.woff2') format('woff2')`
-    },
     // "@font-face": {
-    //   fontFamily: "cormorantregular",
-    //   src: `url('cormorant-regular.ttf') format('truetype')`
+    //   fontFamily: "barlowblack",
+    //   src: `url('barlow-black.woff2') format('woff2')`
     // },
+    "@font-face": {
+      fontFamily: "PalmBeach",
+      src: `url('cormorant-regular.ttf') format('truetype')`
+    },
   }
 }
 
