@@ -4,7 +4,7 @@ import theme from '../buildBaseTheme';
 const MuiSelect = {
   root: {
     border: 'none',
-    ...theme.zDepth.for('select'),
+    backgroundColor: theme.palette.colorGuide['grey-02'],
 
     disabled: {
       backgroundColor: theme.palette.colorGuide['grey-02'],
