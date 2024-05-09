@@ -22,12 +22,8 @@
       }
     ],
     "paths": {
-      "@components/*": [
-        "./components/*"
-      ],
-      "@/*": [
-        "./*"
-      ]
+      "@components/*": ["./components/*"],
+      "@/*": ["./*"]
     },
     "typeRoots": [
       "components/types"
