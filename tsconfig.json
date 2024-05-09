@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "strict": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "importHelpers": true,
