@@ -3,6 +3,7 @@ import ThemeRegistry from '@/components/ThemeRegistry'
 import { Button } from '@mui/material'
 import TypographyExample from '@/components/MuiComponentSamples/Samples/Typography'
 
+
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store"
 

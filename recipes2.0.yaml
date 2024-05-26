@@ -1,0 +1,1065 @@
+swagger: '2.0'
+# Documentation info
+info:
+  description: |-
+    API for the COP4331 MyRecipeBox project
+
+    <a href=https://github.com/IvanESanchez/Group23LP>Github</a>  
+  version: "1.0.1"
+  title: MyRecipeBox API
+  # put the contact info for your development or API team
+  
+
+# Tags are used for organizing operations
+tags:
+- name: Authentication
+  description: (Laura) Operations involving user authentication
+- name: Users
+  description: (Laura) Operations involving user data
+- name: Recipes
+  description: (Laura) Operations involving recipes
+- name: Shopping List
+  description:  (Alex) Operations involving a user's shopping list
+- name: Calendar
+  description: (Chandler) Operations involving a user's calendar
+
+# API endpoints
+paths:
+  /api/users/signup:
+    post:
+      tags:
+      - Authentication
+      summary: Registers a new user in the database and sends an email containing the verification token
+      operationId: register
+      description: |
+        Register a new user on the webserver.
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Object containing information for creating a new user
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        200:
+          description: User Created successfully
+          schema:
+            type: object
+            required:
+            - status
+            - message
+            properties:
+              status:
+                type: string
+                example: "success"
+              message:
+                type: string
+                example: "Token sent to email"
+        500:
+          description: Server error. Duplicated key
+          schema:
+            type: string
+            example: "Duplicate email"
+  /api/users/login:
+    post:
+      tags:
+      - Authentication
+      summary: Attempts to log in as a given user. Only logs in the user if it has been verified
+      operationId: login
+      description: |
+        Log in user if verified and receive the user id for use with other endpoints.
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Object containing user information
+        schema:
+          $ref: '#/definitions/loginInfo'
+      responses:
+        200:
+          description: Login successful
+          schema:
+            type: object
+            required:
+            - status
+            - token
+            - data
+            properties:
+              status:
+                type: string
+                example: "success"
+              token:
+                type: string
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTY0MmU0OWI1NTRkMDBlMmVkNGQ5OSIsImlhdCI6MTU5NTI5NjAzMiwiZXhwIjoxNTk2MTYwMDMyfQ.wW0Im8IpX5YWCGn7EUcjeWXe7-APk2SAJ3m3CXzYS-0"
+              data:
+                type: object
+                required:
+                - user
+                properties:
+                  user:
+                    type: array
+                    items:
+                      $ref: '#/definitions/UserRes'
+
+        400:
+          description: Invalid input
+          schema:
+            type: string
+            example: "Please provide email and password"
+        401:
+          description: Username/password incorrect or user has not been verified
+          schema:
+            type: string
+            example: "Incorrect email or password"
+  /api/users/verifyEmail/{token}:
+    post:
+      tags:
+      - Authentication
+      summary: Verify a user's email
+      description: |
+        Verify email after receiving the verification token in email
+      produces:
+      - /application/json
+      parameters:
+      - in: path
+        required: true
+        name: token
+        type: string
+        description: Verification token sent in an email to this user
+      responses:
+        200:
+          description: Verification successful
+          schema:
+            type: object
+            required:
+            - status
+            - token
+            - data
+            properties:
+              status:
+                type: string
+                example: "success"
+              token:
+                type: string
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTY0MmU0OWI1NTRkMDBlMmVkNGQ5OSIsImlhdCI6MTU5NTI5NjAzMiwiZXhwIjoxNTk2MTYwMDMyfQ.wW0Im8IpX5YWCGn7EUcjeWXe7-APk2SAJ3m3CXzYS-0"
+              data:
+                type: object
+                required:
+                - user
+                properties:
+                  user:
+                    type: array
+                    items:
+                      $ref: '#/definitions/UserRes'
+
+        400:
+          description: Token invalid or expired
+          schema:
+            type: string
+            example: Token is invalid or has expired
+  /api/users/forgotPassword:
+    post:
+      tags:
+      - Authentication
+      summary: Initiate password recovery/reset for a user
+      description: |
+        Send an email to a user to allow them to reset their password.
+      produces:
+      - /application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Object containing user data
+        schema:
+          type: object
+          required:
+          - email
+          properties:
+            email:
+              type: string
+              description: Email of the user to send password reset to
+              example: user@domain.com
+      responses:
+        200:
+          description: Successfully sent forgot password email to user
+          schema:
+            type: object
+            required:
+            - status
+            - message
+            properties:
+              status:
+                type: string
+                description: Status string
+                example: success
+              message:
+                type: string
+                description: Message string
+                example: Token sent to email
+        404:
+          description: Invalid email
+          schema:
+            type: string
+            example: There is no user associated to that email address
+        500:
+          description: Server error
+          schema:
+            type: string
+            example: There was an error sending the email. Try again later
+  /api/users/resetPassword/{token}:
+    patch:
+      tags:
+      - Authentication
+      summary: Reset a user's password
+      description: |
+        Reset a password after receiving an email from forgot password.
+      produces:
+      - /application/json
+      parameters:
+      - in: path
+        required: true
+        name: token
+        type: string
+        description: Reset password token sent in an email to this user
+      - in: body
+        name: Body
+        description: Object containing new pasword data
+        schema:
+          type: object
+          required:
+          - password
+          - passwordConfirm
+          properties:
+            password:
+              type: string
+              description: New password for user
+              example: pass123
+            passwordConfirm:
+              type: string
+              description: New password for user
+              example: pass123
+      responses:
+        200:
+          description: Reset successful
+          schema:
+            type: object
+            required:
+            - status
+            - data
+            - token
+            properties:
+              status:
+                type: string
+                example: "success"
+              token:
+                type: string
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTY0MmU0OWI1NTRkMDBlMmVkNGQ5OSIsImlhdCI6MTU5NTI5NjAzMiwiZXhwIjoxNTk2MTYwMDMyfQ.wW0Im8IpX5YWCGn7EUcjeWXe7-APk2SAJ3m3CXzYS-0"
+              data:
+                $ref: '#/definitions/UserRes'
+        400:
+          description: Token invalid or expired
+          schema:
+            type: string
+            example: Token is invalid or has expired
+  /api/users/updateMyPassword:
+    patch:
+      tags:
+      - Authentication
+      summary: Update current user's password
+      description: |
+        Updates the password of the user currently logged in
+      produces:
+      - /application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Object containing old/new password data
+        schema:
+          type: object
+          required:
+          - passwordCurrent
+          - password
+          - passwordConfirm
+          properties:
+            passwordCurrent:
+              type: string
+              description: Current password of the user
+              example: pass123
+            password:
+              type: string
+              description: New password for the user
+              example: newPass
+            passwordConfirm:
+              type: string
+              description: New password for the user
+              example: newPass
+      responses:
+        200:
+          description: Password updated successfully
+          schema:
+            type: object
+            required:
+            - status
+            - token
+            properties:
+              status:
+                type: string
+                example: "success"
+              token:
+                type: string
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTY0MmU0OWI1NTRkMDBlMmVkNGQ5OSIsImlhdCI6MTU5NTI5NjAzMiwiZXhwIjoxNTk2MTYwMDMyfQ.wW0Im8IpX5YWCGn7EUcjeWXe7-APk2SAJ3m3CXzYS-0"
+        401:
+          description: Invalid current password
+          schema:
+            type: string
+            example: Your current password is incorrect
+  /api/users/updateMe:
+    patch:
+      tags:
+      - Users
+      summary: Update current user data
+      description: |
+        Update information for the user currently logged in. To update password, use updateMyPassword endpoint.
+      produces:
+      - /application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Data with the fields to update.
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              description: New username for user
+              example: newName
+            email:
+              type: string
+              description: New email for user
+              example: newUser@domain.com
+      responses:
+        200:
+          description: Update successful
+          schema:
+            type: object
+            required:
+            - status
+            - data
+            properties:
+              status:
+                type: string
+                description: Status string
+                example: success
+              data:
+                type: object
+                required:
+                - user
+                description: New user data container
+                properties:
+                  user:
+                    type: object
+                    description: New user data
+                    required:
+                    - name
+                    - email
+                    properties:
+                      name:
+                        type: string
+                        description: New username
+                        example: newName
+                      email:
+                        type: string
+                        description: New email
+                        example: newUser@domain.com
+        400:
+          description: Invalid input when trying to update password
+          schema:
+            type: string
+            example: This route is not for password updates. Please use /updateMyPassword
+  /api/recipes:
+    get:
+      tags:
+      - Recipes
+      summary: Get all recipes
+      description: |
+        Returns a list of all recipes in the database.
+      produces:
+      - /application/json
+      responses:
+        200:
+          description: Successfully retrieved list of recipes
+          schema:
+            type: object
+            required:
+            - status
+            - results
+            - data
+            properties:
+              status:
+                type: string
+                description: Status message
+                example: success
+              results:
+                type: integer
+                description: Length of data array
+                example: 10
+              data:
+                type: object
+                required:
+                - recipes
+                properties:
+                  recipes:
+                    type: array
+                    items:
+                      $ref: '#/definitions/RecipeRes'
+    post:
+      tags:
+      - Recipes
+      summary: Create a new recipe
+      description: |
+        Create a new recipe and store it in the database.
+        Auhtorized with bearer token.
+      produces:
+      - /application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Recipe data
+        schema:
+          $ref: '#/definitions/RecipeAdd'
+      responses:
+        201:
+          description: Successfully created a recipe
+          schema:
+            type: object
+            required:
+            - status
+            - data
+            properties:
+              status:
+                type: string
+                description: Status string
+                example: success
+              data:
+                type: object
+                required:
+                - recipe
+                properties:
+                  recipe:
+                    type: array
+                    items:
+                      $ref: '#/definitions/RecipeRes'
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+  /api/recipes/{recipeId}:
+    get:
+      tags:
+      - Recipes
+      summary: Get a recipe by id
+      description: |
+        Searches for a recipe by a given id and returns the result.
+      produces:
+      - /application/json
+      parameters:
+      - in: path
+        required: true
+        name: recipeId
+        type: string
+        description: id of the recipe to look for
+      responses:
+        200:
+          description: Search completed
+          schema:
+            type: object
+            required:
+            - status
+            - data
+            properties:
+              status:
+                type: string
+                description: Status string
+                example: success
+              data:
+                type: object
+                required:
+                - recipe
+                properties:
+                  recipe:
+                    type: array
+                    items:
+                      $ref: '#/definitions/RecipeRes'
+        404:
+          description: No recipe exists with that id
+          schema:
+            type: string
+            example: No recipe found with that id
+    patch:
+      tags:
+      - Recipes
+      summary: Update a recipe
+      description: |
+        Searches for a recipe by a given id and updates the value of that recipe.
+        Authorized with bearer token.
+      produces:
+      - /application/json
+      parameters:
+      - in: path
+        required: true
+        name: recipeId
+        type: string
+        description: id of the recipe to look for
+      - in: body
+        name: Body
+        description: New value for the recipe
+        schema:
+          $ref: '#/definitions/RecipeAdd'
+      responses:
+        200:
+          description: Update successful
+          schema:
+            type: object
+            required:
+            - status
+            - data
+            properties:
+              status:
+                type: string
+                description: Status string
+                example: success
+              data:
+                type: object
+                required:
+                - recipe
+                properties:
+                  recipe:
+                    type: array
+                    items:
+                      $ref: '#/definitions/RecipeRes'
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+        404:
+          description: Recipe not found
+          schema:
+            type: string
+            example: No recipe found with that id
+    delete:
+      tags:
+      - Recipes
+      summary: Delete a recipe
+      description: |
+        Search for a recipe by a given id and delete it.
+        Authorized with bearer token.
+      produces:
+      - /application/json
+      parameters:
+      - in: path
+        required: true
+        name: recipeId
+        type: string
+        description: id of the recipe to look for
+      responses:
+        204:
+          description: Recipe deleted successfully
+          schema:
+            type: object
+            required:
+            - status
+            properties:
+              status:
+                type: string
+                description: Status string
+                example: success
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+        404:
+          description: Recipe not found
+          schema:
+            type: string
+            example: No recipe found with that id
+  /api/recipes/findByName/{recipeName}:
+    get:
+      tags:
+      - Recipes
+      summary: Get a recipe by name
+      description: |
+        Searches for a recipe by name and returns the result.
+      produces:
+      - /application/json
+      parameters:
+      - in: path
+        required: true
+        name: recipeName
+        type: string
+        description: Name of the recipe to search for
+      responses:
+        200:
+          description: Search successful
+          schema:
+            type: object
+            required:
+            - status
+            - data
+            properties:
+              status:
+                type: string
+                description: Status string
+                example: success
+              data:
+                type: object
+                required:
+                - recipe
+                properties:
+                  recipe:
+                    type: array
+                    items:
+                      $ref: '#/definitions/RecipeRes'
+        404:
+          description: Recipe not found
+          schema:
+            type: object
+            required:
+            - msg
+            properties:
+              msg:
+                type: string
+                description: Message string
+                example: Recipes not found
+  /api/recipes/{recipeId}/ingredients:
+    get:
+      tags:
+      - Recipes
+      summary: Get ingredients in a recipe
+      description: |
+        Search for a recipe by its id and return a list of its ingredients.
+      produces:
+      - /application/json
+      parameters:
+      - in: path
+        required: true
+        name: recipeId
+        type: string
+        description: id of the recipe to search for
+      responses:
+        200:
+          description: Search successful
+          schema:
+            type: object
+            properties:
+              WIP:
+                type: string
+                example: WIP
+        404:
+          description: Recipe not found
+          schema:
+            type: string
+            example: No recipe found with that id
+  /api/shopping:
+    get:
+      tags:
+      - Shopping List
+      summary: Get shopping list for a user
+      operationId: shopGet
+      description: |
+        Return a list of ingredients on a user's shopping list
+      produces:
+      - /application/json
+      responses:
+        200:
+          description: Successfully found ingredient(s)
+          schema:
+            type: object
+            description: List of ingredients on shopping list
+            required:
+            - list
+            - token
+            properties:
+              list:
+                type: array
+                items:
+                  $ref: '#/definitions/Ingredient'
+              token:
+                type: string
+                description: User session token
+                example: oiasngiueswnvbSIUGEBNEWSIUBWSIUbviw
+        400:
+          description: Invalid input
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+        500:
+          description: Server error
+    post:
+      tags:
+      - Shopping List
+      summary: Add ingredient(s) to the shopping list for a user
+      operationId: shopAdd
+      description: |
+        Add ingredient(s) to the user's shopping list.
+      produces:
+      - /application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Object containing user/ingredient information
+        schema:
+          $ref: '#/definitions/ShopAddInfo'
+      responses:
+        200:
+          description: Successfully added ingredient(s)
+        400:
+          description: Invalid input
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+        500:
+          description: Server error
+    delete:
+      tags:
+      - Shopping List
+      summary: Remove ingredient(s) from the shopping list for a user
+      operationId: shopRemove
+      description: |
+        Remove ingredient(s) from a user's shopping list.
+      produces:
+      - /application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Object containing user/ingredient information
+        schema:
+          $ref: '#/definitions/ShopAddInfo'
+      responses:
+        200:
+          description: Successfully removed ingredient(s)
+        400:
+          description: Invalid input
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+        500:
+          description: Server error
+  /api/calendar/:
+    post:
+      tags:
+      - Calendar
+      summary: Creates a new calendar for the user
+      produces:
+      - /application/json
+      parameters:
+      - in: body
+        name: Body
+        description: Object containing token
+        schema:
+          type: object
+          required:
+          - token
+          properties:
+            token:
+              type: string
+              description: User session token
+              example: QWOIFGNewiuvbiwBVWOESBVOU
+      responses:
+        200:
+          description: Created calendar successfully
+        400:
+          description: User information was not found
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+        500:
+          description: Server Error
+        
+  /api/calendar/addToCalendar:
+    post:
+      tags:
+      - Calendar
+      summary: Create a new recipe to Calendar
+      description: |
+        TODO
+      parameters:
+      - in: body
+        name: Body
+        schema:
+          $ref: '#/definitions/CalendarAddInfo'
+        description: Contains the name of recipe
+      produces:
+      - /application/json
+      responses:
+        200:
+          description: Added recipe to calendar successfully
+        400:
+          description: Body or user information cannot be found
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+  /api/calendar/deleteFromCalendar:
+    post:
+      tags:
+      - Calendar
+      summary: Deleting recipe from calendar
+      description: |
+        TODO
+      parameters:
+      - in: body
+        name: Body
+        schema:
+          $ref: '#/definitions/CalendarDeleteInfo'
+        description: Contains the name of recipe
+      produces:
+      - /application/json
+      responses:
+        200:
+          description: Deleted from calendar successfully
+        400:
+          description: Recipe or user information cannot be found
+        401:
+          description: Not logged in
+          schema:
+            type: string
+            example: You are not logged in. Please log in
+# Definitions for json objects
+definitions:
+  User:
+    type: object
+    description: Object containing information for creating a new user
+    required:
+    - name
+    - email
+    - password
+    - passwordConfirm
+    properties:
+      name:
+        type: string
+        description: Name for the new user
+        example: User1
+      email:
+        type: string
+        description: Email for the new user
+        example: email@domain.com
+      password:
+        type: string
+        description: Password for the new user
+        example: pass123
+      passwordConfirm:
+        type: string
+        description: Password confirmation - should be identical to password
+        example: pass123
+  UserRes:
+    type: object
+    required:
+    - name
+    - email
+    - _id
+    - calendars
+    properties:
+      name:
+        type: string
+        description: Name for the new user
+        example: User1
+      email:
+        type: string
+        description: Email for the new user. Email is a unique key
+        example: email@domain.com
+      _id:
+        type: string
+        description: User id
+        example: "5f1642e49b554d00e2ed4d99"
+  loginInfo:
+    type: object
+    description: Object containing user login information
+    required:
+    - email
+    - password
+    properties:
+      email:
+        type: string
+        description: Email of the user
+        example: email@domain.com
+      password:
+        type: string
+        description: Password of the user
+        example: pass123
+  Ingredient:
+    type: object
+    description: Ingredient information
+    required:
+    - name
+    - unit
+    - amount
+    properties:
+      name:
+        type: string
+        description: Name of the ingredient
+        example: Sugar
+      unit:
+        type: string
+        description: Unit to measure ingredient by
+        example: Cups
+      amount:
+        type: number
+        description: How many units of ingredient to add
+        example: 8
+  ShopAddInfo:
+    type: object
+    description: Object containing user/ingredient information for adding to a user's shopping list
+    required:
+    - ingredients
+    - token
+    properties:
+      ingredients:
+        type: array
+        items:
+          $ref: '#/definitions/Ingredient'
+      token:
+        type: string
+        description: User session token
+        example: WOIGNIWEUVNBisubvewybEWUwgobgveougb
+  Recipe:
+    type: object
+    description: Object containing information about a recipe
+    required:
+    - name
+    - ingredients
+    - directions
+    properties:
+      name:
+        type: string
+        description: Name of this recipe
+        example: Scrambled Eggs
+      ingredients:
+        type: array
+        description: List of ingredients for recipe
+        items:
+          $ref: '#/definitions/Ingredient'
+      directions:
+        type: string
+        description: Directions for recipe
+        example: Scramble the eggs
+  Directions:
+    type: string
+    example: "Mix everything"
+  RecipeRes:
+    type: object
+    required:
+    - name
+    - ingredients
+    - directions
+    - user
+    - _id
+    properties:
+      name:
+        type: string
+        description: Name of this recipe
+        example: Scrambled Eggs
+      ingredients:
+        type: array
+        description: List of ingredients for recipe
+        items:
+          $ref: '#/definitions/Ingredient'
+      directions:
+        type: array
+        description: Directions for recipe
+        items:
+          $ref: '#/definitions/Directions'
+      user:
+        type: string
+        description: UserId that created the recipe
+        example: "5f1642e49b554d00e2ed4d99"
+      _id:
+        type: string
+        description: Recipe Id
+        example: "5f1642e49b554d00e2ed4d99"
+  RecipeAdd:
+    type: object
+    description: Object containing information about a recipe
+    required:
+    - name
+    - ingredients
+    - directions
+    - token
+    properties:
+      name:
+        type: string
+        description: Name of this recipe
+        example: Scrambled Eggs
+      ingredients:
+        type: array
+        description: List of ingredients for recipe
+        items:
+          $ref: '#/definitions/Ingredient'
+      directions:
+        type: string
+        description: Directions for recipe
+        example: Scramble the eggs
+      token:
+        type: string
+        description: User session token
+        example: WOIGNIWEUVNBisubvewybEWUwgobgveougb
+  CalendarAddInfo:
+    type: object
+    description: Object containing Recipe name and date for calendar
+    required:
+      - array
+      - token
+    properties:
+      recipe:
+        type: array
+        items:
+          $ref: '#/definitions/Recipe'
+      token:
+        type: string
+        description: User session token
+        example: WOIGNIWEUVNBisubvewybEWUwgobgveougb
+  CalendarDeleteInfo:
+    type: object
+    description: Object containing Recipe id
+    required: 
+      - array
+      - token
+    properties:
+      recipe:
+        type: array
+        items:
+          $ref: '#/definitions/recipe'
+      token:
+        type: string
+        description: User session token
+        example: WOIGNIWEUVNBisubvewybEWUwgobgveougb
+  recipe:
+    type: object
+    description: Recipe id
+    required:
+      - array
+    properties:
+      _id:
+        type: string
+        description: The id of the recipe
+        example: 5f13601220d45701b655c9bc
+    
+
+# Added by API Auto Mocking Plugin
+host: www.myrecipebox.club
+basePath: /
+schemes:
+ - https

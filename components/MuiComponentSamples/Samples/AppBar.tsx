@@ -20,7 +20,9 @@ interface Props {
   onDrawerButtonClick: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-export default function AppBarExample({ onDrawerButtonClick }: Props) {
+const onDrawerButtonClick: React.MouseEventHandler<HTMLButtonElement> = (event) => null
+
+export default function AppBarExample() {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<Element | null>(null)
 
