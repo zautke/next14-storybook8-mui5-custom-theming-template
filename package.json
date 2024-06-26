@@ -21,6 +21,7 @@
 		"cheerio": "^1.0.0-rc.12",
 		"drizzle-kit": "^0.22.7",
 		"drizzle-orm": "^0.31.2",
+		"global": "^4.4.0",
 		"highlight.js": "^11.9.0",
 		"lodash": "^4.17.21",
 		"ms": "^2.1.3",
