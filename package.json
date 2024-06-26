@@ -70,7 +70,7 @@
 		"cross-env": "^7.0.3",
 		"cssnano": "^7.0.3",
 		"dotenv-cli": "^7.4.2",
-		"eslint": "^9.5.0",
+		"eslint": "^8",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-airbnb-typescript": "^18.0.0",
 		"eslint-config-next": "^14.2.4",
@@ -102,9 +102,7 @@
 	"name": "next14-storybook8-mui5-custom-theming-template",
 	"private": true,
 	"release": {
-		"branches": [
-			"main"
-		],
+		"branches": ["main"],
 		"plugins": [
 			"@semantic-release/release-notes-generator",
 			"@semantic-release/changelog",
