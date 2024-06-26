@@ -1,0 +1,2 @@
+[diff "recipe-db"]
+command = path/to/recipe-db-diff.sh
