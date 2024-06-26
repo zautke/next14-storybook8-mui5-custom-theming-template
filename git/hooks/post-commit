@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Database connection details
+DB_NAME="your_database"
+DB_USER="your_user"
+DB_HOST="your_host"
+DB_PORT="your_port"
+DB_PASSWORD="your_password"
+
+# Check if this is the initial commit
+if [ "$(git rev-list --count HEAD)" -eq 0 ]; then
+  # Loop through recipejson files
+  git ls-files --others --exclude-standard | while read -r FILE; do
+    if [[ "$FILE" == *.recipejson ]]; then
+      RECIPE_ID=$(basename "$FILE" .recipejson)
+      CONTENT=$(jq -c . <<<"$FILE")
+
+      # Insert the initial state into the PostgreSQL database
+      PGPASSWORD=$DB_PASSWORD psql -U $DB_USER -h $DB_HOST -p $DB_PORT -d $DB_NAME <<EOF
+            INSERT INTO recipes (recipe_id, content)
+            VALUES ('$RECIPE_ID', '$CONTENT')
+            ON CONFLICT (recipe_id) DO NOTHING;
+EOF
+    fi
+  done
+fi

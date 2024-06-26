@@ -1,0 +1,44 @@
+CREATE TABLE recipes (
+    id SERIAL PRIMARY KEY,
+    recipe_id VARCHAR(255) UNIQUE NOT NULL,
+    content JSONB NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE recipe_diffs (
+    id SERIAL PRIMARY KEY,
+    commit_id VARCHAR(40) NOT NULL,
+    recipe_id VARCHAR(255) NOT NULL,
+    diff JSONB NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE commits (
+    id SERIAL PRIMARY KEY,
+    commit_id VARCHAR(40) UNIQUE NOT NULL,
+    parent_commit_id VARCHAR(40),
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE branches (
+    id SERIAL PRIMARY KEY,
+    branch_name VARCHAR(255) UNIQUE NOT NULL,
+    commit_id VARCHAR(40) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE git_objects (
+    id SERIAL PRIMARY KEY,
+    object_id VARCHAR(40) UNIQUE NOT NULL,
+    type VARCHAR(10) NOT NULL,
+    content BYTEA NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE git_refs (
+    id SERIAL PRIMARY KEY,
+    ref_name VARCHAR(255) UNIQUE NOT NULL,
+    object_id VARCHAR(40) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

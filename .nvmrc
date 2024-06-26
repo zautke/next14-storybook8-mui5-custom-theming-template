@@ -1,1 +1,3 @@
-20.12.2
+# shellcheck disable=SC2148
+# shellcheck disable=SC2211
+lts/*
