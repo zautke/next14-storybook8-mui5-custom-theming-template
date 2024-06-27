@@ -1,4 +1,4 @@
-import { parseRecipe } from "@/util/recipeParser";
+import { parseRecipe } from "@util/recipeParser";
 import { fetchHtml } from "@util/fetchHtml";
 import dotenv from "dotenv";
 import { WebSocketServer, WebSocket } from "ws";
