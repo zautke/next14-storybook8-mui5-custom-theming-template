@@ -12,18 +12,18 @@
 		"importHelpers": true,
 		"jsx": "preserve",
 		"experimentalDecorators": true,
+		"noImplicitThis": true,
 		"plugins": [
 			{
 				"name": "next"
 			}
 		],
 		"paths": {
-			"@/*": ["./*"],
 			"@components/*": ["./components/*"],
 			"@constants/*": ["./constants/*"],
 			"@helpers": ["./util/helpers"],
 			"@server/*": ["./server/*"],
-			"@typings/*": ["./@customTypes/*"],
+			"@typings/*": ["./components/typings/*"],
 			"@util/*": ["./util/*"],
 			"@theme/*": ["./customTheme/*"]
 		},
@@ -40,9 +40,8 @@
 		".next/types/**/*.ts",
 		"__tests__/**/*.ts",
 		"customTheme/mui5.d.ts",
-		"libdb/*.ts",
 		"customTheme/z-depth.js",
-		"@types/**/*.ts"
+		"@typings/**/*.ts"
 		//"@mui/material/styles/index.d.ts"
 	],
 	"exclude": ["node_modules", "**/tmp/**", "public"]

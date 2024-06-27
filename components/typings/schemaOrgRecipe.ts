@@ -1,4 +1,9 @@
-import type { FullJsonArray, JsonArray } from "./util";
+import {
+	isHowToSection,
+	isHowToStep,
+	parseRecipeInstructions,
+} from "@util/recipeParser";
+import type { FullJsonArray, FullJsonValue, JsonArray } from "./util";
 
 export type WithType = {
 	"@type"?: string | string[] | undefined;
@@ -18,6 +23,7 @@ export type ImageObject = WithType & {
 	width: number;
 	height: number;
 	caption: string;
+	(): string;
 };
 
 export type NutritionInformation = WithType & {
@@ -73,12 +79,14 @@ export type HowToTip =
 	| (WithType & {
 			"@type": "HowToTip";
 			text: string;
+			(): string;
 	  })
 	| [];
 
 export type IndexSignature<T> = { [key: string | number | symbol]: T };
 export type ObjectArray<T> = {
 	[key: string | number | symbol]: (T | T[]) & keyof [];
+	//callbackfn: (value: T, index: number, array: T[]) => U;
 }[];
 
 export type PObjectArray = {
@@ -89,30 +97,47 @@ export type PObjectArray = {
 	[Symbol.iterator]: () => [];
 }[];
 
-export type RecipeInstruction = HowToStep & HowToStep[] & HowToSection;
+export type RecipeIngredient = string;
+
+export type RecipeInstructionType =
+	| (HowToStep & HowToStep[] & HowToSection & HowToSection[])
+	| string[];
+
+export class RecipeInstruction {
+	constructor(instruction: HowToStep | HowToSection) {
+		this.instruction = instruction;
+	}
+	"@type": "HowToStep" | "HowToSection";
+	instruction!: HowToStep | HowToSection;
+	render() {
+		return JSON.stringify(
+			parseRecipeInstructions(this.instruction as FullJsonArray),
+		);
+	}
+}
+
+export function renderRecipeInstructions(instruction: FullJsonArray) {
+	return JSON.stringify(parseRecipeInstructions(instruction as FullJsonArray));
+}
 
 export type RecipeSchema = WithType & {
-	"@context": string;
 	name: string;
 	author?: Person | string | undefined;
 	datePublished?: string | undefined;
 	description?: string | undefined;
-	image?: ImageObject[] | [] | undefined;
+	image?: ImageObject[] | string[] | [] | undefined;
 	recipeYield?: string | undefined;
 	prepTime?: string | undefined;
 	cookTime?: string | undefined;
 	totalTime?: string | undefined;
 	howToTip?: HowToTip[] | [] | undefined;
-	recipeIngredient: string[];
-	recipeInstructions:
-		| FullJsonArray
-		| Record<keyof HowToStep | keyof HowToSection, HowToStep | HowToSection>
-		| [];
+	recipeIngredient: RecipeIngredient[] | [];
+	recipeInstructions: FullJsonArray | RecipeInstruction[] | string[] | [];
 
 	aggregateRating?: AggregateRating | undefined;
 	review?: Review[] | undefined;
 	recipeCategory?: string[] | undefined;
 	recipeCuisine?: string[] | undefined;
 	keywords?: string[] | undefined;
-	nutrition?: NutritionInformation;
+	nutrition?: NutritionInformation | [] | undefined;
 };

@@ -7,66 +7,64 @@ import type {
 	RecipeSchema,
 	Review,
 } from "@typings/schemaOrgRecipe";
-import type { FullJsonArray, FullJsonValue, JsonArray } from "@types/util";
+import type { FullJsonArray, FullJsonValue } from "@typings/util";
 import { deepJsonPluck, removeExtraSpaces } from "@helpers";
 import { defaultRecipeSchema } from "@constants/defaultRecipe";
+
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+export function isHowToStep(value: any): value is HowToStep {
+	return (
+		value && value["@type"] === "HowToStep" && typeof value.text === "string"
+	);
+}
+
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+export function isHowToSection(value: any): value is HowToSection {
+	return (
+		value &&
+		value["@type"] === "HowToSection" &&
+		typeof value.name === "string" &&
+		Array.isArray(value.itemListElement) &&
+		value.itemListElement.every(isHowToStep)
+	);
+}
+
+export function parseHowToStep(instructions: FullJsonArray): FullJsonArray {
+	const howToStepsText: FullJsonArray = [];
+
+	for (const step of instructions) {
+		if (isHowToStep(step)) howToStepsText.push(step.text);
+	}
+
+	return howToStepsText;
+}
+
+export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
+	const recipeInstructions: FullJsonArray = [];
+
+	if (json) {
+		for (const section of json) {
+			if (isHowToSection(section)) {
+				recipeInstructions.push({
+					[section.name as string]: parseHowToStep(section.itemListElement),
+				});
+			} else if (isHowToStep(section)) {
+				recipeInstructions.push(section.text);
+			}
+		}
+	}
+
+	// console.log(
+	// 	"\n\n---------recipeInstructions.keys()----------------------------\n\n",
+	// 	JSON.stringify(Object.keys(recipeInstructions), null, 2),
+	// );
+
+	return recipeInstructions;
+}
 
 export function parseRecipe(htmlContent: string): RecipeSchema {
 	const $ = cheerio.load(htmlContent);
 	let recipeSchema: RecipeSchema | null = null;
-
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	function isHowToStep(value: any): value is HowToStep {
-		return (
-			value && value["@type"] === "HowToStep" && typeof value.text === "string"
-		);
-	}
-
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	function isHowToSection(value: any): value is HowToSection {
-		return (
-			value &&
-			value["@type"] === "HowToSection" &&
-			typeof value.name === "string" &&
-			Array.isArray(value.itemListElement) &&
-			value.itemListElement.every(isHowToStep)
-		);
-	}
-
-	function parseHowToStep(instructions: FullJsonArray): FullJsonArray {
-		const howToStepsText: FullJsonArray = [];
-
-		for (const step of instructions) {
-			if (isHowToStep(step)) howToStepsText.push(step.text);
-		}
-
-		return howToStepsText;
-	}
-
-	function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
-		const recipeInstructions: FullJsonArray = [];
-
-		if (json) {
-			for (const section of json) {
-				if (isHowToSection(section)) {
-					recipeInstructions.push({
-						[section.name as string]: parseHowToStep(section.itemListElement),
-					});
-				} else if (isHowToStep(section)) {
-					recipeInstructions.push(section.text);
-				}
-			}
-		}
-
-		// console.log(
-		// 	"\n\n---------recipeInstructions.keys()----------------------------\n\n",
-		// 	JSON.stringify(Object.keys(recipeInstructions), null, 2),
-		// );
-
-		return recipeInstructions;
-	}
-
-	let shouldParseKitchnPage = false;
 
 	const isKitchn = (): FullJsonValue | null => {
 		const nextData: string | null = $('script[id="__NEXT_DATA__"]').html();
@@ -96,7 +94,6 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 			recipeSchemaOrgData,
 		);
 		if (recipeSchemaOrgData) {
-			shouldParseKitchnPage = true;
 			return recipeSchemaOrgData;
 		}
 
@@ -104,7 +101,6 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 	};
 
 	if (isKitchn()) {
-		let item: string;
 		try {
 			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 			const item = JSON.parse(isKitchn() as any);
@@ -181,10 +177,10 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 				// );
 				// const parsedJsonData = JSON.parse(jsonLdScriptElement.data?.toString() ?? jsonLdScriptElement.toString())
 				const parsedJsonData = JSON.parse(normalizedJsonData);
-				// console.log(
-				// 	"\n\n--------------parsedJsonData----------------",
-				// 	JSON.stringify(parsedJsonData, null, 2),
-				// );
+				console.log(
+					"\n\n--------------parsedJsonData----------------",
+					JSON.stringify(parsedJsonData, null, 2),
+				);
 
 				const recipeSchemaOrgData = parsedJsonData["@graph"]
 					? parsedJsonData["@graph"]

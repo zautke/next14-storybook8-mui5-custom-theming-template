@@ -1,12 +1,8 @@
 import cheerio from "cheerio";
-import { parseRecipe } from "@components/recipeParser";
+import { parseRecipe } from "@/util/recipeParser";
 import { defaultRecipeSchema } from "constants/defaultRecipe";
 import { deepJsonPluck, removeExtraSpaces } from "@util/helpers";
-import type {
-	RecipeSchema,
-	HowToStep,
-	Person,
-} from "@customTypes/schemaOrgRecipe";
+import type { RecipeSchema, HowToStep, Person } from "@typings/schemaOrgRecipe";
 
 jest.mock("util/helpers", () => ({
 	deepJsonPluck: jest.fn(),

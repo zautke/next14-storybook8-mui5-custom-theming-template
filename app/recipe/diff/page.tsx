@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { useEffect, useState } from "react";
 
@@ -89,7 +90,7 @@ const HomePage = () => {
 					<h2>Recipe B</h2>
 					<pre>{JSON.stringify(recipeB, null, 2)}</pre>
 					<h2>Diffs</h2>
-					{diffs.map((diff, index) => (
+					{diffs.map((diff) => (
 						<DiffViewer key={`${diff.valueA}..${diff.valueB}`} diff={diff} />
 					))}
 				</div>

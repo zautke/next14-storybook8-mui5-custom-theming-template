@@ -1,7 +1,6 @@
-/* eslint-disable react/react-in-jsx-scope */
 import type { Metadata } from "next";
-//import "./globals.css";
 
+//import "./globals.css";
 //import { getFontWeights } from 'next/font';
 
 import { promises as fs } from "node:fs";
@@ -16,15 +15,28 @@ const getFontNames = async () => {
 	return fontNames;
 };
 
-const reportFontNames = async () => {
+const _reportFontNames = async () => {
 	const fontNames = await getFontNames();
 	console.log(fontNames);
 };
 
-export const metadata: Metadata = {
-	title: "NextJS Storybook MUI Custom Theme",
-	description: "A Next/Storybook integration with Material-UI 5 theming.",
-};
+// export const metadata: Metadata = {
+// 	title: {
+// 		absolute: config.blog.metadata.title.absolute,
+// 		default: config.blog.metadata.title.default,
+// 		template: config.blog.metadata.title.template,
+// 	},
+// 	description: config.blog.metadata.description,
+// 	openGraph: {
+// 		title: config.blog.metadata.title.default,
+// 		description: config.blog.metadata.description,
+// 		images: [
+// 			signOgImageUrl({
+// 				title: config.blog.name,
+// 			}),
+// 		],
+// 	},
+// };
 
 export default function RootLayout({
 	children,
@@ -33,7 +45,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<body>
+				<main>{children}</main>
+			</body>
 		</html>
 	);
 }

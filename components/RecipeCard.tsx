@@ -1,34 +1,54 @@
-import React from "react";
+import React, { type ReactNode } from "react";
 import Image from "next/image";
 import { fetchRecipe } from "@components/actions/recipeServer";
 import { v4 as uuid } from "uuid";
+import { Recipe as sRecipe } from "schema-dts";
+import {
+	type Person,
+	type RecipeInstruction,
+	type RecipeSchema,
+	type ImageObject,
+	type NutritionInformation,
+	type RecipeIngredient,
+	renderRecipeInstructions,
+} from "@typings/schemaOrgRecipe";
+import { defaultRecipeSchema, sampleRecipe } from "@constants/defaultRecipe";
+import { parseRecipe } from "@util/recipeParser";
+import { FullJsonArray, FullJsonValue } from "./typings/util";
+//import { FullJsonArray } from "@typings/util";
 
-type Recipe = {
-	"@context": string;
-	name: string;
-	author?: string;
-	datePublished?: string;
-	description?: string;
-	image?: string[];
-	recipeYield?: string;
-	prepTime?: string;
-	cookTime?: string;
-	totalTime?: string;
-	howToTip?: string[];
-	recipeIngredient: string[];
-	recipeInstructions: string[];
-	aggregateRating?: string;
-	review?: string[];
-	recipeCategory?: string[];
-	recipeCuisine?: string[];
-	keywords?: string[];
-	nutrition?: string;
-};
+// type Recipe = {
+// 	"@context": string;
+// 	name: string;
+// 	author?: string;
+// 	datePublished?: string;
+// 	description?: string;
+// 	image?: string[];
+// 	recipeYield?: string;
+// 	prepTime?: string;
+// 	cookTime?: string;
+// 	totalTime?: string;
+// 	howToTip?: string[];
+// 	recipeIngredient: string[];
+// 	recipeInstructions: string[];
+// 	aggregateRating?: string;
+// 	review?: string[];
+// 	recipeCategory?: string[];
+// 	recipeCuisine?: string[];
+// 	keywords?: string[];
+// 	nutrition?: string;
+// };
 
-export default async function RecipeCard() {
-	const url = "base64_encoded_url"; // Replace this with the actual URL or base64 encoded URL
-	const recipe: Recipe | null = await fetchRecipe(url);
+console.log(
+	`\n\ningredient: ${sampleRecipe.recipeIngredient[0] as RecipeIngredient}\n\n`,
+);
 
+export default function RecipeCard(
+	_recip: RecipeSchema = sampleRecipe,
+): ReactNode {
+	//const recipe: RecipeSchema | null = await fetchRecipe(url);
+
+	const recipe = sampleRecipe;
 	return (
 		<>
 			<div>
@@ -39,12 +59,12 @@ export default async function RecipeCard() {
 						<p>{recipe.description}</p>
 						{recipe.image && recipe.image.length > 0 && (
 							<div>
-								{recipe.image.map((img) => (
-									<Image key={uuid()} src={img} alt={recipe.name} />
+								{(recipe.image as ImageObject[]).map((img) => (
+									<Image key={uuid()} src={img.url} alt={recipe.name} />
 								))}
 							</div>
 						)}
-						<p>Author: {recipe.author}</p>
+						<p>Author: {recipe.author && (recipe.author as Person).name} </p>
 						<p>Date Published: {recipe.datePublished}</p>
 						<p>Yield: {recipe.recipeYield}</p>
 						<p>Prep Time: {recipe.prepTime}</p>
@@ -54,36 +74,42 @@ export default async function RecipeCard() {
 							<div>
 								<h3>Tips:</h3>
 								<ul>
-									{recipe.howToTip.map((tip, key) => (
-										<li key={uuid()}>{tip}</li>
+									{recipe.howToTip.map((tip) => (
+										<li key={uuid()}>{tip.toString()}</li>
 									))}
 								</ul>
 							</div>
 						)}
-						) : (
 						<div>
 							<h3>Ingredients:</h3>
-							<ul>
-								{recipe.recipeIngredient.map((ingredient, key) => (
-									<li key={uuid()}>{ingredient}</li>
-								))}
-							</ul>
+							{/* <ul>
+								{recipe.recipeIngredient &&
+									(recipe.recipeIngredient as RecipeIngredient[]).map(
+										(ingredient) => <li key={uuid()}>{ingredient}</li>,
+									)}
+							</ul> */}
 						</div>
 						<div>
 							<h3>Instructions:</h3>
 							<ol>
-								{recipe.recipeInstructions.map((instruction, key) => (
-									<li key={uuid()}>{instruction}</li>
-								))}
+								{(recipe.recipeInstructions as FullJsonArray) && (
+									<li key={uuid()}>
+										{renderRecipeInstructions(
+											recipe.recipeInstructions as FullJsonArray,
+										)}
+									</li>
+								)}
 							</ol>
 						</div>
-						{recipe.aggregateRating && <p>Rating: {recipe.aggregateRating}</p>}
+						{recipe.aggregateRating && (
+							<p>Rating: {recipe.aggregateRating.ratingValue}</p>
+						)}
 						{recipe.review && (
 							<div>
 								<h3>Reviews:</h3>
 								<ul>
-									{recipe.review.map((review, key) => (
-										<li key={uuid()}>{review}</li>
+									{recipe.review.map((review) => (
+										<li key={uuid()}>{review.reviewRating.ratingValue}</li>
 									))}
 								</ul>
 							</div>
@@ -95,7 +121,11 @@ export default async function RecipeCard() {
 							<p>Cuisines: {recipe.recipeCuisine.join(", ")}</p>
 						)}
 						{recipe.keywords && <p>Keywords: {recipe.keywords.join(", ")}</p>}
-						{recipe.nutrition && <p>Nutrition: {recipe.nutrition}</p>}
+						{recipe.nutrition && (
+							<p>
+								Nutrition: {(recipe.nutrition as NutritionInformation).calories}
+							</p>
+						)}
 					</div>
 				) : (
 					<p>Loading recipe...</p>

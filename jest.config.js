@@ -1,41 +1,47 @@
-const nextJest = require("next/jest");
+import nextJest from "next/jest";
 
 const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: "./",
+	// Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+	dir: "./",
 });
 
 const customJestConfig = {
-  testEnvironment: "jest-environment-jsdom",
-  moduleNameMapper: {
-    // Handle module aliases (these paths must match those in tsconfig.json or jsconfig.json)
-    "^@/components/(.*)$": "<rootDir>/components/$1",
-    // Mock static file imports
-    "\\.(css|less|sass|scss)$": "identity-obj-proxy",
-    "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js",
-  },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+	preset: "ts-jest",
+	testURL: "http://localhost",
+	//testEnvironment: "jsdom",
+	testEnvironment: "node",
+	collectCoverage: true,
+	collectCoverageFrom: [
+		"**/*.{ts,tsx}",
+		"!**/node_modules/**",
+		"!**/.storybook/**",
+		"!**/tests/**",
+		"!**/coverage/**",
+		"!jest.config.js",
+	],
+	coverageThreshold: {
+		global: {
+			branches: 0,
+			functions: 0,
+			lines: 0,
+			statements: 0,
+		},
+	},
+	transform: {
+		"^.+\\.tsx?$": "ts-jest",
+	},
+	moduleFileExtensions: ["ts", "tsx", "js", "json"],
+	testRegex: "test",
+	moduleNameMapper: {
+		"^@/(.*)$": "<rootDir>/$1",
+		// Handle module aliases (these paths must match those in tsconfig.json or jsconfig.json)
+		"^@components/(.*)$": "<rootDir>/components/$1",
+		// Mock static file imports
+		"\\.(css|less|sass|scss)$": "identity-obj-proxy",
+		"\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js",
+	},
+	modulePathIgnorePatterns: ["helpers.ts", "JsonSchema.ts"],
+	setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
 };
 
-module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  collectCoverage: true,
-  collectCoverageFrom: ['**/*.ts'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest'
-  },
-  testRegex: 'test',
-  moduleFileExtensions: ['ts', 'js'],
-  coverageThreshold: {
-    global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100
-    }
-  },
-  modulePathIgnorePatterns: ['2.1.x/helpers.ts', 'Arbitrary.ts', 'helpers.ts', 'JsonSchema.ts']
-}
-
-module.exports = createJestConfig(customJestConfig);
+export default createJestConfig(customJestConfig);
