@@ -1,8 +1,11 @@
 import type { FC } from "react";
 import RecipeCard from "@components/RecipeCard";
+import ThemeRegistry from "@components/ThemeRegistry";
 
 const Page: FC = () => (
-	<RecipeCard name={"blah"} recipeIngredient={[]} recipeInstructions={[]} />
+	<ThemeRegistry>
+		<RecipeCard name={"blah"} recipeIngredient={[]} recipeInstructions={[]} />
+	</ThemeRegistry>
 );
-//const Page: FC = () => <<div>Your mom.</div>>;
+
 export default Page;

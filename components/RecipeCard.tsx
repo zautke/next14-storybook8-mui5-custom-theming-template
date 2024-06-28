@@ -12,9 +12,13 @@ import {
 	type RecipeIngredient,
 	renderRecipeInstructions,
 } from "@typings/schemaOrgRecipe";
-import { defaultRecipeSchema, sampleRecipe } from "@constants/defaultRecipe";
+import {
+	defaultRecipeSchema,
+	sampleRecipe_pozole,
+} from "@constants/defaultRecipe";
 import { parseRecipe } from "@util/recipeParser";
 import { FullJsonArray, FullJsonValue } from "./typings/util";
+import { Typography } from "@mui/material";
 //import { FullJsonArray } from "@typings/util";
 
 // type Recipe = {
@@ -40,15 +44,16 @@ import { FullJsonArray, FullJsonValue } from "./typings/util";
 // };
 
 console.log(
-	`\n\ningredient: ${sampleRecipe.recipeIngredient[0] as RecipeIngredient}\n\n`,
+	`\n\ninstructions: ${JSON.stringify(sampleRecipe_pozole.recipeInstructions, null, 2)}\n\n`,
 );
 
 export default function RecipeCard(
-	_recip: RecipeSchema = sampleRecipe,
+	_recip: RecipeSchema = sampleRecipe_pozole,
 ): ReactNode {
-	//const recipe: RecipeSchema | null = await fetchRecipe(url);
+	//const recipe: RecipeSchema | null = await fetchRecipe(url);,
 
-	const recipe = sampleRecipe;
+	const recipe = sampleRecipe_pozole;
+	// console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
 	return (
 		<>
 			<div>
@@ -60,11 +65,17 @@ export default function RecipeCard(
 						{recipe.image && recipe.image.length > 0 && (
 							<div>
 								{(recipe.image as ImageObject[]).map((img) => (
-									<Image key={uuid()} src={img.url} alt={recipe.name} />
+									<Image
+										key={uuid()}
+										src={img.url as string}
+										alt={recipe.name}
+									/>
 								))}
 							</div>
 						)}
-						<p>Author: {recipe.author && (recipe.author as Person).name} </p>
+						<Typography>
+							Author: {recipe.author && (recipe.author as Person).name}{" "}
+						</Typography>
 						<p>Date Published: {recipe.datePublished}</p>
 						<p>Yield: {recipe.recipeYield}</p>
 						<p>Prep Time: {recipe.prepTime}</p>
@@ -82,12 +93,12 @@ export default function RecipeCard(
 						)}
 						<div>
 							<h3>Ingredients:</h3>
-							{/* <ul>
+							<ul>
 								{recipe.recipeIngredient &&
 									(recipe.recipeIngredient as RecipeIngredient[]).map(
 										(ingredient) => <li key={uuid()}>{ingredient}</li>,
 									)}
-							</ul> */}
+							</ul>
 						</div>
 						<div>
 							<h3>Instructions:</h3>

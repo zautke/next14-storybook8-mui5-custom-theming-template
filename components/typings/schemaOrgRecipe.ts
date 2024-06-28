@@ -1,9 +1,5 @@
-import {
-	isHowToSection,
-	isHowToStep,
-	parseRecipeInstructions,
-} from "@util/recipeParser";
-import type { FullJsonArray, FullJsonValue, JsonArray } from "./util";
+import { parseRecipeInstructions } from "@util/recipeParser";
+import type { FullJsonArray, JsonArray } from "./util";
 
 export type WithType = {
 	"@type"?: string | string[] | undefined;
@@ -117,7 +113,12 @@ export class RecipeInstruction {
 }
 
 export function renderRecipeInstructions(instruction: FullJsonArray) {
-	return JSON.stringify(parseRecipeInstructions(instruction as FullJsonArray));
+	const retValue = JSON.stringify(
+		parseRecipeInstructions(instruction as FullJsonArray),
+	);
+
+	console.log(`\n\nretValue: ${retValue}\n\n`);
+	return retValue;
 }
 
 export type RecipeSchema = WithType & {

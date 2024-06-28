@@ -8,20 +8,20 @@
 	"repository": "github:google/schema-dts",
 	"author": "The2bitFreestyler (https://github.com/zautke)",
 	"scripts": {
-		"build": "next build",
-		"build:prod": "NODE_ENV=production tsc -p tsconfig.production.json && next build --production",
-		"build:analyze": "npm run build && source-map-explorer .next/static/**/*.js",
-		"start": "next start",
-		"lint": "next lint",
 		"biome": "yarn dlx @biomejs/biome check --apply src/",
-		"start-server": "tsx server/ws-server.ts",
 		"build-storybook": "storybook build",
-
+		"build:analyze": "npm run build && source-map-explorer .next/static/**/*.js",
+		"build:prod": "NODE_ENV=production tsc -p tsconfig.production.json && next build --production",
+		"build": "next build",
 		"dev": "next dev",
+		"lint": "next lint",
+		"start-server": "tsx server/ws-server.ts",
+		"start": "next start",
 		"storybook": "storybook dev -p 6006",
-		"test": "jest --coverage --verbose",
 		"test:ci": "jest --runInBand --no-cache --coverage --verbose",
-		"test:watch": "jest --watch"
+		"test:watch": "jest --watch",
+		"test": "jest --coverage --verbose",
+		"ws": "tsx server/ws2.ts"
 	},
 	"dependencies": {
 		"@clerk/localizations": "^2.4.6",

@@ -45,6 +45,10 @@ export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
 	if (json) {
 		for (const section of json) {
 			if (isHowToSection(section)) {
+				console.log(
+					"\n\n---------section.name----------------------------\n\n",
+					section.name,
+				);
 				recipeInstructions.push({
 					[section.name as string]: parseHowToStep(section.itemListElement),
 				});
@@ -52,6 +56,8 @@ export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
 				recipeInstructions.push(section.text);
 			}
 		}
+	} else {
+		console.log("No recipe instructions found:", JSON.stringify(json, null, 2));
 	}
 
 	// console.log(
@@ -244,6 +250,8 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 			}
 		}
 	}
+
+	// console.log(`\n\nrecipeSchema: ${recipeSchema}\n\n`);
 
 	return recipeSchema ?? defaultRecipeSchema;
 }
