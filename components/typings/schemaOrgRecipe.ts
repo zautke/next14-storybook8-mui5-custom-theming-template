@@ -1,34 +1,37 @@
 import { parseRecipeInstructions } from "@util/recipeParser";
 import type { FullJsonArray, JsonArray } from "./util";
 
-export type WithType = {
+export type AtProperties = {
+	"@context"?: string | string[] | undefined;
+	"@id"?: string | string[] | undefined;
 	"@type"?: string | string[] | undefined;
 };
 
 export type WithDate = {
-	datePublished: string;
+	datePublished?: string;
 };
 
-export type Person = WithType & {
-	name: string;
+export type Person = AtProperties & {
+	name?: string;
+	url?: string;
 };
 
-export type ImageObject = WithType & {
+export type ImageObject = AtProperties & {
 	url: string;
-	contentUrl: string;
-	width: number;
-	height: number;
-	caption: string;
-	(): string;
+	contentUrl?: string;
+	width?: number;
+	height?: number;
+	caption?: string;
 };
 
-export type NutritionInformation = WithType & {
+export type NutritionInformation = AtProperties & {
 	servingSize: string;
 	calories: string;
 	sugarContent?: string;
 	sodiumContent?: string;
 	fatContent?: string;
 	saturatedFatContent?: string;
+	unsaturatedFatContent?: string;
 	carbohydrateContent?: string;
 	fiberContent?: string;
 	proteinContent?: string;
@@ -36,24 +39,24 @@ export type NutritionInformation = WithType & {
 };
 
 export type AggregateRating =
-	| (WithType & {
+	| (AtProperties & {
 			ratingValue: string | number;
 			ratingCount: string | number;
 	  })
 	| null;
 
-export type ReviewRating = WithType & {
+export type ReviewRating = AtProperties & {
 	ratingValue: string | number;
 };
 
-export type Review = WithType &
+export type Review = AtProperties &
 	WithDate & {
-		reviewRating: ReviewRating;
-		reviewBody: string;
-		author: Person;
+		reviewRating?: ReviewRating;
+		reviewBody?: string;
+		author?: Person | string;
 	};
 
-export type HowToStep = WithType &
+export type HowToStep = AtProperties &
 	Partial<ObjectArray<string>> & {
 		"@type": "HowToStep";
 		text: string;
@@ -61,7 +64,7 @@ export type HowToStep = WithType &
 		url?: string;
 	};
 
-export type HowToSection = WithType &
+export type HowToSection = AtProperties &
 	Partial<ObjectArray<string>> & {
 		"@type": "HowToSection";
 		name?: string;
@@ -72,7 +75,7 @@ export type HowToSection = WithType &
 export type HowToSteps = HowToStep[];
 
 export type HowToTip =
-	| (WithType & {
+	| (AtProperties & {
 			"@type": "HowToTip";
 			text: string;
 			(): string;
@@ -121,13 +124,13 @@ export function renderRecipeInstructions(instruction: FullJsonArray) {
 	return retValue;
 }
 
-export type RecipeSchema = WithType & {
+export type RecipeSchema = AtProperties & {
 	name: string;
-	author?: Person | string | undefined;
+	author?: Person | Person[] | string | undefined;
 	datePublished?: string | undefined;
 	description?: string | undefined;
-	image?: ImageObject[] | string[] | [] | undefined;
-	recipeYield?: string | undefined;
+	image?: ImageObject | ImageObject[] | string[] | [] | undefined;
+	recipeYield?: string | string[] | [] | undefined;
 	prepTime?: string | undefined;
 	cookTime?: string | undefined;
 	totalTime?: string | undefined;
@@ -139,6 +142,6 @@ export type RecipeSchema = WithType & {
 	review?: Review[] | undefined;
 	recipeCategory?: string[] | undefined;
 	recipeCuisine?: string[] | undefined;
-	keywords?: string[] | undefined;
+	keywords?: string | string[] | [] | undefined;
 	nutrition?: NutritionInformation | [] | undefined;
 };

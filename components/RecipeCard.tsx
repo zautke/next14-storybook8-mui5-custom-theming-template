@@ -14,7 +14,7 @@ import {
 } from "@typings/schemaOrgRecipe";
 import {
 	defaultRecipeSchema,
-	sampleRecipe_pozole,
+	sampleRecipe_charredSalsaVerde,
 } from "@constants/defaultRecipe";
 import { parseRecipe } from "@util/recipeParser";
 import { FullJsonArray, FullJsonValue } from "./typings/util";
@@ -44,15 +44,15 @@ import { Typography } from "@mui/material";
 // };
 
 console.log(
-	`\n\ninstructions: ${JSON.stringify(sampleRecipe_pozole.recipeInstructions, null, 2)}\n\n`,
+	`\n\ninstructions: ${JSON.stringify(sampleRecipe_charredSalsaVerde.recipeInstructions, null, 2)}\n\n`,
 );
 
 export default function RecipeCard(
-	_recip: RecipeSchema = sampleRecipe_pozole,
+	_recip: RecipeSchema = sampleRecipe_charredSalsaVerde,
 ): ReactNode {
 	//const recipe: RecipeSchema | null = await fetchRecipe(url);,
 
-	const recipe = sampleRecipe_pozole;
+	const recipe = sampleRecipe_charredSalsaVerde;
 	// console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
 	return (
 		<>
@@ -62,7 +62,7 @@ export default function RecipeCard(
 					<div>
 						<h2>{recipe.name}</h2>
 						<p>{recipe.description}</p>
-						{recipe.image && recipe.image.length > 0 && (
+						{recipe.image && (
 							<div>
 								{(recipe.image as ImageObject[]).map((img) => (
 									<Image
@@ -120,7 +120,7 @@ export default function RecipeCard(
 								<h3>Reviews:</h3>
 								<ul>
 									{recipe.review.map((review) => (
-										<li key={uuid()}>{review.reviewRating.ratingValue}</li>
+										<li key={uuid()}>{review.reviewRating?.ratingValue}</li>
 									))}
 								</ul>
 							</div>
@@ -131,7 +131,9 @@ export default function RecipeCard(
 						{recipe.recipeCuisine && (
 							<p>Cuisines: {recipe.recipeCuisine.join(", ")}</p>
 						)}
-						{recipe.keywords && <p>Keywords: {recipe.keywords.join(", ")}</p>}
+						{recipe.keywords && (
+							<p>Keywords: ((recipe.keywords as string[]).join(", "))</p>
+						)}
 						{recipe.nutrition && (
 							<p>
 								Nutrition: {(recipe.nutrition as NutritionInformation).calories}

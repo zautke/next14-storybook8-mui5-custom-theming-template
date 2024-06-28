@@ -139,7 +139,7 @@ javascript:(() => {
               src: imgSrc,
               binaryData: Array.from(new Uint8Array(binaryData)),
             };
-            console.log("imagePayload.binaryData:", imagePayload.binaryData);
+
             websocket.send(JSON.stringify(imagePayload));
           });
         }
@@ -172,11 +172,7 @@ javascript:(() => {
 
     extractAndSendUrlAndImages();
   })();
-
-
-
-
-  `;
+`;
 
 	return (
 		<div style={{ padding: "20px" }}>
