@@ -1,8 +1,8 @@
 import cheerio from "cheerio";
 
 import type {
-	HowToSection,
-	HowToStep,
+	HowToSectionType,
+	HowToStepType,
 	Person,
 	RecipeSchema,
 	Review,
@@ -10,16 +10,23 @@ import type {
 import type { FullJsonArray, FullJsonValue } from "@typings/util";
 import { deepJsonPluck, removeExtraSpaces } from "@helpers";
 import { defaultRecipeSchema } from "@constants/defaultRecipe";
+import { FC, Fragment, PropsWithChildren, ReactNode } from "react";
+import React from "react";
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export function isHowToStep(value: any): value is HowToStep {
+export function isHowToStep(value: any): value is HowToStepType {
 	return (
 		value && value["@type"] === "HowToStep" && typeof value.text === "string"
 	);
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export function isHowToSection(value: any): value is HowToSection {
+export function isHowToStepArray(value: any): value is HowToStepType {
+	return value && Array.isArray(value) && value.every(isHowToStep);
+}
+
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+export function isHowToSection(value: any): value is HowToSectionType {
 	return (
 		value &&
 		value["@type"] === "HowToSection" &&
@@ -29,14 +36,76 @@ export function isHowToSection(value: any): value is HowToSection {
 	);
 }
 
-export function parseHowToStep(instructions: FullJsonArray): FullJsonArray {
+//export const RecipeInstructions: FC<RenderFunction> = (
+//	json: FullJsonArray,
+//	renderHowToStep: RenderFunction,
+//	renderHowToSection: RenderFunction,
+//	renderHowToSectionStep: RenderFunction,
+//): ReactNode {
+//	const recipeInstructions: ReactNode = [];
+
+//	if (json) {
+//		for (const section of json) {
+//			if (isHowToSection(section)) {
+//				//console.log(
+//				//	"\n\n---------section.name----------------------------\n\n",
+//				//	section.name,
+//				//);
+//				recipeInstructions.push({
+//					[section.name as string]: renderHowToStep(section.itemListElement),
+//				});
+//			} else if (isHowToStep(section)) {
+//				recipeInstructions.push(section.text);
+//			}
+//		}
+//	} else {
+//		console.log("No recipe instructions found:", JSON.stringify(json, null, 2));
+//	}
+//	// console.log(
+//	// 	"\n\n---------recipeInstructions.keys()----------------------------\n\n",
+//	// 	JSON.stringify(Object.keys(recipeInstructions), null, 2),
+//	// );
+
+//	return recipeInstructions;
+//}
+
+export function parseHowToStep(steps: FullJsonArray): FullJsonArray {
 	const howToStepsText: FullJsonArray = [];
 
-	for (const step of instructions) {
+	for (const step of steps) {
 		if (isHowToStep(step)) howToStepsText.push(step.text);
 	}
 
 	return howToStepsText;
+}
+
+export function parseRecipeInstruction(
+	json: FullJsonValue,
+): string | undefined {
+	let recipeInstruction: string = "<empty>";
+
+	if (json) {
+		if (isHowToSection(json)) {
+			//console.log(
+			//	"\n\n---------json.name----------------------------\n\n",
+			//	json.name,
+			//);
+			recipeInstruction = `${json.name}:`;
+			parseHowToStep(json.itemListElement);
+		} else if (isHowToStep(json)) {
+			recipeInstruction = json.text;
+		} else {
+			console.log(
+				"No recipe instruction found:",
+				JSON.stringify(json, null, 2),
+			);
+		}
+		// console.log(
+		// 	"\n\n---------recipeInstructions.keys()----------------------------\n\n",
+		// 	JSON.stringify(Object.keys(recipeInstructions), null, 2),
+		// );
+	}
+	return recipeInstruction;
 }
 
 export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
@@ -45,10 +114,10 @@ export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
 	if (json) {
 		for (const section of json) {
 			if (isHowToSection(section)) {
-				console.log(
-					"\n\n---------section.name----------------------------\n\n",
-					section.name,
-				);
+				//console.log(
+				//	"\n\n---------section.name----------------------------\n\n",
+				//	section.name,
+				//);
 				recipeInstructions.push({
 					[section.name as string]: parseHowToStep(section.itemListElement),
 				});
@@ -59,7 +128,6 @@ export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
 	} else {
 		console.log("No recipe instructions found:", JSON.stringify(json, null, 2));
 	}
-
 	// console.log(
 	// 	"\n\n---------recipeInstructions.keys()----------------------------\n\n",
 	// 	JSON.stringify(Object.keys(recipeInstructions), null, 2),
@@ -139,7 +207,7 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 					: undefined,
 				...(item.review && {
 					review: item.review.map((rev: Review) => ({
-						author: rev.author ? rev.author.name : "Unknown",
+						author: rev.author || "Unknown",
 						datePublished: rev.datePublished || "Unknown",
 						reviewBody: rev.reviewBody || "No review body",
 						reviewRating: rev.reviewRating
@@ -233,7 +301,7 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 							}),
 							...(item.review && {
 								review: item.review.map((rev: Review) => ({
-									author: rev.author ? rev.author.name : "Unknown",
+									author: rev.author || "Unknown",
 									datePublished: rev.datePublished || "Unknown",
 									reviewBody: rev.reviewBody || "No review body",
 									reviewRating: rev.reviewRating

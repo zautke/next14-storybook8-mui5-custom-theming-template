@@ -56,23 +56,19 @@ export type Review = AtProperties &
 		author?: Person | string;
 	};
 
-export type HowToStep = AtProperties &
-	Partial<ObjectArray<string>> & {
-		"@type": "HowToStep";
-		text: string;
-		name?: string;
-		url?: string;
-	};
+export type HowToStepType = AtProperties & {
+	text: string;
+	name?: string;
+	url?: string;
+};
 
-export type HowToSection = AtProperties &
-	Partial<ObjectArray<string>> & {
-		"@type": "HowToSection";
-		name?: string;
-		text?: string;
-		itemListElement: JsonArray<string>;
-	};
+export type HowToSectionType = AtProperties & {
+	name?: string;
+	text?: string;
+	itemListElement: JsonArray<string> | HowToStepType[] | [] | undefined;
+};
 
-export type HowToSteps = HowToStep[];
+export type HowToStepsType = HowToStepType[];
 
 export type HowToTip =
 	| (AtProperties & {
@@ -99,21 +95,21 @@ export type PObjectArray = {
 export type RecipeIngredient = string;
 
 export type RecipeInstructionType =
-	| (HowToStep & HowToStep[] & HowToSection & HowToSection[])
+	| (HowToStepType & HowToStepType[] & HowToSectionType & HowToSectionType[])
 	| string[];
 
-export class RecipeInstruction {
-	constructor(instruction: HowToStep | HowToSection) {
-		this.instruction = instruction;
-	}
-	"@type": "HowToStep" | "HowToSection";
-	instruction!: HowToStep | HowToSection;
-	render() {
-		return JSON.stringify(
-			parseRecipeInstructions(this.instruction as FullJsonArray),
-		);
-	}
-}
+//export class RecipeInstruction {
+//	constructor(instruction: HowToStepType | HowToSectionType) {
+//		this.instruction = instruction;
+//	}
+//	"@type": "HowToStep" | "HowToSection";
+//	instruction!: HowToStepType | HowToSectionType;
+//	render() {
+//		return JSON.stringify(
+//			parseRecipeInstructions(this.instruction as FullJsonArray),
+//		);
+//	}
+//}
 
 export function renderRecipeInstructions(instruction: FullJsonArray) {
 	const retValue = JSON.stringify(
@@ -136,7 +132,7 @@ export type RecipeSchema = AtProperties & {
 	totalTime?: string | undefined;
 	howToTip?: HowToTip[] | [] | undefined;
 	recipeIngredient: RecipeIngredient[] | [];
-	recipeInstructions: FullJsonArray | RecipeInstruction[] | string[] | [];
+	recipeInstructions: FullJsonArray | RecipeInstructionType[] | string[] | [];
 
 	aggregateRating?: AggregateRating | undefined;
 	review?: Review[] | undefined;

@@ -2,7 +2,6 @@
 import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const bundleAnalyzer = withBundleAnalyzer({
-	// eslint-disable-next-line no-undef
 	enabled: process.env.ANALYZE === "true",
 });
 
@@ -11,6 +10,14 @@ const nextConfig = {
 	reactStrictMode: true,
 	experimental: {
 		typedRoutes: true,
+	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "place-hold.it",
+			},
+		],
 	},
 };
 
