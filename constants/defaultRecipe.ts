@@ -69,16 +69,9 @@ export const sampleRecipe_grilledcorn: RecipeSchema = {
 };
 
 export const sampleRecipe_charredSalsaVerde: RecipeSchema = {
-	"@context": "http://schema.org",
-	"@type": ["Recipe"],
+	name: "Charred Salsa Verde",
+	author: {},
 	datePublished: "2016-01-26T09:15:00.000-05:00",
-	author: [
-		{
-			"@type": "Person",
-			name: "J. Kenji López-Alt",
-			url: "https://www.seriouseats.com/j-kenji-lopez-alt-5118720",
-		},
-	],
 	description:
 		"Smoky, spicy, sweet, bright, and complex, this is the one salsa to rule them all. It only has four real ingredients and you can make it in 20 minutes.",
 	image: {
@@ -87,49 +80,10 @@ export const sampleRecipe_charredSalsaVerde: RecipeSchema = {
 		height: 1125,
 		width: 1500,
 	},
-	//"publisher": {
-	//  "@type": "Organization",
-	//  "name": "Serious Eats",
-	//  "url": "https://www.seriouseats.com",
-	//  "logo": {
-	//    "@type": "ImageObject",
-	//    "url": "https://www.seriouseats.com/thmb/YfQU2tc6Ask4mMy6oMJDaulMqqE=/320x320/filters:no_upscale():max_bytes(150000):strip_icc()/Serious_Eats_Schema_Logo-30a63d9c07734d35836c8ff2d368419c.png",
-	//    "width": 320,
-	//    "height": 320
-	//  },
-	//  "brand": "Serious Eats",
-	//  "publishingPrinciples": "https://www.seriouseats.com/about-us-5120006#toc-editorial-guidelines",
-	//  "sameAs": [
-	//    "https://www.facebook.com/seriouseats",
-	//    "https://www.instagram.com/seriouseats",
-	//    "https://www.pinterest.com/seriouseats"
-	//  ]
-	//},
-	name: "Charred Salsa Verde",
-	aggregateRating: {
-		"@type": "AggregateRating",
-		ratingValue: "5",
-		ratingCount: "9",
-	},
-	cookTime: "PT15M",
-	keywords: "easy, salsa, tomatillo",
-	nutrition: {
-		"@type": "NutritionInformation",
-		calories: "18 kcal",
-		carbohydrateContent: "3 g",
-		cholesterolContent: "0 mg",
-		fiberContent: "1 g",
-		proteinContent: "0 g",
-		saturatedFatContent: "0 g",
-		sodiumContent: "28 mg",
-		sugarContent: "1 g",
-		fatContent: "1 g",
-		servingSize: "Makes about 3 cups",
-		unsaturatedFatContent: "0 g",
-	},
-	prepTime: "PT15M",
-	recipeCategory: ["Salsa"],
-	recipeCuisine: ["Mexican"],
+	recipeYield: "",
+	prepTime: "",
+	cookTime: "",
+	totalTime: "",
 	recipeIngredient: [
 		"1 1/2 pounds tomatillos, husks removed, split in half (680g; about 10 medium)",
 		"1 medium white onion, peeled and split in half (about 6 ounces; 170g)",
@@ -139,131 +93,69 @@ export const sampleRecipe_charredSalsaVerde: RecipeSchema = {
 		"Kosher salt",
 	],
 	recipeInstructions: [
-		{
-			"@type": "HowToStep",
-			image: [
-				{
-					"@type": "ImageObject",
-					url: "https://www.seriouseats.com/thmb/-iMZVfFfVofFHWdsFJ5qpYzJpYY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__20160128-salsa-verde-charred-best-03-composite-kenji-107105368aff4db99f266b15819aeed5.jpg",
-				},
-			],
-			text: "Adjust oven rack to 4 inches below broiler and preheat broiler to high. Place tomatillos, onion, and chiles on a foil-lined rimmed baking sheet. Broil until darkly charred and blackened on top and tomatillos are completely tender, 6 to 12 minutes.",
-		},
-		{
-			"@type": "HowToStep",
-			image: [
-				{
-					"@type": "ImageObject",
-					url: "https://www.seriouseats.com/thmb/jHo3UPLzLSA5zAbBAbLi8Ctvmlc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__20160128-salsa-verde-charred-best-09-kenji-fbc23adaf4424cf1810a044b2eb66425.jpg",
-				},
-			],
-			text: "Transfer vegetables and their juice to a blender, food processor, or the cup of an immersion blender. Add half of cilantro. Blend in pulses until a rough purée is formed.",
-		},
-		{
-			"@type": "HowToStep",
-			image: [
-				{
-					"@type": "ImageObject",
-					url: "https://www.seriouseats.com/thmb/UKY5kRiytrBfNHgHMA29B0-W-6I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__20160128-salsa-verde-charred-best-12-composite-kenji-1bb05004ad84434e908c0861786ac9bb.jpg",
-				},
-			],
-			text: "Heat oil in a medium saucepan over high heat until shimmering. Pour salsa into the hot oil all at once (it will steam and sputter). Immediately start stirring and continue to cook, stirring, until salsa is darkened and thick enough to coat the back of the spoon, about 3 minutes. Remove from heat.",
-		},
-		{
-			"@type": "HowToStep",
-			image: [
-				{
-					"@type": "ImageObject",
-					url: "https://www.seriouseats.com/thmb/CgX3ZpecYRP6xlNQhsjU5WGn0rU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__20160128-salsa-verde-charred-best-22-kenji-2951c3f68660450eb88c4538d88e4dca.jpg",
-				},
-			],
-			text: "Finely chop remaining cilantro and stir into salsa. Season to taste with salt. Let cool, then serve. Salsa can be stored in the refrigerator for up to 5 days.",
-		},
+		"Adjust oven rack to 4 inches below broiler and preheat broiler to high. Place tomatillos, onion, and chiles on a foil-lined rimmed baking sheet. Broil until darkly charred and blackened on top and tomatillos are completely tender, 6 to 12 minutes.",
+		"Transfer vegetables and their juice to a blender, food processor, or the cup of an immersion blender. Add half of cilantro. Blend in pulses until a rough purée is formed.",
+		"Heat oil in a medium saucepan over high heat until shimmering. Pour salsa into the hot oil all at once (it will steam and sputter). Immediately start stirring and continue to cook, stirring, until salsa is darkened and thick enough to coat the back of the spoon, about 3 minutes. Remove from heat.",
+		"Finely chop remaining cilantro and stir into salsa. Season to taste with salt. Let cool, then serve. Salsa can be stored in the refrigerator for up to 5 days.",
 	],
-	recipeYield: ["24", "3 cups"],
-	totalTime: "PT30M",
+	howToTip: [],
+	aggregateRating: {
+		"@type": "AggregateRating",
+		ratingValue: "5",
+		ratingCount: "9",
+	},
 	review: [
 		{
-			"@type": "Review",
 			author: {
 				"@type": "Person",
 				name: "Chuck B",
 			},
+			datePublished: "Unknown",
 			reviewBody:
 				"This is no doubt one of the finest salsa recipes you will find on the internet. Dont skimp on the broiling step, charred onions and blackened peppers are your friend. Skip the cilantro if you're unlucky enough to have the soap gene and it will taste excellent regardless. I've changed the proportions and substituted all sorts of peppers (try adding a poblano) and it never disappoints. The flavor mellows and deepens as it ages, so if it's too spicy try it again in a day or two. This salsa pairs amazingly well with Kenjis pickled red onions and will make some of the most mind blowing nachos and burritos you've ever had. 10/10",
+			reviewRating: "No rating",
 		},
 		{
-			"@type": "Review",
 			author: {
 				"@type": "Person",
 				name: "Nicholas Hageman",
 			},
+			datePublished: "Unknown",
 			reviewBody:
 				"Almost where I want it but it’s still tart/sweet. Threw 3 jalapeños and a habanero in. Any suggestions on getting rid of the tart sweetness while it cools down?",
+			reviewRating: "No rating",
 		},
 		{
-			"@type": "Review",
 			author: {
 				"@type": "Person",
 				name: "Liam Taylor",
 			},
+			datePublished: "Unknown",
 			reviewBody:
 				"I have only made this once so far but it was fantastic! I did two big jalepenos with no seeds and it was super mild so I would recomend both more peppers and leaving seeds in.",
+			reviewRating: "No rating",
 		},
 		{
-			"@type": "Review",
 			author: {
 				"@type": "Person",
 				name: "jlang",
 			},
+			datePublished: "Unknown",
 			reviewBody:
 				"I grew my own Tomatillos this year here in Germany, and they came out quite plentiful, not a hard plant to grow once they are large enough to plant them outside. \nHarvested more than two pounds from 4 plants last week, and made the salsa... \n\nI will brown them longer next time, my electric broiler in the oven probably doesn't put out quite the same amount of energy as a gas oven does. \nFor the acidity I added some baking soda, which rounded the flavor out nicely, and added some sugar for sweetness / jam-like consistency. \n\nExcited to keep trying new variations of this recipe!",
+			reviewRating: "No rating",
 		},
 		{
-			"@type": "Review",
 			author: {
 				"@type": "Person",
 				name: "KelevTov",
 			},
+			datePublished: "Unknown",
 			reviewBody:
 				"Good stuff, just begged me for a smige of cumin. Goes great over broiled salmon.",
+			reviewRating: "No rating",
 		},
 	],
-	//"mainEntityOfPage": {
-	//  "@type": [
-	//    "WebPage"
-	//  ],
-	//  "@id": "https://www.seriouseats.com/charred-salsa-verde-tomatillo-salsa",
-	//  "breadcrumb": {
-	//    "@type": "BreadcrumbList",
-	//    "itemListElement": [
-	//      {
-	//        "@type": "ListItem",
-	//        "position": 1,
-	//        "item": {
-	//          "@id": "https://www.seriouseats.com/dip-recipes-5117790",
-	//          "name": "Dips"
-	//        }
-	//      },
-	//      {
-	//        "@type": "ListItem",
-	//        "position": 2,
-	//        "item": {
-	//          "@id": "https://www.seriouseats.com/salsa-recipes-5117786",
-	//          "name": "Salsa"
-	//        }
-	//      },
-	//      {
-	//        "@type": "ListItem",
-	//        "position": 3,
-	//        "item": {
-	//          "@id": "https://www.seriouseats.com/charred-salsa-verde-tomatillo-salsa",
-	//          "name": "Charred Salsa Verde"
-	//        }
-	//      }
-	//    ]
-	//  }
-	//}
 };
 
 export const sampleRecipe_pozole: RecipeSchema = {
