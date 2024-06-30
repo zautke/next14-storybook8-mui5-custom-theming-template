@@ -16,7 +16,7 @@ export type RenderPropsWithChildren = PropsWithChildren & {
 	render: RenderFunction;
 };
 
-export type HowToStepProps = RenderPropsWithChildren & { step: HowToStepType };
+export type HowToStepProps = RenderPropsWithChildren & { step: string };
 
 export type HowToStepsProps = RenderPropsWithChildren & {
 	steps: HowToStepType[];
@@ -29,10 +29,10 @@ export type HowToSectionProps = RenderPropsWithChildren & {
 };
 
 export const HowToStep = ({ step, render }: HowToStepProps): ReactNode =>
-	render(step.text);
+	render(step);
 
 export const HowToSteps = ({ step, render }: HowToStepProps): ReactNode =>
-	render(step.text);
+	render(step);
 
 export const HowToSection = ({
 	section,

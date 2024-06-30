@@ -17,6 +17,7 @@ import {
 	defaultRecipeSchema,
 	sampleRecipe_charredSalsaVerde,
 	sampleRecipe_pozole,
+	sampleRecipe_grilledcorn,
 } from "@constants/defaultRecipe";
 import { isHowToSection, isHowToStep, parseRecipe } from "@util/recipeParser";
 import { FullJsonArray, FullJsonValue } from "./typings/util";
@@ -46,16 +47,33 @@ import { HowToSection, HowToStep } from "@util/recipeFormatter";
 // 	nutrition?: string;
 // };
 
-export default function RecipeCard(
-	_recip: RecipeSchema = sampleRecipe_charredSalsaVerde,
-): ReactNode {
-	//const recipe: RecipeSchema | null = await fetchRecipe(url);,
+export type ParsedHowToSectionType = {
+	[key: string]: string[];
+};
 
-	const recipe = sampleRecipe_charredSalsaVerde;
+export default function RecipeCard(
+	_recip: RecipeSchema = sampleRecipe_pozole,
+): ReactNode {
+	//const recipe: RecipeSchema | null = await fetchRecipe(url);
+
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	const isParsedHowToSection = (value: any): boolean => {
+		const retval = typeof value === "object";
+		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
+		return retval;
+	};
+
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	const isParsedHowToStep = (value: any): boolean => {
+		const retval = typeof value === "string";
+		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
+		return retval;
+	};
+
+	const recipe = sampleRecipe_pozole;
 	// console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
 	return (
 		<div>
-			<h1>Recipe</h1>
 			{recipe ? (
 				<div>
 					<h2>{recipe.name}</h2>
@@ -104,33 +122,44 @@ export default function RecipeCard(
 						<ul key={`instructions-${recipe.name}`}>
 							{(recipe.recipeInstructions as FullJsonArray) &&
 								recipe.recipeInstructions.map((el) =>
-									isHowToSection(el) ? (
-										<HowToSection
-											section={JSON.stringify(el as HowToSectionType)}
-											render={(section) => (
-												<>
-													<h5>{(section as HowToSectionType).name}:</h5>
-													<ul key={(section as HowToSectionType).name}>
-														{(
-															(section as HowToSectionType)
-																.itemListElement as HowToStepType[]
-														).map((step) => (
-															<li key={`li-${step.text as string}`}>
-																<HowToStep
-																	key={step.text}
-																	step={step}
-																	render={(text) => text as string}
-																/>
-															</li>
-														))}
-													</ul>
-												</>
-											)}
-											renderSectionSteps={(text) => <li>{text as string}</li>}
-										/>
-									) : isHowToStep(el) ? (
+									isParsedHowToSection(el) ? (
+										<>
+											{/*<div>JSON.stringify(isHowToSection(el))</div>*/}
+											<HowToSection
+												section={JSON.stringify(el as ParsedHowToSectionType)}
+												render={(section) => (
+													<>
+														<h5>
+															{
+																Object.keys(
+																	section as ParsedHowToSectionType,
+																)[0]
+															}
+															:
+														</h5>
+														<ul key={(section as HowToSectionType).name}>
+															{(section as ParsedHowToSectionType)[
+																Object.keys(
+																	section as ParsedHowToSectionType,
+																)[0]
+															].map((step) => (
+																<li key={`li-${step as string}`}>
+																	<HowToStep
+																		key={step}
+																		step={step as string}
+																		render={(text) => text as string}
+																	/>
+																</li>
+															))}
+														</ul>
+													</>
+												)}
+												renderSectionSteps={(text) => <li>{text as string}</li>}
+											/>
+										</>
+									) : isParsedHowToStep(el) ? (
 										<HowToStep
-											step={{ text: (el as HowToStepType).text as string }}
+											step={el as string}
 											render={(text) => <li>{text as string}</li>}
 										/>
 									) : null,

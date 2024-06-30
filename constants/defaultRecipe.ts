@@ -268,125 +268,61 @@ export const sampleRecipe_charredSalsaVerde: RecipeSchema = {
 
 export const sampleRecipe_pozole: RecipeSchema = {
 	name: "Best Beef Pozole Rojo",
-	author: {
-		"@id":
-			"https://www.muydelish.com/#/schema/person/d28646b566adcfce68e576ee60cbfc65",
-	},
+	author: {},
+	datePublished: "2022-11-19T03:41:27+00:00",
 	description:
 		"Pozole soup is a Mexican classic! This version is made with beef &amp; hominy topped with cabbage, onions, cilantro, and of course, a squeeze of lime.",
-	datePublished: "2022-11-19T03:41:27+00:00",
 	image: [
 		"https://www.muydelish.com/wp-content/uploads/2020/12/How-To-Make-Pozole.jpg",
 		"https://www.muydelish.com/wp-content/uploads/2020/12/How-To-Make-Pozole-500x500.jpg",
 		"https://www.muydelish.com/wp-content/uploads/2020/12/How-To-Make-Pozole-500x375.jpg",
 		"https://www.muydelish.com/wp-content/uploads/2020/12/How-To-Make-Pozole-480x270.jpg",
 	],
-	recipeYield: ["8", "8 servings"],
-	prepTime: "PT30M",
-	cookTime: "PT120M",
-	totalTime: "PT150M",
+	recipeYield: "",
+	prepTime: "",
+	cookTime: "",
+	totalTime: "",
 	recipeIngredient: [
-		"1 ½ pounds chuck roast trimmed (see note #1 below) (fat trimmed off and cut in 1 ½&quot; chunks)",
+		"1 ½ pounds chuck roast trimmed (see note #1 below) (fat trimmed off and cut in 1 ½&quot; chunks)",
 		"1 to 1 ½ pounds bone-in shank center cut with bone (see note #2 below)",
-		"1  large white onion (remove outer skin but keep it whole (do a cross cut one the top of the onion only to help release the flavors))",
-		"1  whole garlic head (cut a little bit of the top )",
+		"1 large white onion (remove outer skin but keep it whole (do a cross cut one the top of the onion only to help release the flavors))",
+		"1 whole garlic head (cut a little bit of the top )",
 		"12 cups of hot water (plus more as needed) (about 3 liters )",
 		"2 cup prepared red sauce (or more to taste) (ingredients to make below)",
 		"1 teaspoon dried oregano",
-		"2 to 3  bay leaf",
-		"2  beef bullion cubes",
+		"2 to 3 bay leaf",
+		"2 beef bullion cubes",
 		"2 tablespoon kosher salt",
 		"1 tablespoon ground black pepper",
 		"6 lbs &amp; 12 oz can Mexican style hominy (drained and rinsed)",
-		"3  dried chile guajillos  (seeds removed &amp; rinsed)",
-		"3   dried ancho chiles (seeds removed &amp; rinsed)",
-		"¼  medium onion (yellow or white)",
-		"3  garlic cloves",
+		"3 dried chile guajillos (seeds removed &amp; rinsed)",
+		"3 dried ancho chiles (seeds removed &amp; rinsed)",
+		"¼ medium onion (yellow or white)",
+		"3 garlic cloves",
 		"½ teaspoon oregano",
-		"½ teaspoon  kosher salt (if using table salt use a little less teaspoon)",
+		"½ teaspoon kosher salt (if using table salt use a little less teaspoon)",
 		"4 cups water",
 		"Shredded cabbage, finely diced onion, sliced radishes, fresh cilantro, lime juice &amp; hot sauce.",
 	],
 	recipeInstructions: [
+		"In a large pot, add the water, beef, whole onion, oregano, bay leaf, beef bullion, salt &amp; pepper.",
+		"Bring liquid to a boil then cover and simmer until beef is tender (about two hours). As water begins to evaporate, add boiling hot water to keep the broth at the same amount.",
+		"Once the beef is tender, remove &amp; discard the bones, onion, garlic and bay leaf.",
+		"Add the hominy and 2 cups red sauce (instructions below). Cook for about 30 more minutes. Taste for seasoning.",
+		"When done, ladle soup into bowls and garnish with any of these ingredients that you like: shredded cabbage, chopped cilantro, minced onions, lime juice, hot sauce.",
+		"serve with tostadas or tortilla chips.",
 		{
-			"@type": "HowToStep",
-			text: "In a large pot, add the water, beef, whole onion, oregano, bay leaf, beef bullion, salt &amp; pepper.",
-			name: "In a large pot, add the water, beef, whole onion, oregano, bay leaf, beef bullion, salt &amp; pepper.",
-			url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-0-0",
-		},
-		{
-			"@type": "HowToStep",
-			text: "Bring liquid to a boil then cover and simmer until beef is tender (about two hours). As water begins to evaporate, add boiling hot water to keep the broth at the same amount.",
-			name: "Bring liquid to a boil then cover and simmer until beef is tender (about two hours). As water begins to evaporate, add boiling hot water to keep the broth at the same amount.",
-			url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-0-1",
-		},
-		{
-			"@type": "HowToStep",
-			text: "Once the beef is tender, remove &amp; discard the bones, onion, garlic and bay leaf.",
-			name: "Once the beef is tender, remove &amp; discard the bones, onion, garlic and bay leaf.",
-			url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-0-2",
-		},
-		{
-			"@type": "HowToStep",
-			text: "Add the hominy and 2 cups red sauce (instructions below). Cook for about 30 more minutes. Taste for seasoning.",
-			name: "Add the hominy and 2 cups red sauce (instructions below). Cook for about 30 more minutes. Taste for seasoning.",
-			url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-0-3",
-		},
-		{
-			"@type": "HowToStep",
-			text: "When done, ladle soup into bowls and garnish with any of these ingredients that you like: shredded cabbage, chopped cilantro, minced onions, lime juice, hot sauce.",
-			name: "When done, ladle soup into bowls and garnish with any of these ingredients that you like: shredded cabbage, chopped cilantro, minced onions, lime juice, hot sauce.",
-			url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-0-4",
-		},
-		{
-			"@type": "HowToStep",
-			text: "serve with tostadas or tortilla chips.",
-			name: "serve with tostadas or tortilla chips.",
-			url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-0-5",
-		},
-		{
-			"@type": "HowToSection",
-			name: "Make the sauce (while the meat is cooking or make ahead)",
-			itemListElement: [
-				{
-					"@type": "HowToStep",
-					text: "Remove the stem and seeds from the chiles. Rinse well to remove any dust.",
-					name: "Remove the stem and seeds from the chiles. Rinse well to remove any dust.",
-					url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-1-0",
-				},
-				{
-					"@type": "HowToStep",
-					text: "Place in a medium pot along with the onion, garlic, spices &amp; water.",
-					name: "Place in a medium pot along with the onion, garlic, spices &amp; water.",
-					url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-1-1",
-				},
-				{
-					"@type": "HowToStep",
-					text: "Cook on low heat for about 20 minutes or until the chiles are soft. Remove pot from heat and cool.",
-					name: "Cook on low heat for about 20 minutes or until the chiles are soft. Remove pot from heat and cool.",
-					url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-1-2",
-				},
-				{
-					"@type": "HowToStep",
-					text: "Transfer to a blender or food processor along with 1 cup of the water where the chile cooked on.",
-					name: "Transfer to a blender or food processor along with 1 cup of the water where the chile cooked on.",
-					url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-1-3",
-				},
-				{
-					"@type": "HowToStep",
-					text: "Puree chiles and then pass thru a strainer to remove the remaining seeds and skins. If you have a lot of pulp left, you may add it back to the blender along with ½ cup of the chile water. Blend and strain again.",
-					name: "Puree chiles and then pass thru a strainer to remove the remaining seeds and skins. If you have a lot of pulp left, you may add it back to the blender along with ½ cup of the chile water. Blend and strain again.",
-					url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-1-4",
-				},
-				{
-					"@type": "HowToStep",
-					text: "Set aside.",
-					name: "Set aside.",
-					url: "https://www.muydelish.com/red-beef-pozole/#wprm-recipe-7282-step-1-5",
-				},
+			"Make the sauce (while the meat is cooking or make ahead)": [
+				"Remove the stem and seeds from the chiles. Rinse well to remove any dust.",
+				"Place in a medium pot along with the onion, garlic, spices &amp; water.",
+				"Cook on low heat for about 20 minutes or until the chiles are soft. Remove pot from heat and cool.",
+				"Transfer to a blender or food processor along with 1 cup of the water where the chile cooked on.",
+				"Puree chiles and then pass thru a strainer to remove the remaining seeds and skins. If you have a lot of pulp left, you may add it back to the blender along with ½ cup of the chile water. Blend and strain again.",
+				"Set aside.",
 			],
 		},
 	],
+	howToTip: [],
 	aggregateRating: {
 		"@type": "AggregateRating",
 		ratingValue: "4.92",
@@ -394,150 +330,92 @@ export const sampleRecipe_pozole: RecipeSchema = {
 	},
 	review: [
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "5",
-			},
-			reviewBody:
-				"Yum! I made this for dinner today, made the red sauce yesterday. Used pork neck bones, the broth turned out perfect! I will definitely be making this often, thank you for sharing!",
 			author: {
 				"@type": "Person",
 				name: "Haley",
 			},
 			datePublished: "2024-01-08",
+			reviewBody:
+				"Yum! I made this for dinner today, made the red sauce yesterday. Used pork neck bones, the broth turned out perfect! I will definitely be making this often, thank you for sharing!",
+			reviewRating: "5",
 		},
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "5",
-			},
-			reviewBody: "Easy and comes out phenomenal every time.",
 			author: {
 				"@type": "Person",
 				name: "Michael Cifaldi",
 			},
 			datePublished: "2024-01-06",
+			reviewBody: "Easy and comes out phenomenal every time.",
+			reviewRating: "5",
 		},
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "5",
-			},
-			reviewBody:
-				"My mother always added pinto beans and nixtamal (uncooked hominy) as well as using ox tail for the meat / bone.  This was slow cooked all day or overnight.  It may have been more of a filler / increased protein meal out of necessity back then.  All I can say is Pozole with pintos is so much more hearty and broth richer.  If you put a bowl with or without beans in front of me, it will quickly disappear!  Glad someone else’s mom did the same thing.",
 			author: {
 				"@type": "Person",
 				name: "Mario",
 			},
 			datePublished: "2023-06-13",
+			reviewBody:
+				"My mother always added pinto beans and nixtamal (uncooked hominy) as well as using ox tail for the meat / bone.  This was slow cooked all day or overnight.  It may have been more of a filler / increased protein meal out of necessity back then.  All I can say is Pozole with pintos is so much more hearty and broth richer.  If you put a bowl with or without beans in front of me, it will quickly disappear!  Glad someone else’s mom did the same thing.",
+			reviewRating: "5",
 		},
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "5",
-			},
-			reviewBody:
-				"I just made this recipe. It's the first time I've ever had it, so I have nothing to compare to, but we all liked it! The texture of the hominy is interesting. I have a jar of both the Mexican chili pastes, so I skipped the step of making that myself this time. Thanks for the recipe!",
 			author: {
 				"@type": "Person",
 				name: "Jessica",
 			},
 			datePublished: "2023-03-22",
+			reviewBody:
+				"I just made this recipe. It's the first time I've ever had it, so I have nothing to compare to, but we all liked it! The texture of the hominy is interesting. I have a jar of both the Mexican chili pastes, so I skipped the step of making that myself this time. Thanks for the recipe!",
+			reviewRating: "5",
 		},
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "4",
-			},
-			reviewBody:
-				"Great recipe but I think there might be a couple errors in the ingredient list:  It lists 6lbs and a 12 oz can of hominy, what did you mean there?  Also, an entire tablespoon of ground black pepper, overwhelms the other flavors, especially the second and third day.  A teaspoon would be more in line with what I’m used to seeing in other pozole recipes.  If you ever get the time, make it again and see what you think?   Other than that the only thing I did differently was to fry the red sauce in oil for 20 minutes before adding.  This unusual step is pretty common in recipes where the chilies are prepared like this and it adds a lot to the flavor.  Other than that no complaints!",
 			author: {
 				"@type": "Person",
 				name: "Brian Schulz",
 			},
 			datePublished: "2023-02-11",
+			reviewBody:
+				"Great recipe but I think there might be a couple errors in the ingredient list:  It lists 6lbs and a 12 oz can of hominy, what did you mean there?  Also, an entire tablespoon of ground black pepper, overwhelms the other flavors, especially the second and third day.  A teaspoon would be more in line with what I’m used to seeing in other pozole recipes.  If you ever get the time, make it again and see what you think?   Other than that the only thing I did differently was to fry the red sauce in oil for 20 minutes before adding.  This unusual step is pretty common in recipes where the chilies are prepared like this and it adds a lot to the flavor.  Other than that no complaints!",
+			reviewRating: "4",
 		},
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "5",
-			},
-			reviewBody: "Thanks for the recipe!  Very good!",
 			author: {
 				"@type": "Person",
 				name: "Lois",
 			},
 			datePublished: "2023-01-09",
+			reviewBody: "Thanks for the recipe!  Very good!",
+			reviewRating: "5",
 		},
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "5",
-			},
-			reviewBody:
-				"I used carne deshebrada (shredded beef) and in place of the bouillon I used a tsp of cumin. Wonderful recipe. I've made it now 3 weeks in a row. Thank you Ana. My husband can't wait to have it every week.",
 			author: {
 				"@type": "Person",
 				name: "Stephanie",
 			},
 			datePublished: "2022-12-01",
+			reviewBody:
+				"I used carne deshebrada (shredded beef) and in place of the bouillon I used a tsp of cumin. Wonderful recipe. I've made it now 3 weeks in a row. Thank you Ana. My husband can't wait to have it every week.",
+			reviewRating: "5",
 		},
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "5",
+			author: {
+				"@type": "Person",
+				name: "Thomas Trujillo",
 			},
+			datePublished: "2022-10-24",
 			reviewBody:
 				"Ana\r\nPozole was a hit with the family! I tripled the recipe and there was plenty. People took some home. I enjoy your other recipes and plan on trying to cook with them for my family and friends. \r\nThank you",
-			author: {
-				"@type": "Person",
-				name: "Thomas Trujillo",
-			},
-			datePublished: "2022-10-24",
+			reviewRating: "5",
 		},
 		{
-			"@type": "Review",
-			reviewRating: {
-				"@type": "Rating",
-				ratingValue: "5",
-			},
-			reviewBody:
-				"Ana\r\nI tripled recipe and Had plenty for everyone. The Pozole was a hit. People took some home.\r\nI really enjoyed making it from scratch and look forward to making it again. I enjoy all your other recipes and plan on making other meals for the family. \r\nThank you",
 			author: {
 				"@type": "Person",
 				name: "Thomas Trujillo",
 			},
 			datePublished: "2022-10-24",
+			reviewBody:
+				"Ana\r\nI tripled recipe and Had plenty for everyone. The Pozole was a hit. People took some home.\r\nI really enjoyed making it from scratch and look forward to making it again. I enjoy all your other recipes and plan on making other meals for the family. \r\nThank you",
+			reviewRating: "5",
 		},
 	],
-	recipeCategory: ["Main Dish"],
-	recipeCuisine: ["Mexican"],
-	keywords:
-		"authentic pozole, beef pozole, como hacer pozole, How make pozole, how to make pozole, mexican pozole, pork pozole, posole recipe, pozole, pozole de puerco, pozole de res, pozole ingredients, Pozole receta, pozole recipe, pozole rojo recipe, pozole soup",
-	nutrition: {
-		"@type": "NutritionInformation",
-		servingSize: "1 large bowl",
-		calories: "423 kcal",
-		sugarContent: "5 g",
-		sodiumContent: "1199 mg",
-		fatContent: "9 g",
-		saturatedFatContent: "2 g",
-		carbohydrateContent: "43 g",
-		fiberContent: "7 g",
-		proteinContent: "41 g",
-		cholesterolContent: "68 mg",
-	},
-	"@id": "https://www.muydelish.com/red-beef-pozole/#recipe",
-	//isPartOf: {
-	//	"@id": "https://www.muydelish.com/red-beef-pozole/#article",
-	//},
-	//mainEntityOfPage: "https://www.muydelish.com/red-beef-pozole/",
 };

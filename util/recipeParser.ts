@@ -10,8 +10,6 @@ import type {
 import type { FullJsonArray, FullJsonValue } from "@typings/util";
 import { deepJsonPluck, removeExtraSpaces } from "@helpers";
 import { defaultRecipeSchema } from "@constants/defaultRecipe";
-import { FC, Fragment, PropsWithChildren, ReactNode } from "react";
-import React from "react";
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function isHowToStep(value: any): value is HowToStepType {
@@ -27,10 +25,14 @@ export function isHowToStepArray(value: any): value is HowToStepType {
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function isHowToSection(value: any): value is HowToSectionType {
+	console.log(
+		"\n\n---------isHowToSection(value)----------------------------\n\n",
+		value,
+	);
 	return (
 		value &&
-		value["@type"] === "HowToSection" &&
 		typeof value.name === "string" &&
+		value["@type"] === "HowToSection" &&
 		Array.isArray(value.itemListElement) &&
 		value.itemListElement.every(isHowToStep)
 	);
