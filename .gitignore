@@ -87,3 +87,4 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 images/
+src_files/

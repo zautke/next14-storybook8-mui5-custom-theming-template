@@ -140,7 +140,7 @@ export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
 
 export function parseRecipe(htmlContent: string): RecipeSchema {
 	const $ = cheerio.load(htmlContent);
-	let recipeSchema: RecipeSchema | null = null;
+	let recipeSchema: RecipeSchema;
 
 	const isKitchn = (): FullJsonValue | null => {
 		const nextData: string | null = $('script[id="__NEXT_DATA__"]').html();
@@ -149,15 +149,15 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 		const pattern = /"@type":"Recipe"/;
 
 		const pluckedNextData = deepJsonPluck(JSON.stringify(nextData), pattern);
-		console.log(
-			"\n\n---------------------------------INISKITCN: pluckedNextData----------------------------------------\n",
-			pluckedNextData,
-		);
+		//console.log(
+		//	"\n\n---------------------------------INISKITCN: pluckedNextData----------------------------------------\n",
+		//	pluckedNextData,
+		//);
 		const parsedNextData = <string>pluckedNextData;
-		console.log(
-			"\n\n---------------------------------INISKITCN: parsedNextData----------------------------------------\n",
-			parsedNextData,
-		);
+		//console.log(
+		//	"\n\n---------------------------------INISKITCN: parsedNextData----------------------------------------\n",
+		//	parsedNextData,
+		//);
 		let recipeSchemaOrgData: FullJsonArray | string;
 		// deepJsonPluck(
 		// 	parsedNextData,
@@ -176,67 +176,22 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 		return false;
 	};
 
-	if (isKitchn()) {
-		try {
-			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-			const item = JSON.parse(isKitchn() as any);
-			console.log(
-				"\n\n---------------------------------INISKITCN: it----------------------------------------\n",
-				item,
-			);
-			// const item = JSON.parse(isKitchn() as string);
-			recipeSchema = {
-				...defaultRecipeSchema,
-				name: item.name || "",
-				recipeIngredient: item.recipeIngredient
-					? (removeExtraSpaces(item.recipeIngredient) as string[])
-					: [],
-				...(item.recipeInstructions && {
-					recipeInstructions: parseRecipeInstructions(
-						item.recipeInstructions as FullJsonArray,
-					),
-				}),
-				author: item.author ? (item.author as Person).name : "",
-				description: item.description || "",
-				datePublished: item.datePublished || "",
-				image: item.image || [],
-				aggregateRating: item.aggregateRating
-					? {
-							"@type": "AggregateRating",
-							ratingValue: item.aggregateRating.ratingValue,
-							ratingCount: item.aggregateRating.ratingCount,
-						}
-					: undefined,
-				...(item.review && {
-					review: item.review.map((rev: Review) => ({
-						author: rev.author || "Unknown",
-						datePublished: rev.datePublished || "Unknown",
-						reviewBody: rev.reviewBody || "No review body",
-						reviewRating: rev.reviewRating
-							? rev.reviewRating.ratingValue
-							: "No rating",
-					})),
-				}),
-			};
-		} catch (e) {
-			console.error("Error parsing NEXT_DATA", (e as Error).message);
-		}
-	} else {
+	const jsonLdScriptElement =
+		[
+			$('script[type="application/ld+json"]')
+				.map((_, el) => $(el).html())
+				.filter((_, el) => el.toString().includes('"@type":"Recipe"'))
+				.toArray(),
+		][0][0] ||
+		$('script[class="yoast-schema-graph"]').html() ||
+		$(
+			'div[class="wprm-recipe-container"] > script[type="application/ld+json"]',
+		).html() ||
+		$('script[class="yoast-schema-graph"]').html() ||
+		$('script[type="application/ld+json"]').html();
+	if (jsonLdScriptElement) {
 		//console.log("in <script> parse");
 		// for JSON-LD structured data embedded in a <script> element
-		const jsonLdScriptElement =
-			[
-				$('script[type="application/ld+json"]')
-					.map((_, el) => $(el).html())
-					.filter((_, el) => el.toString().includes('"@type":"Recipe"'))
-					.toArray(),
-			][0][0] ||
-			$('script[class="yoast-schema-graph"]').html() ||
-			$(
-				'div[class="wprm-recipe-container"] > script[type="application/ld+json"]',
-			).html() ||
-			$('script[class="yoast-schema-graph"]').html() ||
-			$('script[type="application/ld+json"]').html();
 
 		const normalizeJsonData = (json: string): string =>
 			json.replace(/\n/gm, "").trim();
@@ -253,10 +208,10 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 				// );
 				// const parsedJsonData = JSON.parse(jsonLdScriptElement.data?.toString() ?? jsonLdScriptElement.toString())
 				const parsedJsonData = JSON.parse(normalizedJsonData);
-				console.log(
-					"\n\n--------------parsedJsonData----------------",
-					JSON.stringify(parsedJsonData, null, 2),
-				);
+				//console.log(
+				//	"\n\n--------------parsedJsonData----------------",
+				//	JSON.stringify(parsedJsonData, null, 2),
+				//);
 
 				const recipeSchemaOrgData = parsedJsonData["@graph"]
 					? parsedJsonData["@graph"]
@@ -318,6 +273,51 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 			} catch (e) {
 				console.error(`Error parsing JSON-LD: ${(e as Error).stack}`);
 			}
+		}
+	} else if (isKitchn()) {
+		try {
+			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+			const item = JSON.parse(isKitchn() as any);
+			//console.log(
+			//	"\n\n---------------------------------INISKITCN: it----------------------------------------\n",
+			//	item,
+			//);
+			// const item = JSON.parse(isKitchn() as string);
+			recipeSchema = {
+				...defaultRecipeSchema,
+				name: item.name || "",
+				recipeIngredient: item.recipeIngredient
+					? (removeExtraSpaces(item.recipeIngredient) as string[])
+					: [],
+				...(item.recipeInstructions && {
+					recipeInstructions: parseRecipeInstructions(
+						item.recipeInstructions as FullJsonArray,
+					),
+				}),
+				author: item.author ? (item.author as Person).name : "",
+				description: item.description || "",
+				datePublished: item.datePublished || "",
+				image: item.image || [],
+				aggregateRating: item.aggregateRating
+					? {
+							"@type": "AggregateRating",
+							ratingValue: item.aggregateRating.ratingValue,
+							ratingCount: item.aggregateRating.ratingCount,
+						}
+					: undefined,
+				...(item.review && {
+					review: item.review.map((rev: Review) => ({
+						author: rev.author || "Unknown",
+						datePublished: rev.datePublished || "Unknown",
+						reviewBody: rev.reviewBody || "No review body",
+						reviewRating: rev.reviewRating
+							? rev.reviewRating.ratingValue
+							: "No rating",
+					})),
+				}),
+			};
+		} catch (e) {
+			console.error("Error parsing NEXT_DATA", (e as Error).message);
 		}
 	}
 

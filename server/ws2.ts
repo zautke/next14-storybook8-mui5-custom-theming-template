@@ -10,7 +10,7 @@ dotenv.config();
 
 const PORT = process.env.WEBSOCKET_PORT
 	? Number.parseInt(process.env.WEBSOCKET_PORT, 10)
-	: 8700;
+	: 9000;
 const ws: WebSocketServer = new WebSocketServer({ port: PORT });
 
 ws.on("connection", (ws: WebSocket): void => {

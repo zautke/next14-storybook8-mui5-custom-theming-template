@@ -1,6 +1,6 @@
-import React, { type ReactNode } from "react";
+import React, { FC, type ReactNode } from "react";
 import Image from "next/image";
-import { fetchRecipe } from "@components/actions/recipeServer";
+//import { fetchRecipe } from "@components/actions/recipeServer";
 import { v4 as uuid } from "uuid";
 import { Recipe as sRecipe } from "schema-dts";
 import {
@@ -47,18 +47,22 @@ import { HowToSection, HowToStep } from "@util/recipeFormatter";
 // 	nutrition?: string;
 // };
 
+export type RecipeCardProps = {
+	recipe: RecipeSchema;
+};
+
 export type ParsedHowToSectionType = {
 	[key: string]: string[];
 };
 
-export default function RecipeCard(
-	_recip: RecipeSchema = sampleRecipe_pozole,
-): ReactNode {
-	//const recipe: RecipeSchema | null = await fetchRecipe(url);
+export const RecipeCard: FC<RecipeSchema> = (
+	recipe: RecipeSchema,
+): ReactNode => {
+	console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const isParsedHowToSection = (value: any): boolean => {
-		const retval = typeof value === "object";
+		const retval = typeof value === "object" && Object.keys(value).length === 1;
 		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
 		return retval;
 	};
@@ -70,7 +74,6 @@ export default function RecipeCard(
 		return retval;
 	};
 
-	const recipe = sampleRecipe_pozole;
 	// console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
 	return (
 		<div>
@@ -109,7 +112,7 @@ export default function RecipeCard(
 					)}
 					<div>
 						<h3>Ingredients:</h3>
-						<ul>
+						<ul key={`instructions`}>
 							{recipe.recipeIngredient &&
 								(recipe.recipeIngredient as RecipeIngredient[]).map(
 									(ingredient) => <li key={uuid()}>{ingredient}</li>,
@@ -121,10 +124,9 @@ export default function RecipeCard(
 						<h3>Instructions:</h3>
 						<ul key={`instructions-${recipe.name}`}>
 							{(recipe.recipeInstructions as FullJsonArray) &&
-								recipe.recipeInstructions.map((el) =>
+								recipe.recipeInstructions.map((el, index) =>
 									isParsedHowToSection(el) ? (
 										<>
-											{/*<div>JSON.stringify(isHowToSection(el))</div>*/}
 											<HowToSection
 												section={JSON.stringify(el as ParsedHowToSectionType)}
 												render={(section) => (
@@ -143,7 +145,7 @@ export default function RecipeCard(
 																	section as ParsedHowToSectionType,
 																)[0]
 															].map((step) => (
-																<li key={`li-${step as string}`}>
+																<li key={`li-instruction-${index}`}>
 																	<HowToStep
 																		key={step}
 																		step={step as string}
@@ -154,7 +156,11 @@ export default function RecipeCard(
 														</ul>
 													</>
 												)}
-												renderSectionSteps={(text) => <li>{text as string}</li>}
+												renderSectionSteps={(text) => (
+													<li key={`li-instruction-${index}`}>
+														{text as string}
+													</li>
+												)}
 											/>
 										</>
 									) : isParsedHowToStep(el) ? (
@@ -210,4 +216,4 @@ export default function RecipeCard(
 			)}
 		</div>
 	);
-}
+};

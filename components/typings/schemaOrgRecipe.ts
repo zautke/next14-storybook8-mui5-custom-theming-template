@@ -65,7 +65,7 @@ export type HowToStepType = AtProperties & {
 export type HowToSectionType = AtProperties & {
 	name?: string;
 	text?: string;
-	itemListElement: JsonArray<string> | HowToStepType[] | [] | undefined;
+	itemListElement: FullJsonArray | JsonArray<string> | HowToStepType[] | [];
 };
 
 export type HowToStepsType = HowToStepType[];

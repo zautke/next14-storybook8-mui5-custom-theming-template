@@ -8,8 +8,8 @@ import type { RecipeSchema } from "@typings/schemaOrgRecipe";
 
 dotenv.config();
 
-const PORT = process.env.WEBSOCKET_PORT
-	? Number.parseInt(process.env.WEBSOCKET_PORT, 10)
+const PORT = process.env.WEBSOCKET_CLIENT_PORT
+	? Number.parseInt(process.env.WEBSOCKET_CLIENT_PORT, 10)
 	: 8700;
 // const ws: WebSocketServer = new WebSocketServer({ port: PORT });
 
@@ -46,29 +46,28 @@ const PORT = process.env.WEBSOCKET_PORT
 // 	console.error("WebSocket error:", err);
 // });
 
-export async function fetchRecipe(url: string): Promise<RecipeSchema> {
+export async function recipeListener(): Promise<RecipeSchema> {
 	return new Promise((resolve, reject) => {
 		const ws = new WebSocket(`ws://localhost:${PORT}`);
 
-		ws.onopen = () => {
-			ws.send(url);
-		};
+		ws.on("open", function open() {
+			console.log("recipeListener WebSocket connection established");
+		});
 
-		ws.onmessage = (event) => {
-			try {
-				const recipeData: RecipeSchema = JSON.parse(event.data.toString());
-				resolve(recipeData);
-			} catch (error) {
-				reject(error);
-			}
-		};
+		ws.on("message", function incoming(event) {
+			console.log("Received parsed recipe:", event.data.toString());
+			const parsedRecipe = JSON.parse(data);
+			console.log("Parsed Recipe:", parsedRecipe);
+		});
 
-		ws.onerror = (error) => {
-			reject(error);
-		};
+		ws.on("error", function error(err) {
+			console.error("WebSocket error:", err);
+			reject();
+			ws.close();
+		});
 
-		ws.onclose = () => {
+		ws.on("close", function close() {
 			console.log("WebSocket connection closed");
-		};
+		});
 	});
 }
