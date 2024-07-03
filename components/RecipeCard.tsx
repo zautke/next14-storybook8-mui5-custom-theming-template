@@ -1,8 +1,8 @@
-import React, { FC, type ReactNode } from "react";
-import Image from "next/image";
+import React, { FC, useState, type ReactNode } from 'react'
+import Image from 'next/image'
 //import { fetchRecipe } from "@components/actions/recipeServer";
-import { v4 as uuid } from "uuid";
-import { Recipe as sRecipe } from "schema-dts";
+import { v4 as uuid } from 'uuid'
+import { Recipe as sRecipe } from 'schema-dts'
 import {
 	type Person,
 	type RecipeSchema,
@@ -12,17 +12,17 @@ import {
 	renderRecipeInstructions,
 	HowToStepType,
 	HowToSectionType,
-} from "@typings/schemaOrgRecipe";
+} from '@typings/schemaOrgRecipe'
 import {
 	defaultRecipeSchema,
 	sampleRecipe_charredSalsaVerde,
 	sampleRecipe_pozole,
 	sampleRecipe_grilledcorn,
-} from "@constants/defaultRecipe";
-import { isHowToSection, isHowToStep, parseRecipe } from "@util/recipeParser";
-import { FullJsonArray, FullJsonValue } from "./typings/util";
-import { Rating, Typography } from "@mui/material";
-import { HowToSection, HowToStep } from "@util/recipeFormatter";
+} from '@constants/defaultRecipe'
+import { isHowToSection, isHowToStep, parseRecipe } from '@util/recipeParser'
+import { FullJsonArray, FullJsonValue } from './typings/util'
+import { Rating, Typography } from '@mui/material'
+import { HowToSection, HowToStep } from '@util/recipeFormatter'
 //import { FullJsonArray } from "@typings/util";
 
 // type Recipe = {
@@ -48,31 +48,33 @@ import { HowToSection, HowToStep } from "@util/recipeFormatter";
 // };
 
 export type RecipeCardProps = {
-	recipe: RecipeSchema;
-};
+	recipe: RecipeSchema
+}
 
 export type ParsedHowToSectionType = {
-	[key: string]: string[];
-};
+	[key: string]: string[]
+}
 
 export const RecipeCard: FC<RecipeSchema> = (
 	recipe: RecipeSchema,
 ): ReactNode => {
-	console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
+	//const [importedRecipe, setimportedRecipe] =
+	//	useState<RecipeSchema>(defaultRecipeSchema)
+	//console.log(`\n\nRecipeCard-->recipe: ${JSON.stringify(recipe, null, 2)}\n\n`)
 
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const isParsedHowToSection = (value: any): boolean => {
-		const retval = typeof value === "object" && Object.keys(value).length === 1;
-		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
-		return retval;
-	};
+	const isParsedHowToSection = (value: unknown): value is HowToSectionType => {
+		const retval =
+			typeof value === 'object' &&
+			Object.keys(value as HowToSectionType).length === 1
+		//console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
+		return retval
+	}
 
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const isParsedHowToStep = (value: any): boolean => {
-		const retval = typeof value === "string";
-		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
-		return retval;
-	};
+	const isParsedHowToStep = (value: unknown): value is HowToStepType => {
+		const retval = typeof value === 'string'
+		//console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
+		return retval
+	}
 
 	// console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
 	return (
@@ -83,12 +85,12 @@ export const RecipeCard: FC<RecipeSchema> = (
 					<p>{recipe.description}</p>
 					{recipe.image && Array.isArray(recipe.image) && (
 						<div>
-							{(recipe.image as ImageObject[]).map((img) => (
+							{(recipe.image as ImageObject[]).map(img => (
 								<Image
 									key={uuid()}
 									width={(img.width as number) || 200}
 									height={(img.height as number) || 200}
-									src={(img.url as string) || "https://place-hold.it/120"}
+									src={(img.url as string) || 'https://place-hold.it/120'}
 									alt={recipe.name}
 								/>
 							))}
@@ -104,7 +106,7 @@ export const RecipeCard: FC<RecipeSchema> = (
 						<div>
 							<h3>Tips:</h3>
 							<ul>
-								{recipe.howToTip.map((tip) => (
+								{recipe.howToTip.map(tip => (
 									<li key={uuid()}>{tip.toString()}</li>
 								))}
 							</ul>
@@ -115,7 +117,7 @@ export const RecipeCard: FC<RecipeSchema> = (
 						<ul key={`instructions`}>
 							{recipe.recipeIngredient &&
 								(recipe.recipeIngredient as RecipeIngredient[]).map(
-									(ingredient) => <li key={uuid()}>{ingredient}</li>,
+									ingredient => <li key={uuid()}>{ingredient}</li>,
 								)}
 						</ul>
 					</div>
@@ -128,8 +130,10 @@ export const RecipeCard: FC<RecipeSchema> = (
 									isParsedHowToSection(el) ? (
 										<>
 											<HowToSection
-												section={JSON.stringify(el as ParsedHowToSectionType)}
-												render={(section) => (
+												section={JSON.stringify(
+													el as unknown as ParsedHowToSectionType,
+												)}
+												render={section => (
 													<>
 														<h5>
 															{
@@ -144,19 +148,19 @@ export const RecipeCard: FC<RecipeSchema> = (
 																Object.keys(
 																	section as ParsedHowToSectionType,
 																)[0]
-															].map((step) => (
+															].map(step => (
 																<li key={`li-instruction-${index}`}>
 																	<HowToStep
 																		key={step}
 																		step={step as string}
-																		render={(text) => text as string}
+																		render={text => text as string}
 																	/>
 																</li>
 															))}
 														</ul>
 													</>
 												)}
-												renderSectionSteps={(text) => (
+												renderSectionSteps={text => (
 													<li key={`li-instruction-${index}`}>
 														{text as string}
 													</li>
@@ -165,8 +169,8 @@ export const RecipeCard: FC<RecipeSchema> = (
 										</>
 									) : isParsedHowToStep(el) ? (
 										<HowToStep
-											step={el as string}
-											render={(text) => <li>{text as string}</li>}
+											step={el as unknown as string}
+											render={text => <li>{text as string}</li>}
 										/>
 									) : null,
 								)}
@@ -176,7 +180,7 @@ export const RecipeCard: FC<RecipeSchema> = (
 						<p>
 							<span>
 								<Rating
-									name="half-rating-read"
+									name='half-rating-read'
 									value={recipe.aggregateRating.ratingValue as number}
 									defaultValue={0}
 									precision={0.1}
@@ -197,10 +201,10 @@ export const RecipeCard: FC<RecipeSchema> = (
 							</div>
 						)}*/}
 					{recipe.recipeCategory && (
-						<p>Categories: {recipe.recipeCategory.join(", ")}</p>
+						<p>Categories: {recipe.recipeCategory.join(', ')}</p>
 					)}
 					{recipe.recipeCuisine && (
-						<p>Cuisines: {recipe.recipeCuisine.join(", ")}</p>
+						<p>Cuisines: {recipe.recipeCuisine.join(', ')}</p>
 					)}
 					{recipe.keywords && (
 						<p>Keywords: ((recipe.keywords as string[]).join(", "))</p>
@@ -215,5 +219,5 @@ export const RecipeCard: FC<RecipeSchema> = (
 				<p>Loading recipe...</p>
 			)}
 		</div>
-	);
-};
+	)
+}

@@ -1,4 +1,6 @@
 {
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Default",
 	"compilerOptions": {
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
@@ -7,7 +9,7 @@
 		"strict": true,
 		"esModuleInterop": true,
 		"module": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
 		"importHelpers": true,
 		"jsx": "preserve",
@@ -22,7 +24,8 @@
 		"paths": {
 			"@components/*": ["./components/*"],
 			"@constants/*": ["./constants/*"],
-			"@helpers": ["./util/helpers"],
+			"@helpers/": ["./util/helpers"],
+			"@lib/*": ["./lib/*"],
 			"@server/*": ["./server/*"],
 			"@typings/*": ["./components/typings/*"],
 			"@util/*": ["./util/*"],
@@ -45,10 +48,10 @@
 		"__tests__/**/*.ts",
 		"customTheme/mui5.d.ts",
 		"customTheme/z-depth.js",
-		"@typings/**/*.ts"
-		//"@mui/material/styles/index.d.ts"
+		"@typings/**/*.ts",
+		"ws-server.ts.keep" //"@mui/material/styles/index.d.ts"
 	],
-	"exclude": ["node_modules", "**/tmp/**", "public", "assets"]
+	"exclude": ["node_modules", "**/tmp/**", "**/*.ignore", "public", "assets"]
 	// "types": [
 	//   "app/**/*.d.ts",
 	// ]

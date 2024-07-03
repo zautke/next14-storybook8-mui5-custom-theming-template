@@ -1,37 +1,43 @@
-import { timestampNow } from "@constants/date";
+import { timestampNow } from '@constants/date'
+import type {
+	ClientToServerEvents,
+	ServerToClientEvents,
+} from '@typings/interfaces'
+import type { ImExSocket, WsMessage } from '@typings/interfaces/wsSocket'
+import type { DefaultEventsMap } from 'node_modules/socket.io/dist/typed-events'
+import type { Socket } from 'socket.io'
 
-export const log = (msg: string, status?: string | null): void => {
-	const prefix: string = "SERVER";
+export const log = (
+	msg: string,
+	sender: string,
+	status?: string | null,
+): void =>
 	console.log(
-		`[${timestampNow()}]${status ? " [{status?.toUpperCase()}]" : ""} ==-->> ${prefix} ${msg}`,
-	);
-};
+		`[${timestampNow()}]${status ? ' [' + status?.toUpperCase() + ']' : ''} ==-->> ${sender} ${msg}`,
+	)
 
-export type WebSocketPayload = {
-	type:
-		| "message"
-		| "url"
-		| "recipe"
-		| "image"
-		| "error"
-		| "success"
-		| "warning"
-		| "info"
-		| "ack"
-		| "sent";
-	payload: string;
-};
+export type ServerSocket = Socket<
+	ClientToServerEvents,
+	ServerToClientEvents,
+	DefaultEventsMap,
+	any
+>
 
 export const sendWsMsg = (
 	msg: string,
-	ws: WebSocket,
+	ws: ImExSocket | ServerSocket,
+	sender: string,
 	customLogMsg?: string,
-	payload?: WebSocketPayload,
+	payload?: any,
 ): void => {
-	log(customLogMsg || msg);
-	const payloadStr = payload
-		? { type: "recipe", payload }
-		: { type: "message", payload: msg };
-	ws.send(JSON.stringify(payloadStr));
-	log(`sendWsMsg SERVER: ${JSON.stringify(payloadStr)}`);
-};
+	log(customLogMsg || msg, sender)
+	const payloadStr: WsMessage = payload
+		? { type: 'recipe', payload }
+		: { type: 'message', payload: msg }
+	ws?.send(payloadStr)
+	log(
+		`sendWsMsg ${sender}: ${JSON.stringify(payloadStr, null, 2)}`,
+		sender,
+		'info',
+	)
+}

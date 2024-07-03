@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
 	"organizeImports": { "enabled": true },
 	"linter": {
 		"enabled": true,
@@ -39,7 +39,11 @@
 				"useValidForDirection": "error",
 				"useYield": "error"
 			},
-			"style": { "noNamespace": "error", "useAsConstAssertion": "error" },
+			"style": {
+				"noNamespace": "error",
+				"noUnusedTemplateLiteral": "warn",
+				"useAsConstAssertion": "error"
+			},
 			"suspicious": {
 				"noAsyncPromiseExecutor": "error",
 				"noCatchAssign": "error",
@@ -52,7 +56,7 @@
 				"noDuplicateObjectKeys": "error",
 				"noDuplicateParameters": "error",
 				"noEmptyBlockStatements": "error",
-				"noExplicitAny": "error",
+				"noExplicitAny": "warn",
 				"noExtraNonNullAssertion": "error",
 				"noFallthroughSwitchClause": "error",
 				"noFunctionAssign": "error",
@@ -71,13 +75,27 @@
 		}
 	},
 	"overrides": [
-		{ "include": ["*.ts", "*.tsx"] },
+		{
+			"include": ["*.ts", "*.tsx"],
+			"javascript": {
+				"formatter": {
+					"arrowParentheses": "asNeeded",
+					"bracketSameLine": false,
+					"bracketSpacing": true,
+					"quoteStyle": "single",
+					"jsxQuoteStyle": "single",
+					"quoteProperties": "asNeeded",
+					"semicolons": "asNeeded",
+					"trailingCommas": "all"
+				}
+			}
+		},
 		{
 			"include": [
 				"*.stories.@(ts|tsx|js|jsx|mjs|cjs)",
 				"*.story.@(ts|tsx|js|jsx|mjs|cjs)"
 			],
-			"linter": { "rules": { "correctness": { "useHookAtTopLevel": "off" } } }
+			"linter": { "rules": { "correctness": { "useHookAtTopLevel": "warn" } } }
 		},
 		{
 			"include": [".storybook/main.@(js|cjs|mjs|ts)"],
@@ -101,7 +119,8 @@
 					"style": {
 						"noArguments": "error",
 						"noVar": "error",
-						"useConst": "error"
+						"useConst": "error",
+						"noUnusedTemplateLiteral": "info"
 					},
 					"suspicious": {
 						"noDuplicateClassMembers": "off",
@@ -116,5 +135,36 @@
 				}
 			}
 		}
-	]
+	],
+
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": true,
+		"ignore": [],
+		"attributePosition": "auto",
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 80
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "asNeeded",
+			"bracketSameLine": false,
+			"bracketSpacing": true,
+			"quoteStyle": "single",
+			"jsxQuoteStyle": "single",
+			"quoteProperties": "asNeeded",
+			"semicolons": "asNeeded",
+			"trailingCommas": "all"
+		}
+	},
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
+		},
+		"parser": {
+			"allowComments": true
+		}
+	}
 }

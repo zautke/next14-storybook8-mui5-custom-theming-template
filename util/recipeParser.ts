@@ -1,41 +1,42 @@
-import cheerio from "cheerio";
+import cheerio from 'cheerio'
 
+import { defaultRecipeSchema } from '@constants/defaultRecipe'
 import type {
 	HowToSectionType,
 	HowToStepType,
 	Person,
 	RecipeSchema,
 	Review,
-} from "@typings/schemaOrgRecipe";
-import type { FullJsonArray, FullJsonValue } from "@typings/util";
-import { deepJsonPluck, removeExtraSpaces } from "@helpers";
-import { defaultRecipeSchema } from "@constants/defaultRecipe";
+	ReviewRating,
+} from '@typings/schemaOrgRecipe'
+import type { FullJsonArray, FullJsonValue } from '@typings/util'
+import { deepJsonPluck, removeExtraSpaces } from '../util/helpers'
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function isHowToStep(value: any): value is HowToStepType {
 	return (
-		value && value["@type"] === "HowToStep" && typeof value.text === "string"
-	);
+		value && value['@type'] === 'HowToStep' && typeof value.text === 'string'
+	)
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function isHowToStepArray(value: any): value is HowToStepType {
-	return value && Array.isArray(value) && value.every(isHowToStep);
+	return value && Array.isArray(value) && value.every(isHowToStep)
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function isHowToSection(value: any): value is HowToSectionType {
 	console.log(
-		"\n\n---------isHowToSection(value)----------------------------\n\n",
+		'\n\n---------isHowToSection(value)----------------------------\n\n',
 		value,
-	);
+	)
 	return (
 		value &&
-		typeof value.name === "string" &&
-		value["@type"] === "HowToSection" &&
+		typeof value.name === 'string' &&
+		value['@type'] === 'HowToSection' &&
 		Array.isArray(value.itemListElement) &&
 		value.itemListElement.every(isHowToStep)
-	);
+	)
 }
 
 //export const RecipeInstructions: FC<RenderFunction> = (
@@ -72,19 +73,19 @@ export function isHowToSection(value: any): value is HowToSectionType {
 //}
 
 export function parseHowToStep(steps: FullJsonArray): FullJsonArray {
-	const howToStepsText: FullJsonArray = [];
+	const howToStepsText: FullJsonArray = []
 
 	for (const step of steps) {
-		if (isHowToStep(step)) howToStepsText.push(step.text);
+		if (isHowToStep(step)) howToStepsText.push(step.text)
 	}
 
-	return howToStepsText;
+	return howToStepsText
 }
 
 export function parseRecipeInstruction(
 	json: FullJsonValue,
 ): string | undefined {
-	let recipeInstruction: string = "<empty>";
+	let recipeInstruction: string = '<empty>'
 
 	if (json) {
 		if (isHowToSection(json)) {
@@ -92,26 +93,23 @@ export function parseRecipeInstruction(
 			//	"\n\n---------json.name----------------------------\n\n",
 			//	json.name,
 			//);
-			recipeInstruction = `${json.name}:`;
-			parseHowToStep(json.itemListElement);
+			recipeInstruction = `${json.name}:`
+			parseHowToStep(json.itemListElement)
 		} else if (isHowToStep(json)) {
-			recipeInstruction = json.text;
+			recipeInstruction = json.text
 		} else {
-			console.log(
-				"No recipe instruction found:",
-				JSON.stringify(json, null, 2),
-			);
+			console.log('No recipe instruction found:', JSON.stringify(json, null, 2))
 		}
 		// console.log(
 		// 	"\n\n---------recipeInstructions.keys()----------------------------\n\n",
 		// 	JSON.stringify(Object.keys(recipeInstructions), null, 2),
 		// );
 	}
-	return recipeInstruction;
+	return recipeInstruction
 }
 
 export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
-	const recipeInstructions: FullJsonArray = [];
+	const recipeInstructions: FullJsonArray = []
 
 	if (json) {
 		for (const section of json) {
@@ -122,59 +120,59 @@ export function parseRecipeInstructions(json: FullJsonArray): FullJsonArray {
 				//);
 				recipeInstructions.push({
 					[section.name as string]: parseHowToStep(section.itemListElement),
-				});
+				})
 			} else if (isHowToStep(section)) {
-				recipeInstructions.push(section.text);
+				recipeInstructions.push(section.text)
 			}
 		}
 	} else {
-		console.log("No recipe instructions found:", JSON.stringify(json, null, 2));
+		console.log('No recipe instructions found:', JSON.stringify(json, null, 2))
 	}
 	// console.log(
 	// 	"\n\n---------recipeInstructions.keys()----------------------------\n\n",
 	// 	JSON.stringify(Object.keys(recipeInstructions), null, 2),
 	// );
 
-	return recipeInstructions;
+	return recipeInstructions
 }
 
 export function parseRecipe(htmlContent: string): RecipeSchema {
-	const $ = cheerio.load(htmlContent);
-	let recipeSchema: RecipeSchema;
+	const $ = cheerio.load(htmlContent)
+	let recipeSchema: RecipeSchema | null = null
 
 	const isKitchn = (): FullJsonValue | null => {
-		const nextData: string | null = $('script[id="__NEXT_DATA__"]').html();
-		if (!nextData) return false;
+		const nextData: string | null = $('script[id="__NEXT_DATA__"]').html()
+		if (!nextData) return false
 
-		const pattern = /"@type":"Recipe"/;
+		const pattern = /"@type":"Recipe"/
 
-		const pluckedNextData = deepJsonPluck(JSON.stringify(nextData), pattern);
+		const pluckedNextData = deepJsonPluck(JSON.stringify(nextData), pattern)
 		//console.log(
 		//	"\n\n---------------------------------INISKITCN: pluckedNextData----------------------------------------\n",
 		//	pluckedNextData,
 		//);
-		const parsedNextData = <string>pluckedNextData;
+		const parsedNextData = <string>pluckedNextData
 		//console.log(
 		//	"\n\n---------------------------------INISKITCN: parsedNextData----------------------------------------\n",
 		//	parsedNextData,
 		//);
-		let recipeSchemaOrgData: FullJsonArray | string;
+		let recipeSchemaOrgData: FullJsonArray | string
 		// deepJsonPluck(
 		// 	parsedNextData,
 		// 	pattern,
 		// );
-		recipeSchemaOrgData = JSON.stringify(parsedNextData);
+		recipeSchemaOrgData = JSON.stringify(parsedNextData)
 
 		console.log(
-			"\n\n---------------------------------INISKITCN: recipeSchemaOrgData----------------------------------------\n",
+			'\n\n---------------------------------INISKITCN: recipeSchemaOrgData----------------------------------------\n',
 			recipeSchemaOrgData,
-		);
+		)
 		if (recipeSchemaOrgData) {
-			return recipeSchemaOrgData;
+			return recipeSchemaOrgData
 		}
 
-		return false;
-	};
+		return false
+	}
 
 	const jsonLdScriptElement =
 		[
@@ -188,39 +186,39 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 			'div[class="wprm-recipe-container"] > script[type="application/ld+json"]',
 		).html() ||
 		$('script[class="yoast-schema-graph"]').html() ||
-		$('script[type="application/ld+json"]').html();
+		$('script[type="application/ld+json"]').html()
 	if (jsonLdScriptElement) {
 		//console.log("in <script> parse");
 		// for JSON-LD structured data embedded in a <script> element
 
 		const normalizeJsonData = (json: string): string =>
-			json.replace(/\n/gm, "").trim();
+			json.replace(/\n/gm, '').trim()
 
 		//console.log("\n\n---------jsonLdScriptElement----------------------------\n\n", JSON.stringify(jsonLdScriptElement, null, 2))
 		if (jsonLdScriptElement) {
 			try {
-				const scriptString = jsonLdScriptElement.toString();
+				const scriptString = jsonLdScriptElement.toString()
 
-				const normalizedJsonData = normalizeJsonData(scriptString);
+				const normalizedJsonData = normalizeJsonData(scriptString)
 				// console.log(
 				// 	"\n\n---------jsonLdScriptElement----------------------------\n\n",
 				// 	normalizedJsonData,
 				// );
 				// const parsedJsonData = JSON.parse(jsonLdScriptElement.data?.toString() ?? jsonLdScriptElement.toString())
-				const parsedJsonData = JSON.parse(normalizedJsonData);
+				const parsedJsonData = JSON.parse(normalizedJsonData)
 				//console.log(
 				//	"\n\n--------------parsedJsonData----------------",
 				//	JSON.stringify(parsedJsonData, null, 2),
 				//);
 
-				const recipeSchemaOrgData = parsedJsonData["@graph"]
-					? parsedJsonData["@graph"]
+				const recipeSchemaOrgData = parsedJsonData['@graph']
+					? parsedJsonData['@graph']
 					: parsedJsonData.length
 						? parsedJsonData
-						: [parsedJsonData];
+						: [parsedJsonData]
 
 				for (const item of recipeSchemaOrgData) {
-					if ((item["@type"] as string).includes("Recipe")) {
+					if ((item['@type'] as string).includes('Recipe')) {
 						recipeSchema = {
 							...defaultRecipeSchema,
 							...(item.name && { name: item.name }),
@@ -251,33 +249,31 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 							}),
 							...(item.aggregateRating && {
 								aggregateRating: {
-									"@type": "AggregateRating",
+									'@type': 'AggregateRating',
 									ratingValue: item.aggregateRating.ratingValue,
 									ratingCount: item.aggregateRating.ratingCount,
 								},
 							}),
 							...(item.review && {
 								review: item.review.map((rev: Review) => ({
-									author: rev.author || "Unknown",
-									datePublished: rev.datePublished || "Unknown",
-									reviewBody: rev.reviewBody || "No review body",
-									reviewRating: rev.reviewRating
-										? rev.reviewRating.ratingValue
-										: "No rating",
+									author: rev.author || 'Unknown',
+									datePublished: rev.datePublished || 'Unknown',
+									reviewBody: rev.reviewBody || 'No review body',
+									reviewRating: rev.reviewRating || 'No rating',
 								})),
 							}),
-						};
-						break;
+						}
+						break
 					}
 				}
 			} catch (e) {
-				console.error(`Error parsing JSON-LD: ${(e as Error).stack}`);
+				console.error(`Error parsing JSON-LD: ${(e as Error).stack}`)
 			}
 		}
 	} else if (isKitchn()) {
 		try {
 			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-			const item = JSON.parse(isKitchn() as any);
+			const item = JSON.parse(isKitchn() as any)
 			//console.log(
 			//	"\n\n---------------------------------INISKITCN: it----------------------------------------\n",
 			//	item,
@@ -285,7 +281,7 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 			// const item = JSON.parse(isKitchn() as string);
 			recipeSchema = {
 				...defaultRecipeSchema,
-				name: item.name || "",
+				name: item.name || '',
 				recipeIngredient: item.recipeIngredient
 					? (removeExtraSpaces(item.recipeIngredient) as string[])
 					: [],
@@ -294,36 +290,34 @@ export function parseRecipe(htmlContent: string): RecipeSchema {
 						item.recipeInstructions as FullJsonArray,
 					),
 				}),
-				author: item.author ? (item.author as Person).name : "",
-				description: item.description || "",
-				datePublished: item.datePublished || "",
+				author: item.author ? (item.author as Person).name : '',
+				description: item.description || '',
+				datePublished: item.datePublished || '',
 				image: item.image || [],
 				aggregateRating: item.aggregateRating
 					? {
-							"@type": "AggregateRating",
+							'@type': 'AggregateRating',
 							ratingValue: item.aggregateRating.ratingValue,
 							ratingCount: item.aggregateRating.ratingCount,
 						}
 					: undefined,
 				...(item.review && {
 					review: item.review.map((rev: Review) => ({
-						author: rev.author || "Unknown",
-						datePublished: rev.datePublished || "Unknown",
-						reviewBody: rev.reviewBody || "No review body",
-						reviewRating: rev.reviewRating
-							? rev.reviewRating.ratingValue
-							: "No rating",
+						author: rev.author || 'Unknown',
+						datePublished: rev.datePublished || 'Unknown',
+						reviewBody: rev.reviewBody || 'No review body',
+						reviewRating: rev.reviewRating || 'No rating',
 					})),
 				}),
-			};
+			}
 		} catch (e) {
-			console.error("Error parsing NEXT_DATA", (e as Error).message);
+			console.error('Error parsing NEXT_DATA', (e as Error).message)
 		}
 	}
 
 	// console.log(`\n\nrecipeSchema: ${recipeSchema}\n\n`);
 
-	return recipeSchema ?? defaultRecipeSchema;
+	return recipeSchema ?? defaultRecipeSchema
 }
 
 //   // Attempt to extract Microdata
