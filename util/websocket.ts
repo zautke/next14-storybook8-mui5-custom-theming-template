@@ -1,4 +1,5 @@
 import { timestampNow } from '@constants/date'
+import { WsEvents } from '@constants/events'
 import type {
 	ClientToServerEvents,
 	ServerToClientEvents,
@@ -35,6 +36,25 @@ export const sendWsMsg = (
 		? { type: 'recipe', payload }
 		: { type: 'message', payload: msg }
 	ws?.send(payloadStr)
+	log(
+		`sendWsMsg ${sender}: ${JSON.stringify(payloadStr, null, 2)}`,
+		sender,
+		'info',
+	)
+}
+
+export const emitWsMsg = (
+	evt: WsEvents,
+	ws: ServerSocket,
+	sender: string,
+	customLogMsg?: string,
+	payload?: any,
+): void => {
+	log(customLogMsg || evt, sender)
+	const payloadStr: any = payload
+		? { type: 'recipe', payload }
+		: { type: 'message', payload: evt }
+	ws?.emit(payloadStr)
 	log(
 		`sendWsMsg ${sender}: ${JSON.stringify(payloadStr, null, 2)}`,
 		sender,
