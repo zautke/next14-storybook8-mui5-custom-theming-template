@@ -1,34 +1,34 @@
 javascript: (() => {
-	const ws = new WebSocket("ws://localhost:9000");
+	const ws = new WebSocket('http://localhost:9000')
 	ws.onopen = () => {
-		const url = window.location.href;
+		const url = window.location.href
 		ws.send(
 			JSON.stringify({
-				type: "url",
+				type: 'url',
 				payload: url,
 			}),
-		);
-	};
-	ws.onmessage = (event) => {
-		const m = event.data;
-		console.log(m);
-		const msg = JSON.parse(m);
-		console.log(msg);
+		)
+	}
+	ws.onmessage = event => {
+		const m = event.data
+		console.log(m)
+		const msg = JSON.parse(m)
+		console.log(msg)
 
-		if (msg.type === "message") {
-			if (msg.payload === "URL_RECEIVED") {
-				console.log("URL sent to server successfully!");
+		if (msg.type === 'message') {
+			if (msg.payload === 'URL_RECEIVED') {
+				console.log('URL sent to server successfully!')
 			} else {
-				console.log(msg.payload);
+				console.log(msg.payload)
 			}
 		}
-	};
+	}
 
 	ws.onclose = () => {
-		console.log("Connection closed!");
-	};
+		console.log('Connection closed!')
+	}
 
-	ws.onerror = (error) => {
-		console.log(error);
-	};
-})();
+	ws.onerror = error => {
+		console.log(error)
+	}
+})()

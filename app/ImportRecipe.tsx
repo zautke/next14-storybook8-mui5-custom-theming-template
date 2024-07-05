@@ -17,7 +17,7 @@ import type { WsMessage } from '@typings/interfaces/wsSocket'
 import type { RecipeSchema } from '@typings/schemaOrgRecipe'
 import { log, sendWsMsg } from '@util/websocket'
 
-export const dynamic = 'force-dynamic'
+//export const dynamic = 'force-dynamic'
 
 //ws.on("open", function open() {
 //sendWsMsg(
@@ -68,18 +68,15 @@ const ImportRecipe: FC<RecipeCardProps> = (props: RecipeCardProps) => {
 
 	const { client } = useClient()
 
-	console.log('ImportRecipe.tsx: client', client)
-
 	let recipePayload: WsMessage | string = ''
 	let importedRecipe: RecipeSchema = defaultRecipeSchema
 
 	client?.on(WsEvents.CONNECT, () => {
-		console.log('WebSocket connection opened.')
 		sendWsMsg(WsEvents.CLIENT_CONNECTION_OPENED, client, SENDER)
 		sendWsMsg(WsEvents.READY_TO_RECEIVE, client, SENDER)
 	})
 
-	client?.on(WsEvents.MESSAGE, message => {
+	client?.on(WsEvents.MESSAGE_RESPONSE, message => {
 		const msg = JSON.parse(message.toString())
 
 		log(`Incoming message: ${JSON.stringify(msg, null, 2)}`, SENDER, 'info')
@@ -124,7 +121,7 @@ const ImportRecipe: FC<RecipeCardProps> = (props: RecipeCardProps) => {
 	})
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
-		client?.on(WsEvents.MESSAGE, message => {
+		client?.on(WsEvents.MESSAGE_RESPONSE, message => {
 			const msg = JSON.parse(message.toString())
 
 			log(`Incoming message: ${JSON.stringify(msg, null, 2)}`, SENDER, 'info')
@@ -164,15 +161,6 @@ const ImportRecipe: FC<RecipeCardProps> = (props: RecipeCardProps) => {
 			client?.close()
 		}
 	}, [client])
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	useEffect(() => {
-		if (client) {
-			console.log('READY_TO_RECEIVE useEffect.')
-			sendWsMsg(WsEvents.READY_TO_RECEIVE, client, SENDER)
-		}
-	}, [])
-
 	return (
 		<ThemeRegistry>
 			<RecipeCard {...importedRecipe} {...props} />

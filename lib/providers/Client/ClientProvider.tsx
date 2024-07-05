@@ -33,7 +33,7 @@ export const ClientContextProvider = ({ children }: PropsWithChildren) => {
 
 	useEffect(() => {
 		const client: Socket<ServerToClientEvents, ClientToServerEvents> = io(
-			process.env.WEB_SOCKET_URL!,
+			`ws://${process.env.WEB_SOCKET_URL!}`,
 			{
 				transports: ['websocket'],
 			},
