@@ -7,11 +7,13 @@ const bundleAnalyzer = withBundleAnalyzer({
 
 const nextConfig = {
 	swcMinify: true,
-	reactStrictMode: true,
-	experimental: {
-		typedRoutes: true,
-	},
+	experimental: {},
+	output: "standalone",
 	images: {
+		imageSizes: [16, 32, 48, 64, 96, 128, 256],
+		domains: ["images.unsplash.com"],
+		minimumCacheTTL: 3600,
+		formats: ["image/webp"],
 		remotePatterns: [
 			{
 				protocol: "https",
