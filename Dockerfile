@@ -33,8 +33,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 USER node
 
 # Copy the rest of the source files into the image.
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY /app/.next/standalone ./
+COPY /app/.next/static ./.next/static
 
 # Expose the port that the application listens on.
 EXPOSE 3000
