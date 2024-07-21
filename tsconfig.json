@@ -29,7 +29,8 @@
 			"@server/*": ["./server/*"],
 			"@typings/*": ["./components/typings/*"],
 			"@util/*": ["./util/*"],
-			"@theme/*": ["./customTheme/*"]
+			"@theme/*": ["./customTheme/*"],
+			"@/*": ["./*"]
 		},
 		"typeRoots": ["components/types"],
 		"noEmit": true,
