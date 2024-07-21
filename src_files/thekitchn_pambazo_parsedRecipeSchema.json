@@ -1,0 +1,179 @@
+{
+	"@context": "https://schema.org",
+	"@type": "Recipe",
+	"headline": "Pambazos (Mexican Chorizo and Potato Sandwiches)",
+	"url": "https://www.thekitchn.com/pambazo-recipe-23663132",
+	"description": "Feast on these spicy fried sandwiches loaded with Mexican chorizo, tender potatoes, and a refreshing cabbage slaw.",
+	"brand": {
+		"@type": "Thing",
+		"name": "The Kitchn"
+	},
+	"nutrition": {
+		"@type": "NutritionInformation",
+		"calories": "704 cal",
+		"carbohydrateContent": "61.8 g",
+		"cholesterolContent": "0 mg",
+		"fiberContent": "8.5 g",
+		"proteinContent": "25.8 g",
+		"saturatedFatContent": "14.2 g",
+		"sodiumContent": "1283.3 mg",
+		"sugarContent": "5.1 g",
+		"fatContent": "40.8 g",
+		"servingSize": "Serves 5",
+		"unsaturatedFatContent": "0.0 g"
+	},
+	"recipeCategory": ["Main dish", "Sandwich", "Lunch"],
+	"recipeCuisine": ["Latin america", "Mexican"],
+	"recipeIngredient": [
+		"10  dried guajillo chiles",
+		"4  dried chiles de arbol",
+		"3 cups cold water",
+		"1 large clove garlic",
+		"1 teaspoon kosher salt",
+		"1/2 teaspoon ground cinnamon, preferably Mexican or Ceylon",
+		"1/2 teaspoon ground cumin",
+		"1 pound Yukon gold potatoes (about 3 medium)",
+		"1 pound raw Mexican chorizo, casings removed if needed",
+		"1/4 cup water",
+		"1/8 to 1/4  medium green cabbage (about 7 ounces)",
+		"1  ripe firm avocado",
+		"1  medium jalapeño",
+		"2 1/2 ounces cotja cheese",
+		"2  medium limes",
+		"5  kaiser or telera rolls",
+		"1/2 cup neutral oil, such as vegetable or canola",
+		"1/2 cup crema mexicana or Mexican table cream"
+	],
+	"recipeInstructions": [
+		{
+			"@type": "HowToStep",
+			"name": "Step 1: Make the sauce:",
+			"text": "Trim the stems from 10 dried guajillo chiles and 4 dried chiles de arbol. Heat a comal or cast-iron skillet over low heat. Add the chiles and toast, turning them every 45 to 60 seconds, until fragrant and darkening in spots, about 3 minutes total. Transfer the chiles to a small saucepan, add 3 cups cold water, and bring to a boil over medium-high heat. Turn off the heat and let the chiles steep for 5 minutes.",
+			"image": null
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Step 2: Make the sauce:",
+			"text": "Pour the mixture into a blender. Add 1 large peeled garlic clove, 1 tablespoon kosher salt, 1/2 teaspoon ground cinnamon, and 1/2 teaspoon ground cumin. Blend until smooth, about 1 minute. Pour the mixture through a fine-mesh strainer set over a bowl and press the mixture through the strainer; discard the contents of the strainer.",
+			"image": null
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Step 1: Make the filling:",
+			"text": "Dice 1 pound Yukon gold potatoes (no need to peel, about 3 1/2 cups). Place 1 pound raw Mexican chorizo in an unheated large nonstick frying pan. Place over medium heat and cook for 5 minutes, breaking up the chorizo into small pieces with a wooden spoon.",
+			"image": null
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Step 2: Make the filling:",
+			"text": "Add the potatoes and 1/4 cup water, and stir to combine. Cover and cook, stirring occasionally, until the potatoes are fork tender, about 10 minutes. Uncover and cook, stirring occasionally, until the liquid is evaporated, about 5 minutes more. Transfer to a bowl and cover to keep warm. Wipe out the skillet (no need to wash).",
+			"image": null
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Step 1: Make the slaw:",
+			"text": "Prepare the following, adding each to a large bowl as you complete it: Core and cut 1/8 to 1/4 medium cabbage into thin shreds until you have 2 cups. Halve, pit, and dice 1 medium avocado. Thinly slice 1 medium jalapeño crosswise on a slight diagonal. Crumble 2 1/2 ounces cotija cheese (about 1/2 cup). Juice 2 medium limes  until you have 1/4 cup. Toss to combine.",
+			"image": null
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Step 1: Assemble the pambazos:",
+			"text": "Heat 1/2 cup neutral oil in the now-empty large frying pan over medium heat until shimmering. Meanwhile, transfer 3/4 cup the sauce into a pie plate; reserve the remaining for assembling. Split 4 kaiser or telera rolls with a serrated knife if needed. Dip the outside of each piece (but not the cut side) in the sauce to coat.",
+			"image": null
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Step 2: Assemble the pambazos:",
+			"text": "Add 4 of the pieces sauce-side down in the pan (it will bubble up). Fry until darkened in color, charred in spots, and toasted, making sure to get to the edges, about 2 minutes. Transfer to a wire rack and repeat frying the remaining rolls.",
+			"image": null
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Step 3: Assemble the pambazos:",
+			"text": "Return 4 of the pieces cut-side down to the pan. Fry until toasted and golden brown, about 2 minutes. Return to the rack cut-side up and repeat frying the cut sides of the remaining rolls.",
+			"image": null
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Step 4: Assemble the pambazos:",
+			"text": "Spread 1 tablespoon crema mexicana onto the cut side of each piece of roll. Top each bottom half with 1/2 cup of the slaw. Top each with 1/2 cup of the filling. Drizzle each with 1 tablespoon of the sauce. Close the pambazos with the top halves of the rolls.",
+			"image": null
+		}
+	],
+	"HowtoTip": {
+		"text": "Make ahead: The sauce can be made up to 2 days ahead and refrigerated in an airtight container.Storage: Leftover sauce can be refrigerated in an airtight container for up to 1 week. The cabbage slaw can be refrigerated in an airtight container for up to 1 day. The filling can be refrigerated in an airtight container for up to 3 days; reheat before using."
+	},
+	"recipeYield": 5,
+	"prepTime": "PT2100S",
+	"cookTime": "PT2700S",
+	"totalTime": "PT4800S",
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"bestRating": 5,
+		"ratingValue": 5,
+		"worstRating": 1,
+		"ratingCount": 1
+	},
+	"review": [],
+	"name": "Pambazos (Mexican Chorizo and Potato Sandwiches)",
+	"articleSection": "Recipes",
+	"thumbnailUrl": "https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg",
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Apartment Therapy, LLC.",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://www.thekitchn.com/static/logos/publisher-logo.png",
+			"width": 180,
+			"height": 46
+		}
+	},
+	"author": [
+		{
+			"@type": "Person",
+			"name": "Tony Ortiz",
+			"URL": "https://www.thekitchn.com/authors/tony-ortiz",
+			"description": "Tony Ortiz is a culinary artist in New York City by way of Northern California. His focus is on the preservation and evolution of ancestral Mexican cuisine. He enjoys utilizing food as a way to explore identity and tell a story. When not in New York, he is in the Sierra Nevada foothills at his grandparents ranch cooking over fire and riding horses. ",
+			"jobTitle": ""
+		}
+	],
+	"creator": {
+		"@type": "Person",
+		"name": "Tony Ortiz"
+	},
+	"keywords": [
+		"Main Dish",
+		"mexican",
+		"Recipe",
+		"Sandwiches &amp; Burgers",
+		"Latin American",
+		"Meat",
+		"sandwich",
+		"stovetop",
+		"Lunch",
+		"Dish Types",
+		"Ingredient",
+		"team:recipes",
+		"platform:search",
+		"course:main dish",
+		"cuisine:latin america",
+		"cuisine:mexican",
+		"mainingredients:sausage",
+		"mainingredients:meat",
+		"timing:extended",
+		"dishtype:sandwich",
+		"method:stovetop",
+		"meal:lunch"
+	],
+	"mainEntityOfPage": "https://www.thekitchn.com/pambazo-recipe-23663132",
+	"dateCreated": "2024-06-11T13:00:00-04:00",
+	"datePublished": "2024-06-11T13:00:00-04:00",
+	"dateModified": "2024-06-11T13:04:06-04:00",
+	"dateUpdated": null,
+	"dateRepromoted": null,
+	"abstract": null
+}

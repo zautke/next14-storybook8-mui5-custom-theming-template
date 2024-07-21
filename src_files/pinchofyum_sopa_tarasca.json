@@ -1,0 +1,577 @@
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Article",
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#article",
+            "isPartOf": {
+                "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters"
+            },
+            "author": {
+                "name": "Lindsay Ostrom",
+                "@id": "https://pinchofyum.com/#/schema/person/e0efe445bc500c8623dbba0cbdf5065b"
+            },
+            "headline": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters",
+            "datePublished": "2023-02-27T10:00:00+00:00",
+            "dateModified": "2023-06-26T21:12:47+00:00",
+            "wordCount": 1078,
+            "commentCount": 145,
+            "publisher": {
+                "@id": "https://pinchofyum.com/#/schema/person/f3c5614b42ff58691a2f20862e707acd"
+            },
+            "image": {
+                "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#primaryimage"
+            },
+            "thumbnailUrl": "https://pinchofyum.com/wp-content/uploads/Sopa-Tarasca-1-2.jpg",
+            "articleSection": [
+                "All Recipes",
+                "Dinner",
+                "Fall",
+                "Jalapeño",
+                "Legume",
+                "Main Dishes",
+                "Soups",
+                "Stovetop",
+                "Sugar-Free",
+                "The Soup Series",
+                "Vegan",
+                "Vegetarian"
+            ],
+            "inLanguage": "en-US",
+            "potentialAction": [
+                {
+                    "@type": "CommentAction",
+                    "name": "Comment",
+                    "target": [
+                        "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#respond"
+                    ]
+                }
+            ]
+        },
+        {
+            "@type": ["WebPage", "FAQPage"],
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters",
+            "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters",
+            "name": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters - Pinch of Yum",
+            "isPartOf": {
+                "@id": "https://pinchofyum.com/#website"
+            },
+            "primaryImageOfPage": {
+                "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#primaryimage"
+            },
+            "image": {
+                "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#primaryimage"
+            },
+            "thumbnailUrl": "https://pinchofyum.com/wp-content/uploads/Sopa-Tarasca-1-2.jpg",
+            "datePublished": "2023-02-27T10:00:00+00:00",
+            "dateModified": "2023-06-26T21:12:47+00:00",
+            "description": "Sopa Tarasca, or pinto bean soup, is a creamy, silky Mexican-inspired soup made with pinto beans, warm chili spices, and whole tomatoes.",
+            "breadcrumb": {
+                "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#breadcrumb"
+            },
+            "mainEntity": [
+                {
+                    "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704329972"
+                },
+                {
+                    "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704334076"
+                },
+                {
+                    "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704371426"
+                },
+                {
+                    "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1634175786088"
+                }
+            ],
+            "inLanguage": "en-US",
+            "potentialAction": [
+                {
+                    "@type": "ReadAction",
+                    "target": [
+                        "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters"
+                    ]
+                }
+            ]
+        },
+        {
+            "@type": "ImageObject",
+            "inLanguage": "en-US",
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#primaryimage",
+            "url": "https://pinchofyum.com/wp-content/uploads/Sopa-Tarasca-1-2.jpg",
+            "contentUrl": "https://pinchofyum.com/wp-content/uploads/Sopa-Tarasca-1-2.jpg",
+            "width": 1500,
+            "height": 2250,
+            "caption": "Sopa tarasca in a bowl."
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Pinch of Yum",
+                    "item": "https://pinchofyum.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Recipes",
+                    "item": "https://pinchofyum.com/recipes"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Sugar-Free",
+                    "item": "https://pinchofyum.com/recipes/sugar-free"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters"
+                }
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://pinchofyum.com/#website",
+            "url": "https://pinchofyum.com/",
+            "name": "Pinch of Yum",
+            "description": "A food blog with simple and tasty recipes.",
+            "publisher": {
+                "@id": "https://pinchofyum.com/#/schema/person/f3c5614b42ff58691a2f20862e707acd"
+            },
+            "potentialAction": [
+                {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://pinchofyum.com/?s={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                }
+            ],
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": ["Person", "Organization"],
+            "@id": "https://pinchofyum.com/#/schema/person/f3c5614b42ff58691a2f20862e707acd",
+            "name": "Lindsay Ostrom",
+            "image": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://pinchofyum.com/#/schema/person/image/",
+                "url": "https://pinchofyum.com/wp-content/uploads/Headshot-Main-Bio-Circle.jpg",
+                "contentUrl": "https://pinchofyum.com/wp-content/uploads/Headshot-Main-Bio-Circle.jpg",
+                "width": 1638,
+                "height": 1638,
+                "caption": "Lindsay"
+            },
+            "logo": {
+                "@id": "https://pinchofyum.com/#/schema/person/image/"
+            },
+            "description": "A little thing about me: I ♡ FOOD. I used to be a teacher, and now making food and writing about it online is my full-time job. I love talking with people about food, and I'm so glad you're here. Did you make a recipe? Tag @pinchofyum on Instagram so we can find you!",
+            "sameAs": [
+                "https://pinchofyum.com",
+                "https://www.facebook.com/pinchofyum",
+                "https://instagram.com/pinchofyum",
+                "https://pinterest.com/pinchofyum",
+                "https://x.com/pinchofyum"
+            ]
+        },
+        {
+            "@type": "Person",
+            "@id": "https://pinchofyum.com/#/schema/person/e0efe445bc500c8623dbba0cbdf5065b",
+            "name": "Lindsay Ostrom",
+            "image": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://pinchofyum.com/#/schema/person/image/",
+                "url": "https://secure.gravatar.com/avatar/b783581e28f0530b264f95b949d82d18?s=96&d=https%3A%2F%2Fpinchofyum.com%2Fwp-content%2Fassets%2Fimages%2Fpoy-avatar-grey.jpg&r=g",
+                "contentUrl": "https://secure.gravatar.com/avatar/b783581e28f0530b264f95b949d82d18?s=96&d=https%3A%2F%2Fpinchofyum.com%2Fwp-content%2Fassets%2Fimages%2Fpoy-avatar-grey.jpg&r=g",
+                "caption": "Team Pinch of Yum"
+            },
+            "description": "This recipe was created with love, tested with patience, and produced collaboratively by the Pinch of Yum team! We love good food, and hope you love this deliciousness as much as we do. Check out our Instagram Stories to see Lindsay make these recipes!",
+            "url": "https://pinchofyum.com/author/team-pinch-of-yum"
+        },
+        {
+            "@type": "Question",
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704329972",
+            "position": 1,
+            "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704329972",
+            "name": "Is this soup spicy?",
+            "answerCount": 1,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There's lots and lots of flavor in this soup plus some heat, but it's not super spicy.",
+                "inLanguage": "en-US"
+            },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "Question",
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704334076",
+            "position": 2,
+            "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704334076",
+            "name": "Can I use regular chili powder instead of ancho chili powder?",
+            "answerCount": 1,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Just add a teeny bit of red pepper flakes in addition to the regular chili powder. ",
+                "inLanguage": "en-US"
+            },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "Question",
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704371426",
+            "position": 3,
+            "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1633704371426",
+            "name": "What else, besides the fritters, can I serve with this soup?",
+            "answerCount": 1,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tortilla chips, u003ca href=u0022https://pinchofyum.com/instant-pot-sweet-potato-tortilla-soupu0022u003ehomemade tortilla stripsu003c/au003e, or our u003ca href=u0022https://pinchofyum.com/spicy-posole-cheesy-jalapeno-cornbread-muffinsu0022u003ejalapeño corn muffinsu003c/au003e would be really, really good. ",
+                "inLanguage": "en-US"
+            },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "Question",
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1634175786088",
+            "position": 4,
+            "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#faq-question-1634175786088",
+            "name": "Can this be made in the Instant Pot?",
+            "answerCount": 1,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It can! See notes in recipe card. ",
+                "inLanguage": "en-US"
+            },
+            "inLanguage": "en-US"
+        },
+        {
+            "@context": "https://schema.org/",
+            "@type": "Recipe",
+            "name": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters",
+            "description": "Let's make Sopa Tarasca! It's a creamy, silky Mexican-inspired soup made with pinto beans, warm chili spices, and whole tomatoes. And you NEED a big pile of the jalapeño corn fritters on top. Drooling over this one! ",
+            "author": {
+                "@type": "Person",
+                "name": "Lindsay Ostrom",
+                "url": "https://pinchofyum.com/about"
+            },
+            "keywords": "sopa tarasca, pinto bean soup, bean soup",
+            "image": [
+                "https://pinchofyum.com/wp-content/uploads/Sopa-Tarasca-Square-225x225.png",
+                "https://pinchofyum.com/wp-content/uploads/Sopa-Tarasca-Square-260x195.png",
+                "https://pinchofyum.com/wp-content/uploads/Sopa-Tarasca-Square-320x180.png",
+                "https://pinchofyum.com/wp-content/uploads/Sopa-Tarasca-Square.png"
+            ],
+            "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters",
+            "recipeIngredient": [
+                "2 tablespoons olive oil",
+                "1 onion, chopped",
+                "4 cloves garlic, smashed",
+                "1/2 tablespoon ancho chili powder",
+                "2 teaspoons cumin",
+                "one 28-ounce can whole tomatoes",
+                "two 14-ounce cans pinto beans, drained",
+                "2-3 cups water or vegetable broth",
+                "2 teaspoons salt (more or less to taste)",
+                "1 3/4 cups frozen corn",
+                "1/4 cup flour",
+                "1 tablespoon cornstarch",
+                "1/4 to 1/2 cup cotija cheese",
+                "minced jalapeño (to taste &#8211; one is usually more than enough)",
+                "1/2 teaspoon salt, and/or salt for topping",
+                "1 cup vegetable oil for frying"
+            ],
+            "recipeInstructions": [
+                {
+                    "@type": "HowToStep",
+                    "text": "Heat olive oil over medium high heat. Add onion and garlic; sauté until soft and fragrant. Add ancho chili powder and cumin; sauté for 1-2 minutes. Add tomatoes; simmer for 15 minutes. Transfer mixture to a blender and blend until smooth. Return to pot. ",
+                    "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#instruction-step-1",
+                    "video": {
+                        "@context": "http://schema.org",
+                        "@type": "VideoObject",
+                        "name": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters Step 1",
+                        "description": "Heat olive oil over medium high heat. Add onion and garlic; sauté until soft and fragrant. Add ancho chili powder and cumin; sauté for 1-2 minutes. Add tomatoes; simmer for 15 minutes. Transfer mixture to a blender and blend until smooth. Return to pot.",
+                        "duration": "PT19S",
+                        "embedUrl": "https://player.vimeo.com/video/630501359?dnt=1&amp;app_id=122963",
+                        "contentUrl": "https://vimeo.com/630501359",
+                        "thumbnailUrl": [
+                            "https://i.vimeocdn.com/video/1272789311-6d10262c4cc305d4aa658a36c2803539e49eb4ee456580b63_295x166"
+                        ],
+                        "uploadDate": "2021-10-12T19:33:15+00:00"
+                    }
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Add pinto beans to blender; puree with water or broth. Return to pot and stir it into the tomato mixture. Simmer over low heat until ready to serve.",
+                    "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#instruction-step-2",
+                    "video": {
+                        "@context": "http://schema.org",
+                        "@type": "VideoObject",
+                        "name": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters Step 2",
+                        "description": "Add pinto beans to blender; puree with water or broth. Return to pot and stir it into the tomato mixture. Simmer over low heat until ready to serve.",
+                        "duration": "PT16S",
+                        "embedUrl": "https://player.vimeo.com/video/630501641?dnt=1&amp;app_id=122963",
+                        "contentUrl": "https://vimeo.com/630501641",
+                        "thumbnailUrl": [
+                            "https://i.vimeocdn.com/video/1272783379-cdecbf6f52f4aa4cc7ba295285bac21f6d1ba1bce27e88fd7_295x166"
+                        ],
+                        "uploadDate": "2021-10-12T19:33:44+00:00"
+                    }
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "For the corn fritters, pulse 1 cup of the corn in a food processor until smooth-ish. Mix your pureed corn with the flour, cornstarch, Cotija, jalapeño, and salt. Add in remaining 3/4 cup corn. Pour several cups of oil into a skillet for frying. Heat over medium heat. When the oil is hot, add the corn batter in small rolled balls &#8211; about 1-2 tablespoons per fritter (a cookie dough scoop works well for this). Fry until golden on both sides. Remove from the oil and drain on paper towels.",
+                    "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#instruction-step-3",
+                    "video": {
+                        "@context": "http://schema.org",
+                        "@type": "VideoObject",
+                        "name": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters Step 3",
+                        "description": "For the corn fritters, pulse 1 cup of the corn in a food processor until smooth-ish. Mix your pureed corn with the flour, cornstarch, Cotija, jalapeño, and salt. Add in remaining 3/4 cup corn. Pour several cups of oil into a skillet for frying. Heat over medium heat. When the oil is hot, add the corn batter in small rolled balls - about 1-2 tablespoons per fritter (a cookie dough scoop works well for this). Fry until golden on both sides. Remove from the oil and drain on paper towels.",
+                        "duration": "PT21S",
+                        "embedUrl": "https://player.vimeo.com/video/630506468?dnt=1&amp;app_id=122963",
+                        "contentUrl": "https://vimeo.com/630506468",
+                        "thumbnailUrl": [
+                            "https://i.vimeocdn.com/video/1272791992-f43054c20d4b48d0ed3bc8efb59fb393cc4ce6c0f56b63a13_295x166"
+                        ],
+                        "uploadDate": "2021-10-12T19:42:44+00:00"
+                    }
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Serve soup topped with corn fritters, crema, Cotija cheese, cilantro, and anything else your heart is asking for. YUM.",
+                    "url": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#instruction-step-4",
+                    "video": {
+                        "@context": "http://schema.org",
+                        "@type": "VideoObject",
+                        "name": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters Step 4",
+                        "description": "Serve soup topped with corn fritters, crema, Cotija cheese, cilantro, and anything else your heart is asking for. YUM.",
+                        "duration": "PT11S",
+                        "embedUrl": "https://player.vimeo.com/video/630506638?dnt=1&amp;app_id=122963",
+                        "contentUrl": "https://vimeo.com/630506638",
+                        "thumbnailUrl": [
+                            "https://i.vimeocdn.com/video/1272790943-501bfe15de3280bd3789e6c33ea425dd369015ff0cc46e5e7_295x166"
+                        ],
+                        "uploadDate": "2021-10-12T19:43:37+00:00"
+                    }
+                }
+            ],
+            "prepTime": "PT10M",
+            "cookTime": "PT30M",
+            "totalTime": "PT40M",
+            "recipeYield": ["6", "6 servings"],
+            "recipeCategory": "Soup",
+            "cookingMethod": "Stovetop",
+            "recipeCuisine": "Mexican-Inspired",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "reviewCount": "50",
+                "ratingValue": "4.9"
+            },
+            "nutrition": {
+                "servingSize": null,
+                "calories": "422 calories",
+                "sugarContent": "4.8 g",
+                "sodiumContent": "1073 mg",
+                "fatContent": "17.1 g",
+                "saturatedFatContent": "2.6 g",
+                "transFatContent": "0 g",
+                "carbohydrateContent": "54.6 g",
+                "fiberContent": "14.8 g",
+                "proteinContent": "16.5 g",
+                "cholesterolContent": "5 mg",
+                "@type": "nutritionInformation"
+            },
+            "video": {
+                "@context": "http://schema.org",
+                "@type": "VideoObject",
+                "name": "Sopa Tarasca (Pinto Bean Soup) with Jalapeño Corn Fritters",
+                "description": "Let’s make Sopa Tarasca! It’s a creamy, silky Mexican-inspired soup made with pinto beans, warm chili spices, and whole tomatoes. And you NEED a big pile of the jalapeño corn fritters on top. Drooling over this one!",
+                "contentUrl": "https://content.jwplatform.com/videos/iD0QNkri.mp4",
+                "thumbnailUrl": ["https://content.jwplatform.com/thumbs/iD0QNkri-720.jpg"],
+                "uploadDate": "2021-10-13T16:08:39+00:00"
+            },
+            "review": [
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Becca"
+                    },
+                    "datePublished": "2023-03-08",
+                    "reviewBody": "Just hopping on to say thank you for the delicious recipe- perfect for this  blustery March day. I made the soup and corn fritters exactly as written (aside from using canned corn) and was so pleased with the textures and flavors of both!\r\nWe topped the soup with cilantro, scallions, thinly sliced radishes, and a bit of Greek yogurt. Highly recommend!"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Katie"
+                    },
+                    "datePublished": "2021-10-13",
+                    "reviewBody": "This soup was AMAZING- kind of reminds me of a Mexican tomato soup mixed with a blended chili for the lovely bean taste. We made some small adjustments to use things on hand versus going to the store -diced  fire roasted tomatoes instead of canned, beef broth instead of veggie, and used one can of kidney and one can of pinto. Turned out fabulous and will definitely make again! DO NOT SKIP OUT ON THE CORN FRITTERS- they are the best touch."
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Miller"
+                    },
+                    "datePublished": "2022-12-23",
+                    "reviewBody": "Yes, if using kosher diamond crystal salt, it needs more salt! Also, yes! The frozen corn did not treat my processor well and the freezing cold batter cooled down the oil during frying. I really suggest thawing your corn and tasting your soup for seasoning. Other than cleaning a Dutch oven, frying pan, mixing bowls, cutting boards and food processor, it was delicious! Great for a Sunday project, but not hockey/basketball/church group weeknight!"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Naina"
+                    },
+                    "datePublished": "2023-01-03",
+                    "reviewBody": "This was absolutely delicious and so filling! Great earthy taste to the soup and the jalapeño corn fritters is a must add! Thanks for another great recipe!"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Lila"
+                    },
+                    "datePublished": "2023-03-11",
+                    "reviewBody": "I am SICK, but ive got 2 kids and needed to get dinner on the table so I gave this a go. \r\n\r\nMy 11 month old fell asleep in the carrier and my 4 year old helped at every step except the frying. Dinner was on the table in 30 minutes!!\r\n\r\nIt turned out well with kidney beans since I didn't have pinto beans. I used some bell pepper for a peppery taste without any heat and sharp cheddar since I didn't have cotija hand. I ended up needing a couple tablespoons of water for the fritters to hold, but this is a wonderful meal. Quick, delicious, and versatile!!\r\n\r\nI served it with a sprinkle of cheese, dollop of sour cream, a bunch of Cilantro, and fritters!!!! Perfect!!"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Cari P"
+                    },
+                    "datePublished": "2021-10-15",
+                    "reviewBody": "Made this tonight and  WOW is it good. All I had was crushed tomatoes still was a success.  My husband ate 3 bowls and my picky toddler used it as a cracker dip. \r\nThe corn fritters are EVERYTHING. I also added a large handful of cotija cheese &amp; cilantro to top it all off. 👌"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Medina"
+                    },
+                    "datePublished": "2021-10-23",
+                    "reviewBody": "Wowsers. Soup sounded so good in the Pacific NW. Had to do a few subs (black beans, ancho chili) and made corn patties vice fritters to not use as much oil. But still, yum. \r\n\r\nI might even consider adding shredded rotisserie chicken next time for more depth. I'm going back for seconds before others get firsts!"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Lauren"
+                    },
+                    "datePublished": "2021-10-16",
+                    "reviewBody": "This was so easy and delicious. I followed the Instapot instructions, added a red pepper because I had one on hand and used the immersion blender. Flavorful and a beautiful texture. Also used an air fryer for the fritters and they came out great!"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Ariel"
+                    },
+                    "datePublished": "2021-10-16",
+                    "reviewBody": "I’ve been looking for a corn fritter recipe and this was PERFECT! I know the fritters aren’t the star of this recipe but we loved them and will be making them on repeat."
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Alyssa"
+                    },
+                    "datePublished": "2021-10-17",
+                    "reviewBody": "I used feta and it worked great!"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Kamila"
+                    },
+                    "datePublished": "2021-10-17",
+                    "reviewBody": "I just made this exactly as written but air-fried the corn fritters (8 min @ 400, sprayed liberally with oil) and it was delicious!! Thank you!!!"
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Jenn Adams"
+                    },
+                    "datePublished": "2021-10-18",
+                    "reviewBody": "Delicious and cozy! I used cheddar instead of cotija, and it was perfect."
+                },
+                {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Lesley"
+                    },
+                    "datePublished": "2021-10-18",
+                    "reviewBody": "I just really really love you guys LOL. Once again, this recipe hits the spot on a chilly fall day. I don’t know how you manage to always know what I’m feeling like, but you do and I love it."
+                }
+            ],
+            "datePublished": "2023-02-27",
+            "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#recipe",
+            "isPartOf": {
+                "@id": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters#article"
+            },
+            "mainEntityOfPage": "https://pinchofyum.com/sopa-tarasca-pinto-bean-soup-with-jalapeno-corn-fritters"
+        }
+    ]
+}

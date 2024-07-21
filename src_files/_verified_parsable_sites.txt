@@ -1,0 +1,31 @@
+https://www.muydelish.com/red-beef-pozole/
+https://www.allrecipes.com/recipe/220803/new-mexico-red-chile-sauce/
+https://www.seriouseats.com/charred-salsa-verde-tomatillo-salsa
+https://pinchofyum.com/broccoli-cheese-soup
+https://minimalistbaker.com/peaches-and-cream-overnight-oats/
+https://www.acozykitchen.com/strawberry-lemonade-sangria
+https://www.budgetbytes.com/blueberry-sauce/
+https://sallysbakingaddiction.com/apple-crisp/
+https://www.thekitchn.com/pambazo-recipe-23663132 (403s inevitable)
+https://www.101cookbooks.com/mushroom-scallops/ (first encounter with HowToSection in Instructions)
+https://www.giangiskitchen.com/tomato-quiche/ (fractions)
+https://onmykidsplate.com/cheddar-broccoli-twice-baked-potato/
+https://www.loveandlemons.com/grilled-corn-on-the-cob/ (breadcrumb parse)
+https://www.simplyrecipes.com/dirt-cake-recipe-5547060 (needed \n removed)
+https://www.ambitiouskitchen.com/almond-flour-strawberry-shortcake-cake/
+
+
+https://www.bonappetit.com/recipe/strawberry-hand-pies (fractions ; nice FuturaPT font | 38/90/56/100)
+https://cooking.nytimes.com/recipes/1024668-chili-mac
+https://www.saveur.com/recipes/strawberry-lemonade/
+https://www.epicurious.com/recipes/food/views/peruvian-style-roast-chicken-with-tangy-green-sauce (fractions)
+https://www.americastestkitchen.com/recipes/14639-tuna-poke
+https://www.lacucinaitaliana.com/recipe/pasta/tagliatelle-bolognese (Nuxt.js? | breadcrumb parse)
+
+
+
+
+https://damndelicious.net/2023/06/23/easy-chicken-shawarma/ (403 even w VPN)
+https://amazingribs.com/tested-recipes/spice-rubs-and-pastes/meatheads-memphis-dust-rub-recipe/
+! smittenkitchen
+

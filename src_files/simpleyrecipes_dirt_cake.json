@@ -1,0 +1,164 @@
+[
+    {
+        "@context": "http://schema.org",
+        "@type": ["Recipe"],
+        "headline": "Dirt Cake",
+        "datePublished": "2022-07-13T13:43:17.508-04:00",
+        "dateModified": "2022-07-13T13:43:17.508-04:00",
+        "author": [
+            {
+                "@type": "Person",
+                "name": "Micah Siva, RD",
+                "url": "https://www.simplyrecipes.com/micah-siva-5270458"
+            }
+        ],
+        "description": "Make a kid’s or kid-like adult’s dream come true with these fun dirt cakes. They are a breeze to make!",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.simplyrecipes.com/thmb/xXTjTWf71dDKOQXhkG_WHL2kh3s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Dirt-Cake-Lead-01-be85a66fe317433bbcbb92174a792142.jpg",
+            "height": 1000,
+            "width": 1500
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Simply Recipes",
+            "url": "https://www.simplyrecipes.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.simplyrecipes.com/thmb/QvixEwCD02s_lnkgkVb6mHwKS7c=/1125x320/filters:no_upscale():max_bytes(150000):strip_icc()/SimplyRecipesLogoTransparent-07a297c54b2142ae9c079abb2f0fa639.png",
+                "width": 1125,
+                "height": 320
+            },
+            "brand": "Simply Recipes",
+            "publishingPrinciples": "https://www.simplyrecipes.com/about-us-5096129#toc-editorial-guidelines",
+            "sameAs": [
+                "https://www.facebook.com/simplyrecipes",
+                "https://www.instagram.com/simplyrecipes",
+                "https://www.pinterest.com/simplyrecipes"
+            ]
+        },
+        "name": "Dirt Cake",
+        "keywords": "Dirt Cake, Oreo cookies, Oreo, cream cheese, unsalted butter, powdered sugar, vanilla extract, milk, instant chocolate pudding mix, Cool Whip, gummy worms, dessert, birthday, kids, chocolate, treat",
+        "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "629 kcal",
+            "carbohydrateContent": "82 g",
+            "cholesterolContent": "47 mg",
+            "fiberContent": "1 g",
+            "proteinContent": "6 g",
+            "saturatedFatContent": "20 g",
+            "sodiumContent": "293 mg",
+            "sugarContent": "54 g",
+            "fatContent": "32 g",
+            "unsaturatedFatContent": "0 g"
+        },
+        "prepTime": "PT20M",
+        "recipeCategory": ["Dessert"],
+        "recipeCuisine": ["American"],
+        "recipeIngredient": [
+            "15 Oreo sandwich cookies",
+            "4 ounces cream cheese, at room temperature",
+            "4 tablespoons unsalted butter, at room temperature",
+            "1/2 cup powdered sugar",
+            "1 teaspoon vanilla extract",
+            "1 1/2 cups whole milk",
+            "1 (3.9-ounce) package instant chocolate pudding mix",
+            "1 (8-ounce) container Cool Whip, thawed",
+            "18 gummy worms"
+        ],
+        "tool": [
+            {
+                "@type": "HowToTool",
+                "name": "(5- to 6-ounce) clear cups",
+                "requiredQuantity": " 6"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "@type": "HowToStep",
+                "image": [
+                    {
+                        "@type": "ImageObject",
+                        "url": "https://www.simplyrecipes.com/thmb/3LfRyH_QcaHVcgjrb7cosByXRuM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Dirt-Cake-METHOD-01-7c3f4ef5389e4035973984efc79aed22.jpg"
+                    }
+                ],
+                "text": "Prepare the Oreo crumbs:  Place the Oreos into a large zip top bag. Seal it, leaving a small opening for the air to escape. Use a rolling pin to crush the cookies into gravel-sized crumbs.  You can also do this in a food processor—just pulse it."
+            },
+            {
+                "@type": "HowToStep",
+                "image": [
+                    {
+                        "@type": "ImageObject",
+                        "url": "https://www.simplyrecipes.com/thmb/LXpUMhud10eo9sPCNt_Tdw6LvgY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Dirt-Cake-METHOD-02-130fb8c4bbd14cfe9e8b94cbc9532522.jpg"
+                    }
+                ],
+                "text": "Make the cream cheese mixture:  Add the cream cheese, butter, powdered sugar, and vanilla extract in a large bowl and use a handheld mixer to beat on medium-high speed until light and fluffy, 3 to 4 minutes. Set aside."
+            },
+            {
+                "@type": "HowToStep",
+                "image": [
+                    {
+                        "@type": "ImageObject",
+                        "url": "https://www.simplyrecipes.com/thmb/E7t9v-uYbHCM4uoqN1JAWFw4Oh4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Dirt-Cake-METHOD-03-d0fb47766b194f968ccba1b974f37584.jpg"
+                    }
+                ],
+                "text": "Make the pudding mixture: In a medium bowl, whisk the milk and pudding mix until combined and thickened. Use a rubber spatula to gently fold in the Cool Whip."
+            },
+            {
+                "@type": "HowToStep",
+                "image": [
+                    {
+                        "@type": "ImageObject",
+                        "url": "https://www.simplyrecipes.com/thmb/hUDc1RFSeU6Lq3fwsQ0tEE7qx4E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Dirt-Cake-METHOD-04-33741f4e3d254eafa3b73a2676089c68.jpg"
+                    }
+                ],
+                "text": "Combine:  Scrape the pudding mixture into the cream cheese mixture, and mix until smooth and fully combined. "
+            },
+            {
+                "@type": "HowToStep",
+                "image": [
+                    {
+                        "@type": "ImageObject",
+                        "url": "https://www.simplyrecipes.com/thmb/m-Wngexu9nAfip-BTi5WPR41ec4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Dirt-Cake-Lead-08-b785dac065024eeea7de323cec60ea5f.jpg"
+                    }
+                ],
+                "text": "Layer and decorate: Add 2 tablespoons Oreo crumbs into the bottom of each cup. Top with about 1/4 cup pudding. Repeat until filled, ending with crumbs on top. Garnish with gummy worms. Did you love the recipe? Leave us stars below! "
+            }
+        ],
+        "recipeYield": ["6", "6 cups"],
+        "totalTime": "PT20M",
+        "mainEntityOfPage": {
+            "@type": ["WebPage"],
+            "@id": "https://www.simplyrecipes.com/dirt-cake-recipe-5547060",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@id": "https://www.simplyrecipes.com/dessert-recipes-5091513",
+                            "name": "Desserts"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@id": "https://www.simplyrecipes.com/easy-dessert-recipes-5091435",
+                            "name": "Easy Desserts"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "item": {
+                            "@id": "https://www.simplyrecipes.com/dirt-cake-recipe-5547060",
+                            "name": "Dirt Cake"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+]

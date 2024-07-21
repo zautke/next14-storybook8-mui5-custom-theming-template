@@ -1,0 +1,1399 @@
+{
+    "props": {
+        "serverState": {
+            "redux": {
+                "app": {
+                    "flips": ["flip_genv1", "flip_privacy"],
+                    "ssrRenderDatetime": "2024-06-18T18:48:54.481Z",
+                    "deployId": "2024-06-17--09-14--fd95fa",
+                    "surrogateKey": "posts posts:k posts:23663132 deploy:2024-06-17--09-14--fd95fa"
+                },
+                "post": { "visiblePostIDs": [] },
+                "assets": { "js": [], "css": [] },
+                "page": {},
+                "user": null,
+                "prism": { "slideImages": [] },
+                "contest": { "pages": {} },
+                "privacy": { "consent": null },
+                "googleShopping": { "toggle": true }
+            }
+        },
+        "pageProps": {
+            "variables": { "path": "/pambazo-recipe-23663132", "site": "k" },
+            "__REDUX_STATE__": {
+                "post": {
+                    "visiblePostIDs": ["23663132"],
+                    "current": {
+                        "categories": [
+                            { "__typename": "TermData", "name": "Recipes", "slug": "recipes" }
+                        ],
+                        "isAffiliate": true,
+                        "isPost": null,
+                        "isSponsored": false,
+                        "modifiedAt": 1718125446,
+                        "publishedAt": 1718125200,
+                        "resourceId": "23663132",
+                        "searchTitle": "Pambazos Recipe (Mexican Chorizo and Potato Sandwiches)",
+                        "socialTitle": "These Loaded Mexican Sandwiches Are So Good, Everyone Will Want Two",
+                        "status": "publish",
+                        "tags": [
+                            {
+                                "__typename": "TermData",
+                                "name": "Main Dish",
+                                "slug": "main-dish"
+                            },
+                            {
+                                "__typename": "TermData",
+                                "name": "mexican",
+                                "slug": "mexican"
+                            },
+                            { "__typename": "TermData", "name": "Recipe", "slug": "recipe" },
+                            {
+                                "__typename": "TermData",
+                                "name": "Sandwiches \u0026amp; Burgers",
+                                "slug": "sandwiches-burgers"
+                            },
+                            {
+                                "__typename": "TermData",
+                                "name": "Latin American",
+                                "slug": "latin-american"
+                            },
+                            { "__typename": "TermData", "name": "Meat", "slug": "meat" },
+                            {
+                                "__typename": "TermData",
+                                "name": "sandwich",
+                                "slug": "sandwich"
+                            },
+                            {
+                                "__typename": "TermData",
+                                "name": "stovetop",
+                                "slug": "stovetop"
+                            },
+                            { "__typename": "TermData", "name": "Lunch", "slug": "lunch" },
+                            {
+                                "__typename": "TermData",
+                                "name": "Dish Types",
+                                "slug": "dish-types"
+                            },
+                            {
+                                "__typename": "TermData",
+                                "name": "Ingredient",
+                                "slug": "ingredient"
+                            }
+                        ],
+                        "pageTypeTaxonomies": [
+                            {
+                                "__typename": "TypeTaxonomy",
+                                "name": "franchises",
+                                "terms": []
+                            },
+                            {
+                                "__typename": "TypeTaxonomy",
+                                "name": "author",
+                                "terms": [
+                                    {
+                                        "__typename": "TermData",
+                                        "slug": "tonyortiz",
+                                        "name": "Tony Ortiz"
+                                    }
+                                ]
+                            }
+                        ],
+                        "teaserTitle": "These Loaded Mexican Sandwiches Are So Good, Everyone Will Want Two",
+                        "textLinkProducts": [],
+                        "title": "Pambazos (Mexican Chorizo and Potato Sandwiches)",
+                        "updatedAt": null
+                    }
+                }
+            },
+            "__APOLLO_STATE__": {
+                "MetadataItem_0eaa03bf3edf4c77aa445cb536fb4a55": {
+                    "__typename": "MetadataItem",
+                    "id": "0eaa03bf3edf4c77aa445cb536fb4a55",
+                    "type": "metadata",
+                    "variant": "links",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "gen-canonical",
+                        "value": "https://www.thekitchn.com/pambazo-recipe-23663132"
+                    }
+                },
+                "MetadataItem_73a550401ad54416a8ea38b96b0730d7": {
+                    "__typename": "MetadataItem",
+                    "id": "73a550401ad54416a8ea38b96b0730d7",
+                    "type": "metadata",
+                    "variant": "title",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "title",
+                        "value": "Pambazos Recipe (Mexican Chorizo and Potato Sandwiches)"
+                    }
+                },
+                "MetadataItem_7fea23839ad24e91b78929414b2721dc": {
+                    "__typename": "MetadataItem",
+                    "id": "7fea23839ad24e91b78929414b2721dc",
+                    "type": "metadata",
+                    "variant": "default",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "title",
+                        "value": "Pambazos Recipe (Mexican Chorizo and Potato Sandwiches)"
+                    }
+                },
+                "MetadataItem_6b120bd54e9d4cd0871fe28468b9482d": {
+                    "__typename": "MetadataItem",
+                    "id": "6b120bd54e9d4cd0871fe28468b9482d",
+                    "type": "metadata",
+                    "variant": "default",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "description",
+                        "value": "Dipped in a spicy chile sauce then fried until crispy and loaded with a mixture of Mexican pork chorizo, potatoes, and a refreshing cabbage slaw, these sandwiches will make anyone hungry. "
+                    }
+                },
+                "MetadataItem_1baaa588780649c9b9f8d34a0a488841": {
+                    "__typename": "MetadataItem",
+                    "id": "1baaa588780649c9b9f8d34a0a488841",
+                    "type": "metadata",
+                    "variant": "default",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "thumbnail",
+                        "value": "https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg"
+                    }
+                },
+                "MetadataItem_fc5c50a87656400d8f53a2f9a003ef9d": {
+                    "__typename": "MetadataItem",
+                    "id": "fc5c50a87656400d8f53a2f9a003ef9d",
+                    "type": "metadata",
+                    "variant": "opengraph",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "og:title",
+                        "value": "These Loaded Mexican Sandwiches Are So Good, Everyone Will Want Two"
+                    }
+                },
+                "MetadataItem_f7218655f2b04a5b98805ac3841ea9aa": {
+                    "__typename": "MetadataItem",
+                    "id": "f7218655f2b04a5b98805ac3841ea9aa",
+                    "type": "metadata",
+                    "variant": "opengraph",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "og:description",
+                        "value": "Get ready to feast. "
+                    }
+                },
+                "MetadataItem_4a4df225b8294b5fa4c7d28001adbb98": {
+                    "__typename": "MetadataItem",
+                    "id": "4a4df225b8294b5fa4c7d28001adbb98",
+                    "type": "metadata",
+                    "variant": "opengraph",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "og:url",
+                        "value": "https://www.thekitchn.com/pambazo-recipe-23663132"
+                    }
+                },
+                "MetadataItem_d0f9ce4e5e2048019a545b7c55cc5013": {
+                    "__typename": "MetadataItem",
+                    "id": "d0f9ce4e5e2048019a545b7c55cc5013",
+                    "type": "metadata",
+                    "variant": "opengraph",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "og:type",
+                        "value": "article"
+                    }
+                },
+                "MetadataItem_3a27484de6e64ce689610f47d0f131eb": {
+                    "__typename": "MetadataItem",
+                    "id": "3a27484de6e64ce689610f47d0f131eb",
+                    "type": "metadata",
+                    "variant": "opengraph",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "og:site_name",
+                        "value": "Kitchn"
+                    }
+                },
+                "MetadataItem_a7660acd458b4111b2b46c61bd5b5da3": {
+                    "__typename": "MetadataItem",
+                    "id": "a7660acd458b4111b2b46c61bd5b5da3",
+                    "type": "metadata",
+                    "variant": "opengraph",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "og:image",
+                        "value": "https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg"
+                    }
+                },
+                "MetadataItem_27b1e182f3594a698685d9d8a50b1bd2": {
+                    "__typename": "MetadataItem",
+                    "id": "27b1e182f3594a698685d9d8a50b1bd2",
+                    "type": "metadata",
+                    "variant": "twitter",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "twitter:card",
+                        "value": "summary_large_image"
+                    }
+                },
+                "MetadataItem_9df0ca997fd24d9ebaf628167b621a99": {
+                    "__typename": "MetadataItem",
+                    "id": "9df0ca997fd24d9ebaf628167b621a99",
+                    "type": "metadata",
+                    "variant": "twitter",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "twitter:url",
+                        "value": "https://www.thekitchn.com/pambazo-recipe-23663132"
+                    }
+                },
+                "MetadataItem_7a50c52222bd4faa92b4f231eb572631": {
+                    "__typename": "MetadataItem",
+                    "id": "7a50c52222bd4faa92b4f231eb572631",
+                    "type": "metadata",
+                    "variant": "twitter",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "twitter:title",
+                        "value": "These Loaded Mexican Sandwiches Are So Good, Everyone Will Want Two"
+                    }
+                },
+                "MetadataItem_87c7921bc2904272aefe15a450b0a380": {
+                    "__typename": "MetadataItem",
+                    "id": "87c7921bc2904272aefe15a450b0a380",
+                    "type": "metadata",
+                    "variant": "twitter",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "twitter:description",
+                        "value": "Get ready to feast. "
+                    }
+                },
+                "MetadataItem_09198e5ae47c477f80e5a77242010a70": {
+                    "__typename": "MetadataItem",
+                    "id": "09198e5ae47c477f80e5a77242010a70",
+                    "type": "metadata",
+                    "variant": "twitter",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "twitter:site",
+                        "value": "TheKitchn"
+                    }
+                },
+                "MetadataItem_d0389063c46845539ff45088399e5c13": {
+                    "__typename": "MetadataItem",
+                    "id": "d0389063c46845539ff45088399e5c13",
+                    "type": "metadata",
+                    "variant": "twitter",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "twitter:image",
+                        "value": "https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg"
+                    }
+                },
+                "MetadataItem_21409b91ed5a42269242df6a5eb72afb": {
+                    "__typename": "MetadataItem",
+                    "id": "21409b91ed5a42269242df6a5eb72afb",
+                    "type": "metadata",
+                    "variant": "default",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "qc:section",
+                        "value": "recipes"
+                    }
+                },
+                "MetadataItem_16350e58c5114fe5a4761fe3dd6dd791": {
+                    "__typename": "MetadataItem",
+                    "id": "16350e58c5114fe5a4761fe3dd6dd791",
+                    "type": "metadata",
+                    "variant": "links",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "canonical",
+                        "value": "https://www.thekitchn.com/pambazo-recipe-23663132"
+                    }
+                },
+                "MetadataItem_ff4b871826d048d7b90113ba174ca153": {
+                    "__typename": "MetadataItem",
+                    "id": "ff4b871826d048d7b90113ba174ca153",
+                    "type": "metadata",
+                    "variant": "links",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "alternate",
+                        "value": "https://www.thekitchn.com/main.rss"
+                    }
+                },
+                "MetadataItem_f2aebd2f496641809f7604ba515fb3fb": {
+                    "__typename": "MetadataItem",
+                    "id": "f2aebd2f496641809f7604ba515fb3fb",
+                    "type": "metadata",
+                    "variant": "flipboard",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "flipboard-article",
+                        "value": "A pambazo is a Mexican sandwich that has different variations and origins based on the region of Mexico you\u0026#8217;re in. My recipe pulls from the styles of Mexico City, Veracruz, and Puebla to give you the best of all regions. Here, telera rolls are dipped in a spicy chile sauce then fried and filled with a mixture of Mexican chorizo and diced potatoes that are cooked in chorizo fat. The tart slaw of fresh cabbage, salty cotija, and creamy avocado breaks up the rich flavors and provides balance "
+                    }
+                },
+                "MetadataItem_c8052b0c727246ccb7c7a38f34f7a208": {
+                    "__typename": "MetadataItem",
+                    "id": "c8052b0c727246ccb7c7a38f34f7a208",
+                    "type": "metadata",
+                    "variant": "flipboard",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "flipboard-image",
+                        "value": "https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg"
+                    }
+                },
+                "MetadataItem_9ccb8f485d0f4156a1ab9b1c9dbb1767": {
+                    "__typename": "MetadataItem",
+                    "id": "9ccb8f485d0f4156a1ab9b1c9dbb1767",
+                    "type": "metadata",
+                    "variant": "flipboard",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "flipboard-title",
+                        "value": "These Loaded Mexican Sandwiches Are So Good, Everyone Will Want Two"
+                    }
+                },
+                "MetadataItem_5841cce8f2b84011ab592e45f2685ed3": {
+                    "__typename": "MetadataItem",
+                    "id": "5841cce8f2b84011ab592e45f2685ed3",
+                    "type": "metadata",
+                    "variant": "flipboard",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "flipboard-author",
+                        "value": "Tony Ortiz"
+                    }
+                },
+                "MetadataItem_6dde15a605c24177b3b8bc9409941f69": {
+                    "__typename": "MetadataItem",
+                    "id": "6dde15a605c24177b3b8bc9409941f69",
+                    "type": "metadata",
+                    "variant": "flipboard",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "flipboard-date",
+                        "value": "1718125200"
+                    }
+                },
+                "MetadataItem_74ee837098df48ebb1aeb6c2cadcf7ee": {
+                    "__typename": "MetadataItem",
+                    "id": "74ee837098df48ebb1aeb6c2cadcf7ee",
+                    "type": "metadata",
+                    "variant": "scripts",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "application/ld+json",
+                        "value": "{\"@context\":\"https://schema.org\",\"@type\":\"Recipe\",\"headline\":\"Pambazos (Mexican Chorizo and Potato Sandwiches)\",\"url\":\"https://www.thekitchn.com/pambazo-recipe-23663132\",\"description\":\"Feast on these spicy fried sandwiches loaded with Mexican chorizo, tender potatoes, and a refreshing cabbage slaw.\",\"brand\":{\"@type\":\"Thing\",\"name\":\"The Kitchn\"},\"nutrition\":{\"@type\":\"NutritionInformation\",\"calories\":\"704 cal\",\"carbohydrateContent\":\"61.8 g\",\"cholesterolContent\":\"0 mg\",\"fiberContent\":\"8.5 g\",\"proteinContent\":\"25.8 g\",\"saturatedFatContent\":\"14.2 g\",\"sodiumContent\":\"1283.3 mg\",\"sugarContent\":\"5.1 g\",\"fatContent\":\"40.8 g\",\"servingSize\":\"Serves 5\",\"unsaturatedFatContent\":\"0.0 g\"},\"recipeCategory\":[\"Lunch\",\"Sandwich\",\"Main dish\"],\"recipeCuisine\":[\"Latin america\",\"Mexican\"],\"recipeIngredient\":[\"10  dried guajillo chiles\",\"4  dried chiles de arbol\",\"3 cups cold water\",\"1 large clove garlic\",\"1 teaspoon kosher salt\",\"1/2 teaspoon ground cinnamon, preferably Mexican or Ceylon\",\"1/2 teaspoon ground cumin\",\"1 pound Yukon gold potatoes (about 3 medium)\",\"1 pound raw Mexican chorizo, casings removed if needed\",\"1/4 cup water\",\"1/8 to 1/4  medium green cabbage (about 7 ounces)\",\"1  ripe firm avocado\",\"1  medium jalapeño\",\"2 1/2 ounces cotja cheese\",\"2  medium limes\",\"5  kaiser or telera rolls\",\"1/2 cup neutral oil, such as vegetable or canola\",\"1/2 cup crema mexicana or Mexican table cream\"],\"recipeInstructions\":[{\"@type\":\"HowToStep\",\"name\":\"Step 1: Make the sauce:\",\"text\":\"Trim the stems from 10 dried guajillo chiles and 4 dried chiles de arbol. Heat a comal or cast-iron skillet over low heat. Add the chiles and toast, turning them every 45 to 60 seconds, until fragrant and darkening in spots, about 3 minutes total. Transfer the chiles to a small saucepan, add 3 cups cold water, and bring to a boil over medium-high heat. Turn off the heat and let the chiles steep for 5 minutes.\",\"image\":null},{\"@type\":\"HowToStep\",\"name\":\"Step 2: Make the sauce:\",\"text\":\"Pour the mixture into a blender. Add 1 large peeled garlic clove, 1 tablespoon kosher salt, 1/2 teaspoon ground cinnamon, and 1/2 teaspoon ground cumin. Blend until smooth, about 1 minute. Pour the mixture through a fine-mesh strainer set over a bowl and press the mixture through the strainer; discard the contents of the strainer.\",\"image\":null},{\"@type\":\"HowToStep\",\"name\":\"Step 1: Make the filling:\",\"text\":\"Dice 1 pound Yukon gold potatoes (no need to peel, about 3 1/2 cups). Place 1 pound raw Mexican chorizo in an unheated large nonstick frying pan. Place over medium heat and cook for 5 minutes, breaking up the chorizo into small pieces with a wooden spoon.\",\"image\":null},{\"@type\":\"HowToStep\",\"name\":\"Step 2: Make the filling:\",\"text\":\"Add the potatoes and 1/4 cup water, and stir to combine. Cover and cook, stirring occasionally, until the potatoes are fork tender, about 10 minutes. Uncover and cook, stirring occasionally, until the liquid is evaporated, about 5 minutes more. Transfer to a bowl and cover to keep warm. Wipe out the skillet (no need to wash).\",\"image\":null},{\"@type\":\"HowToStep\",\"name\":\"Step 1: Make the slaw:\",\"text\":\"Prepare the following, adding each to a large bowl as you complete it: Core and cut 1/8 to 1/4 medium cabbage into thin shreds until you have 2 cups. Halve, pit, and dice 1 medium avocado. Thinly slice 1 medium jalapeño crosswise on a slight diagonal. Crumble 2 1/2 ounces cotija cheese (about 1/2 cup). Juice 2 medium limes  until you have 1/4 cup. Toss to combine.\",\"image\":null},{\"@type\":\"HowToStep\",\"name\":\"Step 1: Assemble the pambazos:\",\"text\":\"Heat 1/2 cup neutral oil in the now-empty large frying pan over medium heat until shimmering. Meanwhile, transfer 3/4 cup the sauce into a pie plate; reserve the remaining for assembling. Split 4 kaiser or telera rolls with a serrated knife if needed. Dip the outside of each piece (but not the cut side) in the sauce to coat.\",\"image\":null},{\"@type\":\"HowToStep\",\"name\":\"Step 2: Assemble the pambazos:\",\"text\":\"Add 4 of the pieces sauce-side down in the pan (it will bubble up). Fry until darkened in color, charred in spots, and toasted, making sure to get to the edges, about 2 minutes. Transfer to a wire rack and repeat frying the remaining rolls.\",\"image\":null},{\"@type\":\"HowToStep\",\"name\":\"Step 3: Assemble the pambazos:\",\"text\":\"Return 4 of the pieces cut-side down to the pan. Fry until toasted and golden brown, about 2 minutes. Return to the rack cut-side up and repeat frying the cut sides of the remaining rolls.\",\"image\":null},{\"@type\":\"HowToStep\",\"name\":\"Step 4: Assemble the pambazos:\",\"text\":\"Spread 1 tablespoon crema mexicana onto the cut side of each piece of roll. Top each bottom half with 1/2 cup of the slaw. Top each with 1/2 cup of the filling. Drizzle each with 1 tablespoon of the sauce. Close the pambazos with the top halves of the rolls.\",\"image\":null}],\"HowtoTip\":{\"text\":\"Make ahead: The sauce can be made up to 2 days ahead and refrigerated in an airtight container.Storage: Leftover sauce can be refrigerated in an airtight container for up to 1 week. The cabbage slaw can be refrigerated in an airtight container for up to 1 day. The filling can be refrigerated in an airtight container for up to 3 days; reheat before using.\"},\"recipeYield\":5,\"prepTime\":\"PT2100S\",\"cookTime\":\"PT2700S\",\"totalTime\":\"PT4800S\",\"aggregateRating\":{\"@type\":\"AggregateRating\",\"bestRating\":5,\"ratingValue\":5,\"worstRating\":1,\"ratingCount\":1},\"review\":[],\"name\":\"Pambazos (Mexican Chorizo and Potato Sandwiches)\",\"articleSection\":\"Recipes\",\"thumbnailUrl\":\"https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Apartment Therapy, LLC.\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.thekitchn.com/static/logos/publisher-logo.png\",\"width\":180,\"height\":46}},\"author\":[{\"@type\":\"Person\",\"name\":\"Tony Ortiz\",\"URL\":\"https://www.thekitchn.com/authors/tony-ortiz\",\"description\":\"Tony Ortiz is a culinary artist in New York City by way of Northern California. His focus is on the preservation and evolution of ancestral Mexican cuisine. He enjoys utilizing food as a way to explore identity and tell a story. When not in New York, he is in the Sierra Nevada foothills at his grandparents ranch cooking over fire and riding horses. \",\"jobTitle\":\"\"}],\"creator\":{\"@type\":\"Person\",\"name\":\"Tony Ortiz\"},\"keywords\":[\"Main Dish\",\"mexican\",\"Recipe\",\"Sandwiches \u0026amp; Burgers\",\"Latin American\",\"Meat\",\"sandwich\",\"stovetop\",\"Lunch\",\"Dish Types\",\"Ingredient\",\"team:recipes\",\"platform:search\",\"course:main dish\",\"cuisine:latin america\",\"cuisine:mexican\",\"mainingredients:meat\",\"mainingredients:sausage\",\"timing:extended\",\"dishtype:sandwich\",\"method:stovetop\",\"meal:lunch\"],\"mainEntityOfPage\":\"https://www.thekitchn.com/pambazo-recipe-23663132\",\"dateCreated\":\"2024-06-11T13:00:00-04:00\",\"datePublished\":\"2024-06-11T13:00:00-04:00\",\"dateModified\":\"2024-06-11T13:04:06-04:00\",\"dateUpdated\":null,\"dateRepromoted\":null,\"abstract\":null}"
+                    }
+                },
+                "MetadataItem_6bc36ba6194d4272abbc964698c4b26e": {
+                    "__typename": "MetadataItem",
+                    "id": "6bc36ba6194d4272abbc964698c4b26e",
+                    "type": "metadata",
+                    "variant": "hidden",
+                    "data": {
+                        "__typename": "MetadataData",
+                        "name": "recipeTaxonomy",
+                        "value": "course: main dish, cuisine: latin america, cuisine: mexican, main ingredients: meat, main ingredients: sausage, timing: extended, dish type: sandwich, method: stovetop, meal: lunch"
+                    }
+                },
+                "PageBundle_e82ba8bcc2a740aeb7b5ceb4ebaaf905": {
+                    "__typename": "PageBundle",
+                    "id": "e82ba8bcc2a740aeb7b5ceb4ebaaf905",
+                    "layout": "metadata",
+                    "items": [
+                        { "__ref": "MetadataItem_0eaa03bf3edf4c77aa445cb536fb4a55" },
+                        { "__ref": "MetadataItem_73a550401ad54416a8ea38b96b0730d7" },
+                        { "__ref": "MetadataItem_7fea23839ad24e91b78929414b2721dc" },
+                        { "__ref": "MetadataItem_6b120bd54e9d4cd0871fe28468b9482d" },
+                        { "__ref": "MetadataItem_1baaa588780649c9b9f8d34a0a488841" },
+                        { "__ref": "MetadataItem_fc5c50a87656400d8f53a2f9a003ef9d" },
+                        { "__ref": "MetadataItem_f7218655f2b04a5b98805ac3841ea9aa" },
+                        { "__ref": "MetadataItem_4a4df225b8294b5fa4c7d28001adbb98" },
+                        { "__ref": "MetadataItem_d0f9ce4e5e2048019a545b7c55cc5013" },
+                        { "__ref": "MetadataItem_3a27484de6e64ce689610f47d0f131eb" },
+                        { "__ref": "MetadataItem_a7660acd458b4111b2b46c61bd5b5da3" },
+                        { "__ref": "MetadataItem_27b1e182f3594a698685d9d8a50b1bd2" },
+                        { "__ref": "MetadataItem_9df0ca997fd24d9ebaf628167b621a99" },
+                        { "__ref": "MetadataItem_7a50c52222bd4faa92b4f231eb572631" },
+                        { "__ref": "MetadataItem_87c7921bc2904272aefe15a450b0a380" },
+                        { "__ref": "MetadataItem_09198e5ae47c477f80e5a77242010a70" },
+                        { "__ref": "MetadataItem_d0389063c46845539ff45088399e5c13" },
+                        { "__ref": "MetadataItem_21409b91ed5a42269242df6a5eb72afb" },
+                        { "__ref": "MetadataItem_16350e58c5114fe5a4761fe3dd6dd791" },
+                        { "__ref": "MetadataItem_ff4b871826d048d7b90113ba174ca153" },
+                        { "__ref": "MetadataItem_f2aebd2f496641809f7604ba515fb3fb" },
+                        { "__ref": "MetadataItem_c8052b0c727246ccb7c7a38f34f7a208" },
+                        { "__ref": "MetadataItem_9ccb8f485d0f4156a1ab9b1c9dbb1767" },
+                        { "__ref": "MetadataItem_5841cce8f2b84011ab592e45f2685ed3" },
+                        { "__ref": "MetadataItem_6dde15a605c24177b3b8bc9409941f69" },
+                        { "__ref": "MetadataItem_74ee837098df48ebb1aeb6c2cadcf7ee" },
+                        { "__ref": "MetadataItem_6bc36ba6194d4272abbc964698c4b26e" }
+                    ]
+                },
+                "ImageItem_23663132-1": {
+                    "__typename": "ImageItem",
+                    "id": "23663132-1",
+                    "type": "image",
+                    "data": {
+                        "__typename": "ImageData",
+                        "url": "https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg",
+                        "publicId": "k/Photo/Recipes/2024-05-pambazos/pambazos-452",
+                        "hashedPublicId": "033fcbffb1e352fffdc63a8c7b6bbad1620f7fa0b7bfad73196f9f5241ec2e33",
+                        "alt": "head on shot of two pambazos on a marble surface, showing the chorizo, potatoes and lettuce",
+                        "caption": " Credit: Photo: Alex Lepe; Food Styling: Rachel Perlmutter",
+                        "credit": "Credit: Photo: Alex Lepe; Food Styling: Rachel Perlmutter",
+                        "href": "",
+                        "isPinnable": true,
+                        "originalWidth": 3000,
+                        "originalHeight": 2250,
+                        "audience": null,
+                        "overlay": ""
+                    }
+                },
+                "HtmlItem_23663132-2": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-2",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cp\u003eA pambazo is a Mexican sandwich that has different variations and origins based on the region of Mexico you\u0026#8217;re in. My recipe pulls from the styles of Mexico City, Veracruz, and Puebla to give you the best of all regions. Here, telera rolls are dipped in a spicy chile sauce then fried and filled with a mixture of \u003ca href=\"https://www.thekitchn.com/whats-the-difference-between-mexican-and-spanish-chorizo-word-of-mouth-207326\"\u003eMexican chorizo\u003c/a\u003e and diced potatoes that are cooked in chorizo fat. The tart slaw of fresh cabbage, \u003ca href=\"https://www.thekitchn.com/5-popular-mexican-cheeses-to-stock-up-on-right-now-230147\"\u003esalty cotija\u003c/a\u003e, and creamy avocado breaks up the rich flavors and provides balance to this iconic sandwich. The grand finale is a generous drizzle of the spicy sauce over the filling so you can enjoy it on more than just the rolls. Altogether, this sandwich is guaranteed to make anyone\u0026#8217;s mouth water.\u0026#160;\u003c/p\u003e"
+                    }
+                },
+                "HtmlItem_23663132-3": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-3",
+                    "type": "heading",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003ch2 class=\"wp-block-heading\"\u003eWhy You\u0026#8217;ll Love It\u0026#160;\u003c/h2\u003e\n\n\n\n"
+                    }
+                },
+                "HtmlItem_23663132-4": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-4",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eIt\u0026#8217;s got heat. \u003c/strong\u003eDried chiles are toasted first to release more flavor, resulting in an earthy spiced sauce with more depth. The rolls are dipped in the sauce then fried. As you\u0026#8217;re assembling, drizzle some of the flavorful salsa on the inside of the sandwich for more oomph.\u0026#160;\u003c/li\u003e\n\n\n\n\u003cli\u003e\u003cstrong\u003eThe filling is so flavorful.\u003c/strong\u003e The potatoes are cooked with the chorizo, instead of separately, resulting in a more flavorful filling with less hassle.\u003c/li\u003e\n\n\n\n\u003cli\u003e\u003cstrong\u003eIt has a fresh element. \u003c/strong\u003eThe tart cabbage slaw adds a layer of freshness, which balances out the richer earthy flavors.\u0026#160;\u003c/li\u003e\n\u003c/ul\u003e"
+                    }
+                },
+                "ImageItem_23663132-5": {
+                    "__typename": "ImageItem",
+                    "id": "23663132-5",
+                    "type": "image",
+                    "data": {
+                        "__typename": "ImageData",
+                        "url": "https://cdn.apartmenttherapy.info/image/upload/v1716919702/k/Photo/Recipes/2024-05-pambazos/pambazos-463-vertical.jpg",
+                        "publicId": "k/Photo/Recipes/2024-05-pambazos/pambazos-463-vertical",
+                        "hashedPublicId": "c673fa9fa6faee1e5e6c30e4e3a659d2cd3fb7b67324c3376a99a4a09bc49a04",
+                        "alt": "head on shot of one pambazo being held by someone showing the chorizo, potatoes and lettuce",
+                        "caption": " Credit: Photo: Alex Lepe; Food Styling: Rachel Perlmutter",
+                        "credit": "Credit: Photo: Alex Lepe; Food Styling: Rachel Perlmutter",
+                        "href": "",
+                        "isPinnable": true,
+                        "originalWidth": 2000,
+                        "originalHeight": 2500,
+                        "audience": null,
+                        "overlay": ""
+                    }
+                },
+                "HtmlItem_23663132-6": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-6",
+                    "type": "heading",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003ch2 class=\"wp-block-heading\"\u003eKey Ingredients in Pambazos\u003c/h2\u003e\n\n\n\n"
+                    }
+                },
+                "HtmlItem_23663132-7": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-7",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eDried chiles: \u003c/strong\u003eChile de arbol adds a layer of much-needed heat and complexity to the sauce compared with just using guajillo chiles alone. When shopping for dried chiles, feel for how pliable they are. The older the chiles are, the drier and more prone to cracking they get.\u0026#160;\u003c/li\u003e\n\n\n\n\u003cli\u003e\u003cstrong\u003eAvocado: \u003c/strong\u003eAs a native Californian, I believe avocado is crucial in sandwiches. It adds a creamy texture and nutty flavor to the cabbage salad.\u0026#160;\u003c/li\u003e\n\n\n\n\u003cli\u003e\u003cstrong\u003eMexican chorizo: \u003c/strong\u003eRendering the fat of the chorizo is key to ensuring your potatoes are flavorful and spiced. Look for chorizo that is in a casing and raw. Steer clear of precooked chorizo.\u0026#160;\u003c/li\u003e\n\u003c/ul\u003e"
+                    }
+                },
+                "HtmlItem_23663132-8": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-8",
+                    "type": "heading",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003ch2 class=\"wp-block-heading\"\u003eHow to Make Pambazos\u0026#160;\u003c/h2\u003e\n\n\n\n"
+                    }
+                },
+                "HtmlItem_23663132-9": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-9",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eMake the sauce. \u003c/strong\u003eMake the spicy guajillo sauce by blending toasted and rehydrated guajillo and arbol chiles with garlic, cumin and cinnamon.\u003c/li\u003e\n\n\n\n\u003cli\u003e\u003cstrong\u003eCook the filling.\u003c/strong\u003e Saut\u0026#233; the chorizo and toss the potatoes in the rendered fat and spices with a splash of water and cover until the potatoes are fork tender.\u003c/li\u003e\n\n\n\n\u003cli\u003e\u003cstrong\u003eMake the slaw.\u003c/strong\u003e Shred cabbage and toss with a generous squeeze of lime juice, crumbled cotija cheese, sliced jalape\u0026#241;o, and diced avocado.\u0026#160;\u003c/li\u003e\n\n\n\n\u003cli\u003e\u003cstrong\u003eFry the rolls.\u003c/strong\u003e Dip the outsides of bread in chile sauce and pan-fry until crispy. Turn the roll halves over and fry them in the residual chile oil until golden brown.\u0026#160;\u003c/li\u003e\n\n\n\n\u003cli\u003e\u003cstrong\u003eAssemble your pambazos. \u003c/strong\u003eBuild the sandwiches by spreading Mexican crema on the rolls and filling them with the chorizo, potatoes, cabbage slaw, and a drizzle of guajillo sauce.\u0026#160;\u003c/li\u003e\n\u003c/ol\u003e"
+                    }
+                },
+                "HtmlItem_23663132-10": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-10",
+                    "type": "heading",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003ch2 class=\"wp-block-heading\"\u003eThe History and Variations\u003c/h2\u003e\n\n\n\n"
+                    }
+                },
+                "HtmlItem_23663132-11": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-11",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cp\u003eThere are two known tales when it comes to the origins of the pambazo. Both focus mostly on the bread being used, yet each resulted in two very different versions of the sandwich.\u0026#160;\u003c/p\u003e"
+                    }
+                },
+                "HtmlItem_23663132-12": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-12",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cp\u003e\u003ca rel=\"noreferrer noopener\" href=\"https://www.admagazine.com/articulos/el-pambazo-uno-de-los-antojitos-tipicos-de-mexico\" target=\"_blank\"\u003eOne version\u003c/a\u003e is that the pambazos were a result of needing to spruce up a \u0026#8220;peasant\u0026#8221; bread that was made with low-quality flours. What better way to do that than soaking it in a spicy chile sauce and frying. \u003ca rel=\"noreferrer noopener\" href=\"https://www.youtube.com/watch?v=l7s-pXcV338\" target=\"_blank\"\u003eThe other version\u003c/a\u003e is that the bread was created by chefs in Veracruz for a visiting empress to satisfy her love for a nearby snow-covered volcano that separated Veracruz and Puebla. The bread was not covered in red sauce but instead dusted with a white flour to resemble the volcano Pico de Orizaba.\u0026#160;\u003c/p\u003e"
+                    }
+                },
+                "HtmlItem_23663132-13": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-13",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cp\u003eIt is important to note that not all pambazos are created equally. The Veracruz version is not covered in chile sauce and fried, but instead the bread is dusted with white flour and generally stuffed with beans, meats, and cheese.\u0026#160;\u003c/p\u003e"
+                    }
+                },
+                "HtmlItem_23663132-14": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-14",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cp\u003eMexico City\u0026#8217;s version, which is most widely known, is made on Mexico\u0026#8217;s independence day. It includes the chile-covered fried rolls and the popular filling of chorizo and potato. \u003ca rel=\"noreferrer noopener\" href=\"https://www.youtube.com/watch?v=KdME9QOTsNY\u0026amp;t=572s\" target=\"_blank\"\u003eThe pambazos in Puebla\u003c/a\u003e, however, contain meat stewed in a spiced guajillo sauce and only the corner of the top half of the roll is dipped in sauce, but not fried. They are stuffed with stewed meat and vegetable fillings.\u0026#160;\u0026#160;\u003c/p\u003e"
+                    }
+                },
+                "HtmlItem_23663132-15": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-15",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cp\u003eThese regional variations show just how complex Mexican cuisine is. The beautiful thing about recipes is that they travel across states and time just as people do. With travel comes the adaptation of communities based on accessible ingredients and cultural practices. The pambazo is the perfect example of the beautiful complexity that is Mexican cuisine.\u003c/p\u003e"
+                    }
+                },
+                "HtmlItem_23663132-16": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-16",
+                    "type": "heading",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003ch2 class=\"wp-block-heading\"\u003eHelpful Swaps\u003c/h2\u003e\n\n\n\n"
+                    }
+                },
+                "HtmlItem_23663132-17": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-17",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cul\u003e\n\u003cli\u003eSwap cabbage for any sturdy crunchy lettuce such as iceberg.\u0026#160;\u003c/li\u003e\n\n\n\n\u003cli\u003eUse plant-based Mexican chorizo instead of pork.\u0026#160;\u003c/li\u003e\n\n\n\n\u003cli\u003eUse beef chorizo if you do not eat pork.\u0026#160;\u003c/li\u003e\n\u003c/ul\u003e"
+                    }
+                },
+                "HtmlItem_23663132-18": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-18",
+                    "type": "heading",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003ch2 class=\"wp-block-heading\"\u003eStorage and Make-Ahead tips\u0026#160;\u003c/h2\u003e\n\n\n\n"
+                    }
+                },
+                "HtmlItem_23663132-19": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-19",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cul\u003e\n\u003cli\u003eMake the chile guajillo sauce up to 2 days in advance. You can store it in the refrigerator for up to 3 days, after that it will start to lose its potency. Warm the sauce up in a pan or pot over low heat.\u0026#160;\u003c/li\u003e\n\n\n\n\u003cli\u003eMake the potato and chorizo mixture up to 2 days in advance (store up to 3 days max). Heat the mixture up by saut\u0026#233;eing it in a pan until hot and the oils release from the chorizo.\u003c/li\u003e\n\u003c/ul\u003e"
+                    }
+                },
+                "HtmlItem_23663132-20": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-20",
+                    "type": "heading",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003ch2 class=\"wp-block-heading\"\u003eWhat to Serve with Pambazos\u003c/h2\u003e\n\n\n\n"
+                    }
+                },
+                "HtmlItem_23663132-21": {
+                    "__typename": "HtmlItem",
+                    "id": "23663132-21",
+                    "type": "html",
+                    "data": {
+                        "__typename": "HtmlData",
+                        "html": "\u003cp\u003eSince the sandwiches are pretty much a meal in themselves, I recommend serving them with lighter fare alongside, such as a simple salad of greens, cucumber, and radish.\u0026#160;\u003c/p\u003e"
+                    }
+                },
+                "RecipeIngredient_644220026-ingredientgroup-1-1": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-1-1",
+                    "quantity": "10",
+                    "unit": "",
+                    "html": "\u003cp\u003edried guajillo chiles\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-1-2": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-1-2",
+                    "quantity": "4",
+                    "unit": "",
+                    "html": "\u003cp\u003edried chiles de arbol\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-1-3": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-1-3",
+                    "quantity": "3",
+                    "unit": "cups",
+                    "html": "\u003cp\u003ecold water\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-1-4": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-1-4",
+                    "quantity": "1",
+                    "unit": "large clove",
+                    "html": "\u003cp\u003egarlic\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-1-5": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-1-5",
+                    "quantity": "1",
+                    "unit": "teaspoon",
+                    "html": "\u003cp\u003ekosher salt\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-1-6": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-1-6",
+                    "quantity": "1/2",
+                    "unit": "teaspoon",
+                    "html": "\u003cp\u003eground cinnamon, preferably Mexican or Ceylon\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-1-7": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-1-7",
+                    "quantity": "1/2",
+                    "unit": "teaspoon",
+                    "html": "\u003cp\u003eground cumin\u003c/p\u003e"
+                },
+                "RecipeIngredientGroup_644220026-ingredientgroup-1": {
+                    "__typename": "RecipeIngredientGroup",
+                    "id": "644220026-ingredientgroup-1",
+                    "name": "For the sauce (makes 2 cups):",
+                    "items": [
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-1-1" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-1-2" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-1-3" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-1-4" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-1-5" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-1-6" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-1-7" }
+                    ]
+                },
+                "RecipeIngredient_644220026-ingredientgroup-2-1": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-2-1",
+                    "quantity": "1",
+                    "unit": "pound",
+                    "html": "\u003cp\u003eYukon gold potatoes (about 3 medium)\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-2-2": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-2-2",
+                    "quantity": "1",
+                    "unit": "pound",
+                    "html": "\u003cp\u003eraw \u003cu\u003e\u003ca href=\"https://www.thekitchn.com/whats-the-difference-between-mexican-and-spanish-chorizo-word-of-mouth-207326\"\u003eMexican chorizo\u003c/a\u003e\u003c/u\u003e, casings removed if needed\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-2-3": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-2-3",
+                    "quantity": "1/4",
+                    "unit": "cup",
+                    "html": "\u003cp\u003ewater\u003c/p\u003e"
+                },
+                "RecipeIngredientGroup_644220026-ingredientgroup-2": {
+                    "__typename": "RecipeIngredientGroup",
+                    "id": "644220026-ingredientgroup-2",
+                    "name": "For the filling:",
+                    "items": [
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-2-1" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-2-2" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-2-3" }
+                    ]
+                },
+                "RecipeIngredient_644220026-ingredientgroup-3-1": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-3-1",
+                    "quantity": "1/8 to 1/4",
+                    "unit": "",
+                    "html": "\u003cp\u003emedium green cabbage (about 7 ounces)\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-3-2": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-3-2",
+                    "quantity": "1",
+                    "unit": "",
+                    "html": "\u003cp\u003eripe firm avocado\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-3-3": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-3-3",
+                    "quantity": "1",
+                    "unit": "",
+                    "html": "\u003cp\u003emedium jalapeño\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-3-4": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-3-4",
+                    "quantity": "2 1/2",
+                    "unit": "ounces",
+                    "html": "\u003cp\u003ecotja cheese\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-3-5": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-3-5",
+                    "quantity": "2",
+                    "unit": "",
+                    "html": "\u003cp\u003emedium limes\u003c/p\u003e"
+                },
+                "RecipeIngredientGroup_644220026-ingredientgroup-3": {
+                    "__typename": "RecipeIngredientGroup",
+                    "id": "644220026-ingredientgroup-3",
+                    "name": "For the slaw:",
+                    "items": [
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-3-1" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-3-2" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-3-3" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-3-4" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-3-5" }
+                    ]
+                },
+                "RecipeIngredient_644220026-ingredientgroup-4-1": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-4-1",
+                    "quantity": "5",
+                    "unit": "",
+                    "html": "\u003cp\u003ekaiser or telera rolls\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-4-2": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-4-2",
+                    "quantity": "1/2",
+                    "unit": "cup",
+                    "html": "\u003cp\u003eneutral oil, such as vegetable or canola\u003c/p\u003e"
+                },
+                "RecipeIngredient_644220026-ingredientgroup-4-3": {
+                    "__typename": "RecipeIngredient",
+                    "id": "644220026-ingredientgroup-4-3",
+                    "quantity": "1/2",
+                    "unit": "cup",
+                    "html": "\u003cp\u003ecrema mexicana or Mexican table cream\u003c/p\u003e"
+                },
+                "RecipeIngredientGroup_644220026-ingredientgroup-4": {
+                    "__typename": "RecipeIngredientGroup",
+                    "id": "644220026-ingredientgroup-4",
+                    "name": "For assembly:",
+                    "items": [
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-4-1" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-4-2" },
+                        { "__ref": "RecipeIngredient_644220026-ingredientgroup-4-3" }
+                    ]
+                },
+                "RecipeInstruction_644220026-instructiongroup-1-1": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-1-1",
+                    "html": "\u003cp\u003eTrim the stems from 10 dried guajillo chiles and 4 dried chiles de arbol. Heat a comal or cast-iron skillet over low heat. Add the chiles and toast, turning them every 45 to 60 seconds, until fragrant and darkening in spots, about 3 minutes total. Transfer the chiles to a small saucepan, add 3 cups cold water, and bring to a boil over medium-high heat. Turn off the heat and let the chiles steep for 5 minutes.\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstruction_644220026-instructiongroup-1-2": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-1-2",
+                    "html": "\u003cp\u003ePour the mixture into a blender. Add 1 large peeled garlic clove, 1 tablespoon kosher salt, 1/2 teaspoon ground cinnamon, and 1/2 teaspoon ground cumin. Blend until smooth, about 1 minute. Pour the mixture through a fine-mesh strainer set over a bowl and press the mixture through the strainer; discard the contents of the strainer.\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstructionGroup_644220026-instructiongroup-1": {
+                    "__typename": "RecipeInstructionGroup",
+                    "id": "644220026-instructiongroup-1",
+                    "name": "Make the sauce:",
+                    "items": [
+                        { "__ref": "RecipeInstruction_644220026-instructiongroup-1-1" },
+                        { "__ref": "RecipeInstruction_644220026-instructiongroup-1-2" }
+                    ]
+                },
+                "RecipeInstruction_644220026-instructiongroup-2-1": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-2-1",
+                    "html": "\u003cp\u003eDice 1 pound Yukon gold potatoes (no need to peel, about 3 1/2 cups). Place 1 pound raw Mexican chorizo in an unheated large nonstick frying pan. Place over medium heat and cook for 5 minutes, breaking up the chorizo into small pieces with a wooden spoon.\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstruction_644220026-instructiongroup-2-2": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-2-2",
+                    "html": "\u003cp\u003eAdd the potatoes and 1/4 cup water, and stir to combine. Cover and cook, stirring occasionally, until the potatoes are fork tender, about 10 minutes. Uncover and cook, stirring occasionally, until the liquid is evaporated, about 5 minutes more. Transfer to a bowl and cover to keep warm. Wipe out the skillet (no need to wash).\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstructionGroup_644220026-instructiongroup-2": {
+                    "__typename": "RecipeInstructionGroup",
+                    "id": "644220026-instructiongroup-2",
+                    "name": "Make the filling:",
+                    "items": [
+                        { "__ref": "RecipeInstruction_644220026-instructiongroup-2-1" },
+                        { "__ref": "RecipeInstruction_644220026-instructiongroup-2-2" }
+                    ]
+                },
+                "RecipeInstruction_644220026-instructiongroup-3-1": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-3-1",
+                    "html": "\u003cp\u003ePrepare the following, adding each to a large bowl as you complete it: Core and cut 1/8 to 1/4 medium cabbage into thin shreds until you have 2 cups. Halve, pit, and dice 1 medium avocado. Thinly slice 1 medium jalapeño crosswise on a slight diagonal. Crumble 2 1/2 ounces cotija cheese (about 1/2 cup). Juice 2 medium limes  until you have 1/4 cup. Toss to combine.\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstructionGroup_644220026-instructiongroup-3": {
+                    "__typename": "RecipeInstructionGroup",
+                    "id": "644220026-instructiongroup-3",
+                    "name": "Make the slaw:",
+                    "items": [{ "__ref": "RecipeInstruction_644220026-instructiongroup-3-1" }]
+                },
+                "RecipeInstruction_644220026-instructiongroup-4-1": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-4-1",
+                    "html": "\u003cp\u003eHeat 1/2 cup neutral oil in the now-empty large frying pan over medium heat until shimmering. Meanwhile, transfer 3/4 cup the sauce into a pie plate; reserve the remaining for assembling. Split 4 kaiser or telera rolls with a serrated knife if needed. Dip the outside of each piece (but not the cut side) in the sauce to coat.\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstruction_644220026-instructiongroup-4-2": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-4-2",
+                    "html": "\u003cp\u003eAdd 4 of the pieces sauce-side down in the pan (it will bubble up). Fry until darkened in color, charred in spots, and toasted, making sure to get to the edges, about 2 minutes. Transfer to a wire rack and repeat frying the remaining rolls.\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstruction_644220026-instructiongroup-4-3": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-4-3",
+                    "html": "\u003cp\u003eReturn 4 of the pieces cut-side down to the pan. Fry until toasted and golden brown, about 2 minutes. Return to the rack cut-side up and repeat frying the cut sides of the remaining rolls.\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstruction_644220026-instructiongroup-4-4": {
+                    "__typename": "RecipeInstruction",
+                    "id": "644220026-instructiongroup-4-4",
+                    "html": "\u003cp\u003eSpread 1 tablespoon crema mexicana onto the cut side of each piece of roll. Top each bottom half with 1/2 cup of the slaw. Top each with 1/2 cup of the filling. Drizzle each with 1 tablespoon of the sauce. Close the pambazos with the top halves of the rolls.\u003c/p\u003e",
+                    "imageUrl": null
+                },
+                "RecipeInstructionGroup_644220026-instructiongroup-4": {
+                    "__typename": "RecipeInstructionGroup",
+                    "id": "644220026-instructiongroup-4",
+                    "name": "Assemble the pambazos:",
+                    "items": [
+                        { "__ref": "RecipeInstruction_644220026-instructiongroup-4-1" },
+                        { "__ref": "RecipeInstruction_644220026-instructiongroup-4-2" },
+                        { "__ref": "RecipeInstruction_644220026-instructiongroup-4-3" },
+                        { "__ref": "RecipeInstruction_644220026-instructiongroup-4-4" }
+                    ]
+                },
+                "RecipeItem_23663132-22": {
+                    "__typename": "RecipeItem",
+                    "id": "23663132-22",
+                    "type": "recipe",
+                    "data": {
+                        "__typename": "RecipeData",
+                        "recipeId": "644220026",
+                        "title": "Pambazos Recipe",
+                        "description": "\u003cp\u003eFeast on these spicy fried sandwiches loaded with Mexican chorizo, tender potatoes, and a refreshing cabbage slaw.\u003c/p\u003e",
+                        "author": { "__typename": "PersonData", "name": "Tony Ortiz" },
+                        "categories": [],
+                        "keywords": [
+                            "sugar_conscious",
+                            "sulphite_free",
+                            "shellfish_free",
+                            "vegetarian",
+                            "dairy_free",
+                            "paleo",
+                            "gluten_free",
+                            "fish_free",
+                            "red_meat_free",
+                            "kidney_friendly",
+                            "pork_free",
+                            "high_fiber",
+                            "soy_free",
+                            "pescatarian",
+                            "vegan",
+                            "peanut_free",
+                            "no_oil_added",
+                            "tree_nut_free",
+                            "wheat_free",
+                            "alcohol_free",
+                            "low_potassium",
+                            "egg_free"
+                        ],
+                        "cuisines": [],
+                        "imageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1716919705/k/Photo/Recipes/2024-05-pambazos/pambazos-452.jpg",
+                        "serves": "5",
+                        "makes": "5 sandwiches",
+                        "notes": "\u003cp\u003e\u003cstrong\u003eMake ahead: \u003c/strong\u003eThe\u003cstrong\u003e \u003c/strong\u003esauce can be made up to 2 days ahead and refrigerated in an airtight container.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eStorage: \u003c/strong\u003eLeftover sauce can be refrigerated in an airtight container for up to 1 week. The cabbage slaw can be refrigerated in an airtight container for up to 1 day. The filling can be refrigerated in an airtight container for up to 3 days; reheat before using.\u003c/p\u003e",
+                        "cookTime": { "__typename": "CookTime", "min": 2400, "max": 2700 },
+                        "prepTime": { "__typename": "PrepTime", "min": 1200, "max": 2100 },
+                        "ingredientGroups": [
+                            { "__ref": "RecipeIngredientGroup_644220026-ingredientgroup-1" },
+                            { "__ref": "RecipeIngredientGroup_644220026-ingredientgroup-2" },
+                            { "__ref": "RecipeIngredientGroup_644220026-ingredientgroup-3" },
+                            { "__ref": "RecipeIngredientGroup_644220026-ingredientgroup-4" }
+                        ],
+                        "supplyGroups": [],
+                        "instructionGroups": [
+                            {
+                                "__ref": "RecipeInstructionGroup_644220026-instructiongroup-1"
+                            },
+                            {
+                                "__ref": "RecipeInstructionGroup_644220026-instructiongroup-2"
+                            },
+                            {
+                                "__ref": "RecipeInstructionGroup_644220026-instructiongroup-3"
+                            },
+                            { "__ref": "RecipeInstructionGroup_644220026-instructiongroup-4" }
+                        ],
+                        "nutritionalGuide": {
+                            "__typename": "NutritionalGuide",
+                            "calories": 3522,
+                            "servings": 5,
+                            "labels": [
+                                "fish-free",
+                                "tree-nut-free",
+                                "soy-free",
+                                "sulphite-free",
+                                "egg-free",
+                                "alcohol-free",
+                                "peanut-free",
+                                "shellfish-free",
+                                "high-fiber"
+                            ],
+                            "primaryNutrients": [
+                                {
+                                    "__typename": "Nutrient",
+                                    "label": "Fat",
+                                    "value": "FAT",
+                                    "quantity": "40.8 g (62.8%)",
+                                    "schemaValue": "fatContent"
+                                },
+                                {
+                                    "__typename": "Nutrient",
+                                    "label": "Saturated",
+                                    "value": "FASAT",
+                                    "quantity": "14.2 g (71.0%)",
+                                    "schemaValue": "saturatedFatContent"
+                                },
+                                {
+                                    "__typename": "Nutrient",
+                                    "label": "Carbs",
+                                    "value": "CHOCDF",
+                                    "quantity": "61.8 g (20.6%)",
+                                    "schemaValue": "carbohydrateContent"
+                                },
+                                {
+                                    "__typename": "Nutrient",
+                                    "label": "Fiber",
+                                    "value": "FIBTG",
+                                    "quantity": "8.5 g (33.9%)",
+                                    "schemaValue": "false"
+                                },
+                                {
+                                    "__typename": "Nutrient",
+                                    "label": "Sugars",
+                                    "value": "SUGAR",
+                                    "quantity": "5.1 g",
+                                    "schemaValue": "sugarContent"
+                                },
+                                {
+                                    "__typename": "Nutrient",
+                                    "label": "Protein",
+                                    "value": "PROCNT",
+                                    "quantity": "25.8 g (51.6%)",
+                                    "schemaValue": "proteinContent"
+                                },
+                                {
+                                    "__typename": "Nutrient",
+                                    "label": "Sodium",
+                                    "value": "NA",
+                                    "quantity": "1283.3 mg (53.5%)",
+                                    "schemaValue": ""
+                                }
+                            ]
+                        },
+                        "recipeCollections": [],
+                        "course": [
+                            {
+                                "__typename": "MultilevelTaxonomy",
+                                "name": "main dish",
+                                "nextLevel": [
+                                    {
+                                        "__typename": "MultilevelTaxonomy",
+                                        "name": "main dish",
+                                        "nextLevel": [
+                                            {
+                                                "__typename": "MultilevelTaxonomy",
+                                                "name": "main dish"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "dishType": [
+                            {
+                                "__typename": "MultilevelTaxonomy",
+                                "name": "sandwich",
+                                "nextLevel": [
+                                    {
+                                        "__typename": "MultilevelTaxonomy",
+                                        "name": "sandwich",
+                                        "nextLevel": [
+                                            {
+                                                "__typename": "MultilevelTaxonomy",
+                                                "name": "sandwich"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "meal": [
+                            {
+                                "__typename": "MultilevelTaxonomy",
+                                "name": "lunch",
+                                "nextLevel": [
+                                    {
+                                        "__typename": "MultilevelTaxonomy",
+                                        "name": "lunch",
+                                        "nextLevel": [
+                                            { "__typename": "MultilevelTaxonomy", "name": "lunch" }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "cuisine": [
+                            {
+                                "__typename": "MultilevelTaxonomy",
+                                "name": "latin america",
+                                "nextLevel": [
+                                    {
+                                        "__typename": "MultilevelTaxonomy",
+                                        "name": "mexican",
+                                        "nextLevel": [
+                                            {
+                                                "__typename": "MultilevelTaxonomy",
+                                                "name": "mexican"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "method": [
+                            {
+                                "__typename": "MultilevelTaxonomy",
+                                "name": "stovetop",
+                                "nextLevel": [
+                                    {
+                                        "__typename": "MultilevelTaxonomy",
+                                        "name": "stovetop",
+                                        "nextLevel": [
+                                            {
+                                                "__typename": "MultilevelTaxonomy",
+                                                "name": "stovetop"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "timing": [
+                            {
+                                "__typename": "MultilevelTaxonomy",
+                                "name": "extended",
+                                "nextLevel": [
+                                    {
+                                        "__typename": "MultilevelTaxonomy",
+                                        "name": "extended",
+                                        "nextLevel": [
+                                            {
+                                                "__typename": "MultilevelTaxonomy",
+                                                "name": "extended"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "mainIngredients": [
+                            {
+                                "__typename": "MultilevelTaxonomy",
+                                "name": "meat",
+                                "nextLevel": [
+                                    {
+                                        "__typename": "MultilevelTaxonomy",
+                                        "name": "sausage",
+                                        "nextLevel": [
+                                            {
+                                                "__typename": "MultilevelTaxonomy",
+                                                "name": "sausage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "occasion": [],
+                        "lifestyle": [],
+                        "diet": []
+                    }
+                },
+                "StandaloneContentBundle_23663132": {
+                    "__typename": "StandaloneContentBundle",
+                    "id": "23663132",
+                    "layout": "post",
+                    "data": {
+                        "__typename": "StandaloneBundleData",
+                        "resourceId": "23663132",
+                        "title": "Pambazos (Mexican Chorizo and Potato Sandwiches)",
+                        "publishedAt": 1718125200,
+                        "modifiedAt": 1718125446,
+                        "updatedAt": null,
+                        "repromotedAt": null,
+                        "canonical": "https://www.thekitchn.com/pambazo-recipe-23663132",
+                        "breadcrumbTrail": [
+                            {
+                                "__typename": "BreadcrumbNode",
+                                "name": "Recipes",
+                                "path": "/recipes",
+                                "pathOverride": null
+                            },
+                            {
+                                "__typename": "BreadcrumbNode",
+                                "name": "Main Dishes",
+                                "path": "/collection/main-dish",
+                                "pathOverride": null
+                            },
+                            {
+                                "__typename": "BreadcrumbNode",
+                                "name": "Sandwiches \u0026 Burgers",
+                                "path": "/collection/sandwiches-burgers",
+                                "pathOverride": null
+                            }
+                        ],
+                        "contentClass": "Recipe",
+                        "categories": [
+                            { "__typename": "TermData", "name": "Recipes", "slug": "recipes" }
+                        ],
+                        "tags": [
+                            {
+                                "__typename": "TermData",
+                                "name": "Main Dish",
+                                "slug": "main-dish"
+                            },
+                            {
+                                "__typename": "TermData",
+                                "name": "mexican",
+                                "slug": "mexican"
+                            },
+                            { "__typename": "TermData", "name": "Recipe", "slug": "recipe" },
+                            {
+                                "__typename": "TermData",
+                                "name": "Sandwiches \u0026amp; Burgers",
+                                "slug": "sandwiches-burgers"
+                            },
+                            {
+                                "__typename": "TermData",
+                                "name": "Latin American",
+                                "slug": "latin-american"
+                            },
+                            { "__typename": "TermData", "name": "Meat", "slug": "meat" },
+                            {
+                                "__typename": "TermData",
+                                "name": "sandwich",
+                                "slug": "sandwich"
+                            },
+                            {
+                                "__typename": "TermData",
+                                "name": "stovetop",
+                                "slug": "stovetop"
+                            },
+                            { "__typename": "TermData", "name": "Lunch", "slug": "lunch" },
+                            {
+                                "__typename": "TermData",
+                                "name": "Dish Types",
+                                "slug": "dish-types"
+                            },
+                            {
+                                "__typename": "TermData",
+                                "name": "Ingredient",
+                                "slug": "ingredient"
+                            }
+                        ],
+                        "author": {
+                            "__typename": "PersonData",
+                            "name": "Tony Ortiz",
+                            "affiliation": null,
+                            "imageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1712236071/author/tony-ortiz.jpg",
+                            "authorUrl": "https://www.thekitchn.com/authors/tony-ortiz",
+                            "jobTitle": null,
+                            "location": null,
+                            "bio": "Tony Ortiz is a culinary artist in New York City by way of Northern California. His focus is on the preservation and evolution of ancestral Mexican cuisine. He enjoys utilizing food as a way to explore identity and tell a story. When not in New York, he is in the Sierra Nevada foothills at his grandparents ranch cooking over fire and riding horses. ",
+                            "instagramUrl": "https://www.instagram.com/chileconmiel/",
+                            "twitterUrl": null,
+                            "pinterestUrl": null,
+                            "personalUrl": "https://www.chileconmiel.com/",
+                            "tiktokUrl": null,
+                            "email": null,
+                            "faves": null
+                        },
+                        "authors": [
+                            {
+                                "__typename": "PersonData",
+                                "name": "Tony Ortiz",
+                                "affiliation": null,
+                                "imageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1712236071/author/tony-ortiz.jpg",
+                                "authorUrl": "https://www.thekitchn.com/authors/tony-ortiz",
+                                "jobTitle": null,
+                                "location": null,
+                                "bio": "Tony Ortiz is a culinary artist in New York City by way of Northern California. His focus is on the preservation and evolution of ancestral Mexican cuisine. He enjoys utilizing food as a way to explore identity and tell a story. When not in New York, he is in the Sierra Nevada foothills at his grandparents ranch cooking over fire and riding horses. ",
+                                "instagramUrl": "https://www.instagram.com/chileconmiel/",
+                                "twitterUrl": null,
+                                "pinterestUrl": null,
+                                "personalUrl": "https://www.chileconmiel.com/",
+                                "tiktokUrl": null,
+                                "email": null,
+                                "faves": null
+                            }
+                        ],
+                        "status": "publish",
+                        "coverMedia": null,
+                        "ads": {
+                            "__typename": "BundleAdData",
+                            "targeting": {
+                                "__typename": "AdTargeting",
+                                "tags": [
+                                    "main-dish",
+                                    "mexican",
+                                    "recipe",
+                                    "sandwiches-burgers",
+                                    "latin-american",
+                                    "meat",
+                                    "sandwich",
+                                    "stovetop",
+                                    "lunch",
+                                    "dish-types",
+                                    "ingredient"
+                                ],
+                                "categories": ["recipes"],
+                                "recipe": []
+                            },
+                            "enabled": null
+                        },
+                        "sponsor": {
+                            "__typename": "SponsorData",
+                            "name": "",
+                            "messaging": ""
+                        },
+                        "pinterestBoardImage": null,
+                        "pinterestPostTitle": "These Loaded Mexican Sandwiches Are So Good, Everyone Will Want Two",
+                        "searchTitle": "Pambazos Recipe (Mexican Chorizo and Potato Sandwiches)",
+                        "teaserTitle": "These Loaded Mexican Sandwiches Are So Good, Everyone Will Want Two",
+                        "socialTitle": "These Loaded Mexican Sandwiches Are So Good, Everyone Will Want Two",
+                        "textLinkProductDependencies": [],
+                        "properties": null,
+                        "pageTypeTaxonomies": [
+                            {
+                                "__typename": "TypeTaxonomy",
+                                "name": "franchises",
+                                "terms": []
+                            },
+                            {
+                                "__typename": "TypeTaxonomy",
+                                "name": "author",
+                                "terms": [
+                                    {
+                                        "__typename": "TermData",
+                                        "slug": "tonyortiz",
+                                        "name": "Tony Ortiz"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "above": null,
+                    "items": [
+                        { "__ref": "ImageItem_23663132-1" },
+                        { "__ref": "HtmlItem_23663132-2" },
+                        { "__ref": "HtmlItem_23663132-3" },
+                        { "__ref": "HtmlItem_23663132-4" },
+                        { "__ref": "ImageItem_23663132-5" },
+                        { "__ref": "HtmlItem_23663132-6" },
+                        { "__ref": "HtmlItem_23663132-7" },
+                        { "__ref": "HtmlItem_23663132-8" },
+                        { "__ref": "HtmlItem_23663132-9" },
+                        { "__ref": "HtmlItem_23663132-10" },
+                        { "__ref": "HtmlItem_23663132-11" },
+                        { "__ref": "HtmlItem_23663132-12" },
+                        { "__ref": "HtmlItem_23663132-13" },
+                        { "__ref": "HtmlItem_23663132-14" },
+                        { "__ref": "HtmlItem_23663132-15" },
+                        { "__ref": "HtmlItem_23663132-16" },
+                        { "__ref": "HtmlItem_23663132-17" },
+                        { "__ref": "HtmlItem_23663132-18" },
+                        { "__ref": "HtmlItem_23663132-19" },
+                        { "__ref": "HtmlItem_23663132-20" },
+                        { "__ref": "HtmlItem_23663132-21" },
+                        { "__ref": "RecipeItem_23663132-22" }
+                    ],
+                    "below": null,
+                    "aside": null
+                },
+                "ROOT_QUERY": {
+                    "__typename": "Query",
+                    "page({\"input\":{\"path\":\"/pambazo-recipe-23663132\",\"site\":\"k\"}})": {
+                        "__typename": "Page",
+                        "pageBundles": [{ "__ref": "PageBundle_e82ba8bcc2a740aeb7b5ceb4ebaaf905" }],
+                        "contentBundles": {
+                            "__typename": "ContentBundles",
+                            "data": [{ "__ref": "StandaloneContentBundle_23663132" }],
+                            "pageInfo": {
+                                "__typename": "BundlePagination",
+                                "nextCursor": null,
+                                "totalPages": null
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "__N_SSP": true
+    },
+    "page": "/post/show",
+    "query": { "id": "23663132", "as": "/pambazo-recipe-23663132" },
+    "buildId": "RXH_EjUORW3GxOD8BQBKB",
+    "isFallback": false,
+    "gssp": true,
+    "customServer": true,
+    "appGip": true,
+    "scriptLoader": []
+}
