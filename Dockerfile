@@ -20,21 +20,25 @@ RUN --mount=type=cache,target=/root/.npm \
 
 WORKDIR /usr/src/app
 
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.local/share/pnpm/store to speed up subsequent builds.
-# Leverage a bind mounts to package.json and pnpm-lock.yaml to avoid having to copy them into
-# into this layer.
-RUN --mount=type=bind,source=package.json,target=package.json \
-  --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
-  --mount=type=cache,target=/root/.local/share/pnpm/store \
-  pnpm install --prod --frozen-lockfile
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
+
+#RUN --mount=type=bind,source=package.json,target=package.json \
+#  --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
+#  --mount=type=cache,target=/root/.local/share/pnpm/store \
+#  pnpm install --prod --frozen-lockfile
 
 # Run the application as a non-root user.
 USER node
 
 # Copy the rest of the source files into the image.
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --chown=node:node /app/.next/standalone ./
+COPY --chown=node:node /app/.next/static ./.next/static`
 
 # Expose the port that the application listens on.
 EXPOSE 3000
