@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: ${AMD_IMAGE_TAG}
+    image: ${ARM_IMAGE_TAG}
     build:
       context: .
       dockerfile: nextjs.Dockerfile
