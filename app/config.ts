@@ -1,3 +1,5 @@
+import { MetadataRoute } from "next";
+
 const buildConfig = () => {
 	//const blogId = process.env.NEXT_PUBLIC_BLOG_ID;
 	//if (!blogId) throw new Error("NEXT_PUBLIC_BLOG_ID is missing");
@@ -27,3 +29,22 @@ const buildConfig = () => {
 };
 
 export const config = buildConfig();
+
+export default function manifest(): MetadataRoute.Manifest {
+	return {
+		name: "Recipelab App",
+		short_name: "Recipelab App",
+		description: "Recipelab App",
+		start_url: "/",
+		display: "standalone",
+		background_color: "#fff",
+		theme_color: "#fff",
+		icons: [
+			{
+				src: "/favicon.ico",
+				sizes: "any",
+				type: "image/x-icon",
+			},
+		],
+	};
+}
