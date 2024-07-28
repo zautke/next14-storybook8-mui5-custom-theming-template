@@ -1,8 +1,8 @@
 
-FROM node:lts-alpine AS base
+FROM node:22-alpine AS base
 
+# Install dependencies only when needed
 FROM base AS deps
-
 RUN apk add --no-cache libc6-compat python3 make g++
 WORKDIR /app
 
@@ -16,6 +16,7 @@ RUN \
 
 #------------------------------------------------------------
 
+# Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -54,6 +55,7 @@ RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
 
+# Set the correct permission for prerender cache
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 

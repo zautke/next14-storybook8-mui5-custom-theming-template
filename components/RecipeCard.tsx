@@ -1,28 +1,28 @@
-import React, { type ReactNode } from "react";
-import Image from "next/image";
 import { fetchRecipe } from "@components/actions/recipeServer";
-import { v4 as uuid } from "uuid";
-import { Recipe as sRecipe } from "schema-dts";
-import {
-	type Person,
-	type RecipeSchema,
-	type ImageObject,
-	type NutritionInformation,
-	type RecipeIngredient,
-	renderRecipeInstructions,
-	HowToStepType,
-	HowToSectionType,
-} from "@typings/schemaOrgRecipe";
 import {
 	defaultRecipeSchema,
 	sampleRecipe_charredSalsaVerde,
-	sampleRecipe_pozole,
 	sampleRecipe_grilledcorn,
+	sampleRecipe_pozole,
 } from "@constants/defaultRecipe";
-import { isHowToSection, isHowToStep, parseRecipe } from "@util/recipeParser";
-import { FullJsonArray, FullJsonValue } from "./typings/util";
 import { Rating, Typography } from "@mui/material";
+import {
+	type HowToSectionType,
+	HowToStepType,
+	type ImageObject,
+	type NutritionInformation,
+	type Person,
+	type RecipeIngredient,
+	type RecipeSchema,
+	renderRecipeInstructions,
+} from "@typings/schemaOrgRecipe";
 import { HowToSection, HowToStep } from "@util/recipeFormatter";
+import { isHowToSection, isHowToStep, parseRecipe } from "@util/recipeParser";
+import { nanoid } from "nanoid";
+import Image from "next/image";
+import React, { type ReactNode } from "react";
+import { Recipe as sRecipe } from "schema-dts";
+import { type FullJsonArray, FullJsonValue } from "./typings/util";
 //import { FullJsonArray } from "@typings/util";
 
 // type Recipe = {
@@ -59,14 +59,14 @@ export default function RecipeCard(
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const isParsedHowToSection = (value: any): boolean => {
 		const retval = typeof value === "object";
-		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
+		//console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
 		return retval;
 	};
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const isParsedHowToStep = (value: any): boolean => {
 		const retval = typeof value === "string";
-		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
+		//console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
 		return retval;
 	};
 
@@ -82,7 +82,7 @@ export default function RecipeCard(
 						<div>
 							{(recipe.image as ImageObject[]).map((img) => (
 								<Image
-									key={uuid()}
+									key={nanoid()}
 									width={(img.width as number) || 200}
 									height={(img.height as number) || 200}
 									src={(img.url as string) || "https://place-hold.it/120"}
@@ -102,7 +102,7 @@ export default function RecipeCard(
 							<h3>Tips:</h3>
 							<ul>
 								{recipe.howToTip.map((tip) => (
-									<li key={uuid()}>{tip.toString()}</li>
+									<li key={nanoid()}>{tip.toString()}</li>
 								))}
 							</ul>
 						</div>
@@ -112,7 +112,7 @@ export default function RecipeCard(
 						<ul>
 							{recipe.recipeIngredient &&
 								(recipe.recipeIngredient as RecipeIngredient[]).map(
-									(ingredient) => <li key={uuid()}>{ingredient}</li>,
+									(ingredient) => <li key={nanoid()}>{ingredient}</li>,
 								)}
 						</ul>
 					</div>
@@ -185,7 +185,7 @@ export default function RecipeCard(
 								<h3>Reviews:</h3>
 								<ul>
 									{recipe.review.map((review) => (
-										<li key={uuid()}>{review.reviewRating?.ratingValue}</li>
+										<li key={nanoid()}>{review.reviewRating?.ratingValue}</li>
 									))}
 								</ul>
 							</div>
