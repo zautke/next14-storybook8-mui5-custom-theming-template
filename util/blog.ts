@@ -3,7 +3,9 @@ import path from "node:path";
 import matter from "gray-matter";
 // get all the mdx files from the dir
 function getMDXFiles(dir: string) {
-	return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+	return fs
+		.readdirSync(dir)
+		.filter((file: File) => path.extname(file) === ".mdx");
 }
 // Read data from those files
 function readMDXFile(filePath: fs.PathOrFileDescriptor) {
@@ -14,7 +16,7 @@ function readMDXFile(filePath: fs.PathOrFileDescriptor) {
 function getMDXData(dir: string) {
 	const mdxFiles = getMDXFiles(dir);
 
-	return mdxFiles.map((file) => {
+	return mdxFiles.map((file: File) => {
 		const { data: metadata, content } = readMDXFile(path.join(dir, file));
 		const slug = path.basename(file, path.extname(file));
 
