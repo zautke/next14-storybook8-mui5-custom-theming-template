@@ -1,27 +1,27 @@
 "use client";
 
 import createCache from "@emotion/cache";
-import { useServerInsertedHTML } from "next/navigation";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider } from "@mui/material";
-import { Theme } from "@mui/material";
+import type { Theme } from "@mui/material";
+import { FormControlLabel, Switch } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
+import { useServerInsertedHTML } from "next/navigation";
 import React, {
-	Context,
-	Dispatch,
-	FC,
-	PropsWithChildren,
+	type Context,
+	type Dispatch,
+	type FC,
+	type PropsWithChildren,
 	ProviderProps,
-	ReactNode,
-	SetStateAction,
+	type ReactNode,
+	type SetStateAction,
 	useEffect,
 	useState,
 } from "react";
 import theme, { defaultTheme } from "../customTheme";
-import { MuiThemeStateTuple, MuiThemeTuple } from "../customTheme/mui5";
-import { FormControlLabel, Switch } from "@mui/material";
+import type { MuiThemeStateTuple, MuiThemeTuple } from "../customTheme/mui5";
 
-import { ThemeProviderProps } from "@mui/material/styles/ThemeProvider";
+import type { ThemeProviderProps } from "@mui/material/styles/ThemeProvider";
 
 // const defaultTheme = createTheme({name: 'Default'})
 interface ActiveThemeProps {
@@ -122,6 +122,7 @@ export default function ThemeRegistry({
 			<style
 				key={cache.key}
 				data-emotion={`${cache.key} ${names.join(" ")}`}
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
 				dangerouslySetInnerHTML={{
 					__html: styles,
 				}}

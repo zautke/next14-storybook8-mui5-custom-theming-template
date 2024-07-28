@@ -1,76 +1,74 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import matter from "gray-matter";
 // get all the mdx files from the dir
 function getMDXFiles(dir: string) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+	return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 // Read data from those files
 function readMDXFile(filePath: fs.PathOrFileDescriptor) {
-  let rawContent = fs.readFileSync(filePath, "utf-8");
-  return matter(rawContent);
+	const rawContent = fs.readFileSync(filePath, "utf-8");
+	return matter(rawContent);
 }
 // present the mdx data and metadata
 function getMDXData(dir: string) {
-  let mdxFiles = getMDXFiles(dir);
+	const mdxFiles = getMDXFiles(dir);
 
-  return mdxFiles.map((file) => {
-    let { data: metadata, content } = readMDXFile(path.join(dir, file));
-    let slug = path.basename(file, path.extname(file));
+	return mdxFiles.map((file) => {
+		const { data: metadata, content } = readMDXFile(path.join(dir, file));
+		const slug = path.basename(file, path.extname(file));
 
-    return {
-      metadata,
-      slug,
-      content,
-    };
-  });
+		return {
+			metadata,
+			slug,
+			content,
+		};
+	});
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), "src", "app", "blog", "contents"));
+	return getMDXData(path.join(process.cwd(), "src", "app", "blog", "contents"));
 }
 export function getTermsOfServices() {
-  return getMDXData(
-    path.join(process.cwd(), "src", "app", "terms-of-services")
-  );
+	return getMDXData(
+		path.join(process.cwd(), "src", "app", "terms-of-services"),
+	);
 }
 export function getPrivacyPolicy() {
-  return getMDXData(path.join(process.cwd(), "src", "app", "privacy-policy"));
+	return getMDXData(path.join(process.cwd(), "src", "app", "privacy-policy"));
 }
 
 export function formatDate(date: string, includeRelative = false) {
-  let currentDate = new Date();
-  if (!date.includes("T")) {
-    date = `${date}T00:00:00`;
-  }
+	const currentDate = new Date();
+	const trimmedDate = date.split("T")[0];
 
-  let targetDate = new Date(date);
+	const targetDate = new Date(trimmedDate);
 
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  let daysAgo = currentDate.getDate() - targetDate.getDate();
+	const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
+	const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
+	const daysAgo = currentDate.getDate() - targetDate.getDate();
 
-  let formattedDate = "";
+	let formattedDate = "";
 
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
-  } else {
-    formattedDate = "Today";
-  }
+	if (yearsAgo > 0) {
+		formattedDate = `${yearsAgo}y ago`;
+	} else if (monthsAgo > 0) {
+		formattedDate = `${monthsAgo}mo ago`;
+	} else if (daysAgo > 0) {
+		formattedDate = `${daysAgo}d ago`;
+	} else {
+		formattedDate = "Today";
+	}
 
-  let fullDate = targetDate.toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+	const fullDate = targetDate.toLocaleString("en-us", {
+		month: "long",
+		day: "numeric",
+		year: "numeric",
+	});
 
-  if (!includeRelative) {
-    return fullDate;
-  }
+	if (!includeRelative) {
+		return fullDate;
+	}
 
-  return `${fullDate} (${formattedDate})`;
+	return `${fullDate} (${formattedDate})`;
 }
