@@ -29,9 +29,22 @@
 export const isProduction = process.env.NODE_ENV === "production";
 
 const buildConfig = () => {
+	const defaultTitle =
+		process.env.NEXT_DEFAULT_METADATA_DEFAULT_TITLE ||
+		"Braisenly: How to think about food";
+
 	return {
 		baseUrl:
-			process.env.NEXT_PUBLIC_WEBSITE_HOST_URL || "http://localhost:3000",
+			process.env.NEXT_PUBLIC_BASE_URL || isProduction
+				? "https://braisenly.com"
+				: "http://localhost:3000",
+		title: {
+			absolute: defaultTitle,
+			default: defaultTitle,
+			template: `%s | ${defaultTitle}`,
+		},
+		description:
+			"A culinary exploration of how food is to be approached and considered",
 	};
 };
 

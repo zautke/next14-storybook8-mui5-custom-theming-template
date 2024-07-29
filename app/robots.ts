@@ -1,4 +1,4 @@
-import { baseUrl } from "./config";
+import { config } from "./config";
 
 export default function robots() {
 	return {
@@ -7,6 +7,6 @@ export default function robots() {
 				userAgent: "*",
 			},
 		],
-		sitemap: `${baseUrl}/sitemap.xml`,
+		sitemap: `${config.baseUrl}/sitemap.xml`,
 	};
 }
