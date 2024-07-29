@@ -1,28 +1,28 @@
-import React, { type ReactNode } from "react";
-import Image from "next/image";
 import { fetchRecipe } from "@components/actions/recipeServer";
-import { v4 as uuid } from "uuid";
-import { Recipe as sRecipe } from "schema-dts";
-import {
-	type Person,
-	type RecipeSchema,
-	type ImageObject,
-	type NutritionInformation,
-	type RecipeIngredient,
-	renderRecipeInstructions,
-	HowToStepType,
-	HowToSectionType,
-} from "@typings/schemaOrgRecipe";
 import {
 	defaultRecipeSchema,
 	sampleRecipe_charredSalsaVerde,
-	sampleRecipe_pozole,
 	sampleRecipe_grilledcorn,
+	sampleRecipe_pozole,
 } from "@constants/defaultRecipe";
-import { isHowToSection, isHowToStep, parseRecipe } from "@util/recipeParser";
-import { FullJsonArray, FullJsonValue } from "./typings/util";
 import { Rating, Typography } from "@mui/material";
+import {
+	type HowToSectionType,
+	HowToStepType,
+	type ImageObject,
+	type NutritionInformation,
+	type Person,
+	type RecipeIngredient,
+	type RecipeSchema,
+	renderRecipeInstructions,
+} from "@typings/schemaOrgRecipe";
 import { HowToSection, HowToStep } from "@util/recipeFormatter";
+import { isHowToSection, isHowToStep, parseRecipe } from "@util/recipeParser";
+import Image from "next/image";
+import React, { type ReactNode } from "react";
+import { Recipe as sRecipe } from "schema-dts";
+import { v4 as uuid } from "uuid";
+import { type FullJsonArray, FullJsonValue } from "./typings/util";
 //import { FullJsonArray } from "@typings/util";
 
 // type Recipe = {
@@ -57,18 +57,11 @@ export default function RecipeCard(
 	//const recipe: RecipeSchema | null = await fetchRecipe(url);
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const isParsedHowToSection = (value: any): boolean => {
-		const retval = typeof value === "object";
-		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
-		return retval;
-	};
+	const isParsedHowToSection = (value: any): boolean =>
+		typeof value === "object";
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const isParsedHowToStep = (value: any): boolean => {
-		const retval = typeof value === "string";
-		console.log(`\n\nisParsedHowToSection: ${retval}\n\n`);
-		return retval;
-	};
+	const isParsedHowToStep = (value: any): boolean => typeof value === "string";
 
 	const recipe = sampleRecipe_pozole;
 	// console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
