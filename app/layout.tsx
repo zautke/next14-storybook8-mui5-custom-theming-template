@@ -20,7 +20,93 @@ const _reportFontNames = async () => {
 	console.log(fontNames);
 };
 
-export const metadata = {
+const WEBSITE_HOST_URL = "https://brasienly.com";
+
+export async function generateMetadata({
+	// biome-ignore lint/correctness/noUnusedVariables: <explanation>
+	params,
+}: {
+	params: { slug: string };
+}): Promise<Metadata | undefined> {
+	//const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+
+	//if (!post) {
+	//	return;
+	//}
+
+	//const { title, description, date, url } = post;
+
+	return {
+		metadataBase: new URL(`${WEBSITE_HOST_URL}`),
+		title: {
+			default: metadata.title as string,
+			template: `%s | ${metadata.title}`,
+		},
+		generator: "nextjs, react, blog",
+		publisher: "Braisenly",
+		robots: "index, follow",
+		description: metadata.description,
+		//   applicationName: "RecipeApp",
+		//   authors:[
+		//     {
+		//       name: "Ehsan Ghaffar",
+		//       url: "https://ehsanghaffarii.ir"
+		//     }
+		//   ],
+		//   creator: "Ehsan Ghaffar",
+		//   verification: {
+		//     google: "aG69rfEfYwvFjNKS3C-jUj60PsqRr2LO9lHyKw0wNFE"
+		//   },
+		appleWebApp: {
+			title: "Apple Web App",
+			statusBarStyle: "black-translucent",
+			startupImage: [
+				"/assets/startup/apple-touch-startup-image-768x1004.png",
+				{
+					url: "/assets/startup/apple-touch-startup-image-1536x2008.png",
+					media: "(device-width: 768px) and (device-height: 1024px)",
+				},
+			],
+		},
+		//icons: [
+		//	{ rel: "icon", url: "https://braisenly.com/icon.png" },
+		//	{ rel: "apple-touch-icon", url: "https://braisenly.com/apple-icon.png" },
+		//],
+		icons: {
+			icon: "/favicon.ico",
+			shortcut: "/favicon-16x16.png",
+			apple: "apple-touch-icon.png",
+		},
+		openGraph: {
+			title: metadata.title as string,
+			description: metadata.description as string,
+			locale: "en_US",
+			type: "article", // "website" not on type?"
+			authors: ["Luke Zautke", "nextfetchball", "Wielding Stoic Knives"],
+			url: `${WEBSITE_HOST_URL}`,
+			siteName: metadata.title as string,
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: metadata.title as string,
+			description: metadata.description as string,
+			images: [`${WEBSITE_HOST_URL}/og`],
+			creator: "@codingJitsu",
+		},
+		alternates: {
+			canonical: new URL(`${WEBSITE_HOST_URL}`),
+			types: {
+				"application/rss+xml": [
+					{ url: "blog.rss", title: "rss" },
+					{ url: "blog/js.rss", title: "js title" },
+				],
+			},
+		},
+		manifest: "https://braisenly.com/manifest.json",
+	};
+}
+
+export const metadata: Metadata = {
 	title: "Best Recipes & Cooking Tips | Your Site Name",
 	description:
 		"Discover the best recipes, cooking tips, and culinary inspiration on Your Site Name. Perfect for home cooks and food enthusiasts.",
@@ -31,7 +117,7 @@ export const metadata = {
 		"home cooking",
 		"culinary tips",
 	],
-	authors: [{ name: "John Doe", url: "https://example.com/johndoe" }],
+	authors: [{ name: "John Doe", url: "https://braisenly.com/johndoe" }],
 	applicationName: "Your Site Name",
 	generator: "Next.js 15",
 	themeColor: "#ffffff",
@@ -41,8 +127,6 @@ export const metadata = {
 			{ url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
 			{ url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
 			{ url: "/icons/icon-512x512.png", sizes: "512x512", type: "image/png" },
-		],
-		appleTouchIcon: [
 			{ url: "/icons/apple-touch-icon-57x57.png", sizes: "57x57" },
 			{ url: "/icons/apple-touch-icon-60x60.png", sizes: "60x60" },
 			{ url: "/icons/apple-touch-icon-72x72.png", sizes: "72x72" },
@@ -53,10 +137,8 @@ export const metadata = {
 			{ url: "/icons/apple-touch-icon-152x152.png", sizes: "152x152" },
 			{ url: "/icons/apple-touch-icon-180x180.png", sizes: "180x180" },
 		],
-		manifest: "/manifest.json",
-		maskIcon: { url: "/icons/safari-pinned-tab.svg", color: "#5bbad5" },
-		shortcutIcon: { url: "/icons/icon-192x192.png", sizes: "192x192" },
 	},
+	manifest: "/manifest.json",
 	appleWebApp: {
 		capable: true,
 		title: "Your Site Name",
@@ -66,11 +148,11 @@ export const metadata = {
 		title: "Best Recipes & Cooking Tips | Your Site Name",
 		description:
 			"Discover the best recipes, cooking tips, and culinary inspiration on Your Site Name. Perfect for home cooks and food enthusiasts.",
-		url: "https://example.com",
+		url: "https://braisenly.com",
 		siteName: "Your Site Name",
 		images: [
 			{
-				url: "https://example.com/og-image.jpg",
+				url: "https://braisenly.com/og-image.jpg",
 				width: 1200,
 				height: 630,
 				alt: "A delicious dish from Your Site Name",
@@ -86,11 +168,13 @@ export const metadata = {
 		title: "Best Recipes & Cooking Tips | Your Site Name",
 		description:
 			"Discover the best recipes, cooking tips, and culinary inspiration on Your Site Name. Perfect for home cooks and food enthusiasts.",
-		images: ["https://example.com/twitter-image.jpg"],
+		images: ["https://braisenly.com/twitter-image.jpg"],
 	},
 	robots: "index, follow",
-	canonical: "https://example.com",
+	canonical: "https://braisenly.com",
 	other: {
+		maskIcon: { url: "/icons/safari-pinned-tab.svg", color: "#5bbad5" },
+		shortcutIcon: { url: "/icons/icon-192x192.png", sizes: "192x192" },
 		"msapplication-TileColor": "#ffffff",
 		"msapplication-config": "/browserconfig.xml",
 	},
