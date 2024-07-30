@@ -2,7 +2,8 @@ import { ImageResponse } from "next/og";
 
 export function GET(request: Request) {
 	const url = new URL(request.url);
-	const title = url.searchParams.get("title") || "Next.js and MDX Blog";
+	const title =
+		url.searchParams.get("title") || "Brasienly: How to think about food";
 
 	try {
 		return new ImageResponse(

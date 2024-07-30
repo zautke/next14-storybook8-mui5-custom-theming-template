@@ -5,6 +5,8 @@ import { config } from "./config";
 
 import { promises as fs } from "node:fs";
 
+const WEBSITE_HOST_URL = "https://brasienly.com";
+
 const getFontNames = async () => {
 	const file = await fs.readFile(
 		`${process.cwd()}/.next/server/next-font-manifest.json`,
@@ -20,16 +22,14 @@ const _reportFontNames = async () => {
 	console.log(fontNames);
 };
 
-const WEBSITE_HOST_URL = "https://brasienly.com";
-
 export const metadata: Metadata = {
 	metadataBase: new URL(`${WEBSITE_HOST_URL}`),
 	title: config.title,
-	generator: "nextjs, react, blog",
+	generator: "Next.js",
 	publisher: "Braisenly",
 	robots: "index, follow",
 	description: config.description,
-	//   applicationName: "RecipeApp",
+	//   applicationName: "RecipeLab",
 	//   authors:[
 	//     {
 	//       name: "Ehsan Ghaffar",
