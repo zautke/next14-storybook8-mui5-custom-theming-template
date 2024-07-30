@@ -44,7 +44,7 @@
 		"@typings/**/*.ts"
 		//"@mui/material/styles/index.d.ts"
 	],
-	"exclude": ["node_modules", "**/tmp/**", "public"]
+	"exclude": ["node_modules", "**/tmp/**", "public", "./app/blog/**"]
 	// "types": [
 	//   "app/**/*.d.ts",
 	// ]
