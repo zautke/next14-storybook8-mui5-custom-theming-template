@@ -3,10 +3,13 @@
 	"version": "0.0.2",
 	"private": true,
 	"license": "MIT",
-	"homepage": "https://opensource.google/projects/schema-dts",
-	"bugs": "https://github.com/google/schema-dts/issues",
-	"repository": "github:google/schema-dts",
-	"author": "The2bitFreestyler (https://github.com/zautke)",
+	"homepage": "https://braisenly.com",
+	"bugs": "https://github.com/zautke/next14-storybook8-mui5-custom-theming-template/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zautke/next14-storybook8-mui5-custom-theming-template.git"
+	},
+	"author": "nextfetchball (https://github.com/zautke)",
 	"scripts": {
 		"biome": "yarn dlx @biomejs/biome check --apply src/",
 		"build-storybook": "storybook build",
