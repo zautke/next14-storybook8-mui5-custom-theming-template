@@ -28,4 +28,24 @@ module.exports = {
 		"after:release":
 			"echo Successfully created a release v${version} for ${repo.repository}. Please add release notes and publish it!",
 	},
+	plugins: {
+		"@release-it/conventional-changelog": {
+			infile: "CHANGELOG.md",
+			header: "# Changelog",
+			preset: {
+				name: "conventionalcommits",
+				types: [
+					{
+						type: "feat",
+						section: "Features",
+					},
+					{
+						type: "fix",
+						section: "Bug Fixes",
+					},
+					{},
+				],
+			},
+		},
+	},
 };
