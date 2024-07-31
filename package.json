@@ -17,6 +17,7 @@
 		"image": "docker buildx build . -f nextjs.Dockerfile -t braisenly/lab:$(echo $(cat package.json | jq -r '.version')) --platform linux/amd64 && docker tag braisenly/lab:$(echo $(cat package.json | jq -r '.version')) braisenly/lab:latest",
 		"image:arm64": "docker build . -f nextjs.Dockerfile -t braisenly/lab:arm64 --platform linux/arm64",
 		"lint": "next lint",
+		"release": "release-it",
 		"start-server": "tsx server/ws-server.ts",
 		"start": "next start -p ${PORT:=3000}",
 		"standalone": "node .next/standalone/server.js",
