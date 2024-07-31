@@ -19,25 +19,18 @@ export const ThemeSwitcher: FC<PropsWithChildren<unknown>> = ({
 
 	const handleThemeSwitch = (
 		event: React.ChangeEvent<HTMLInputElement>,
-	): void => {
-		console.log("isEnhancedTheme theme: ", isEnhancedTheme);
-		console.log("previous theme: ", activeTheme.name);
-		setActiveTheme(themes[+!event.target.checked]);
-		console.log("new theme: ", activeTheme.name);
-	};
+	): void => setActiveTheme(themes[+!event.target.checked]);
 
 	useEffect(() => {
 		console.log("useEffect(): ", activeTheme.name);
 	}, [activeTheme]);
 
 	return (
-		//<ThemeProvider theme={activeTheme}>
-		//	<CssBaseline enableColorScheme />
 		<AppRouterCacheProvider options={{ enableCssLayer: true }}>
 			<ThemeProvider theme={activeTheme}>
-				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 				<CssBaseline />
 				<FormControlLabel
+					disabled={false}
 					label={activeTheme.name}
 					labelPlacement={"top"}
 					control={
