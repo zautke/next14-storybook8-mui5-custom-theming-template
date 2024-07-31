@@ -24,6 +24,6 @@ const nextConfig = {
 	},
 };
 
-console.log(`nextConfig: ${nextConfig}\n`);
+console.log(`nextConfig: ${JSON.stringify(nextConfig, 2, null)}\n`);
 
 export default bundleAnalyzer(nextConfig);

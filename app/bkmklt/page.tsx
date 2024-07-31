@@ -89,7 +89,7 @@ const Page = () => {
 			ws.send(base64Url);
 		};
 
-		ws.onmessage = (event) => {
+		ws.onmessage = (_event) => {
 			removeToast(toast);
 			createToast("URL sent to server successfully!", "success");
 		};

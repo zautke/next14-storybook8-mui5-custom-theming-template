@@ -10,13 +10,8 @@ export default async function Page() {
 		<div>
 			{recipes.map((recipe: RecipeSchema) => {
 				return (
-					<div>
-						<Link
-							key={`${recipe.name}`}
-							href="/about"
-							color="secondary"
-							component={NextLink}
-						>
+					<div key={`${recipe.name}`}>
+						<Link href="/about" color="secondary" component={NextLink}>
 							{recipe.name}
 						</Link>
 					</div>
