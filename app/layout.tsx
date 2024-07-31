@@ -121,7 +121,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body>
+			<body suppressHydrationWarning>
 				<ThemeSwitcher>{children}</ThemeSwitcher>
 				{/*{children}*/}
 			</body>

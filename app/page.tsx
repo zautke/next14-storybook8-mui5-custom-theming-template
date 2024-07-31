@@ -11,7 +11,11 @@ export default async function Page() {
 			{recipes.map((recipe: RecipeSchema) => {
 				return (
 					<div key={`${recipe.name}`}>
-						<Link href="/about" color="secondary" component={NextLink}>
+						<Link
+							href={`/recipe/?${JSON.stringify(recipe)}`}
+							color="secondary"
+							component={NextLink}
+						>
 							{recipe.name}
 						</Link>
 					</div>

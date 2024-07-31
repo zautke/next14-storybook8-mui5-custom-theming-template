@@ -27,7 +27,7 @@ export const ThemeSwitcher: FC<PropsWithChildren<unknown>> = ({
 	};
 
 	useEffect(() => {
-		console.log(activeTheme.name);
+		console.log("useEffect(): ", activeTheme.name);
 	}, [activeTheme]);
 
 	return (
@@ -45,6 +45,7 @@ export const ThemeSwitcher: FC<PropsWithChildren<unknown>> = ({
 							checked={isEnhancedTheme}
 							onChange={handleThemeSwitch}
 							color="primary"
+							size="small"
 						/>
 					}
 				/>
