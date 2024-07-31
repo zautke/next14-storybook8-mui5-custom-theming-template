@@ -4,6 +4,8 @@ import { config } from "./config";
 //import { getFontWeights } from 'next/font';
 
 import { promises as fs } from "node:fs";
+import ThemeRegistry from "@components/ThemeRegistry";
+import { ThemeSwitcher } from "@components/ThemeSwitcher";
 
 const WEBSITE_HOST_URL = "https://brasienly.com";
 
@@ -100,7 +102,7 @@ export const metadata: Metadata = {
 			],
 		},
 	},
-	manifest: "https://braisenly.com/manifest.json",
+	//manifest: "https://braisenly.com/manifest.json",
 };
 
 //export async function generateMetadata({
@@ -380,7 +382,8 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<main>{children}</main>
+				{/*{children}*/}
+				<ThemeSwitcher>{children}</ThemeSwitcher>
 			</body>
 		</html>
 	);
