@@ -1,0 +1,9 @@
+FROM postgres:16-alpine
+
+# RUN apk add --no-cache git
+# ADD .secure/id_rsa /root/.ssh/id_rsa
+# RUN git clone git@github.com:zautke/.bash
+
+COPY pg_init/*.sql /docker-entrypoint-initdb.d/
+
+RUN chmod a+r /docker-entrypoint-initdb.d/*

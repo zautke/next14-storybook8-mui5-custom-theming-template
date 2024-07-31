@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  pg:
+    build:
+      #image: ${PGIMAGE}
+      context: .
+      dockerfile: Dockerfile.recipelab_pg
+    hostname: "labpg`now`"
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+      - PGDATA_LOCAL
+    healthcheck:
+      # test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      # timeout: 45s
+      # interval: 10s
+      # retries: 10
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "${POSTGRES_HOST_PORT}:5432"
+    volumes:
+      - ${PGDATA_LOCAL}:/var/lib/postgresql/data
+      - ./pg_logs:/logs
+      #- ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql <-- example
+      # - ./std_postgres.conf:/var/lib/postgresql/data/postgresql.conf
+      # - ./std_pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+      - ./pg_hba_std.conf:/etc/postgresql/postgresql.conf
+      - ./postgres_std.conf:/etc/postgresql/pg_hba.conf
+    #command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    # command: postgres -c logging_collector=on -c log_destination=stderr -c log_directory=/logs
+    networks:
+      - backend
+
+volumes: 
+  pgdata:
+    name: ${VOLUME_ID}
+    
+    
+networks:
+  backend:
+    name: ${NETWORK_ID}
