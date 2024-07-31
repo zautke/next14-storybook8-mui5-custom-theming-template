@@ -2,10 +2,10 @@
 
 import { CssBaseline, FormControlLabel, Switch } from "@mui/material";
 import { type Theme, ThemeProvider } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import theme, { defaultTheme } from "../customTheme";
 import type { MuiThemeStateTuple, MuiThemeTuple } from "../customTheme/mui5";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 
 const themes: MuiThemeTuple = [theme, defaultTheme];
 
@@ -34,7 +34,7 @@ export const ThemeSwitcher: FC<PropsWithChildren<unknown>> = ({
 		//<ThemeProvider theme={activeTheme}>
 		//	<CssBaseline enableColorScheme />
 		<AppRouterCacheProvider options={{ enableCssLayer: true }}>
-			<ThemeProvider theme={theme}>
+			<ThemeProvider theme={activeTheme}>
 				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 				<CssBaseline />
 				<FormControlLabel

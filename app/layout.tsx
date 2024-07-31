@@ -122,8 +122,8 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				{/*{children}*/}
 				<ThemeSwitcher>{children}</ThemeSwitcher>
+				{/*{children}*/}
 			</body>
 		</html>
 	);
