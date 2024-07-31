@@ -5,13 +5,14 @@ const bundleAnalyzer = withBundleAnalyzer({
 	enabled: process.env.ANALYZE === "true",
 });
 
+console.log(`process.env.NODE_ENV: ${process.env.NODE_ENV}\n`);
+
 const nextConfig = {
-	swcMinify: true,
+	//swcMinify: true,
 	experimental: {},
-	output: "standalone",
+	...(process.env.NODE_ENV === "production" ? { output: "standalone" } : {}),
 	images: {
 		imageSizes: [16, 32, 48, 64, 96, 128, 256],
-		domains: ["images.unsplash.com"],
 		minimumCacheTTL: 3600,
 		formats: ["image/webp"],
 		remotePatterns: [
@@ -22,5 +23,7 @@ const nextConfig = {
 		],
 	},
 };
+
+console.log(`nextConfig: ${JSON.stringify(nextConfig, 2, null)}\n`);
 
 export default bundleAnalyzer(nextConfig);

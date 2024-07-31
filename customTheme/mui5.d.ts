@@ -1,60 +1,55 @@
+import { type Theme } from "@mui/material/styles/createTheme";
+import React from "react";
+import { Dispatch, SetStateAction } from "react";
+import " @mui/material/styles/createTypography";
 
-import React from 'react'
-import { Theme } from '@mui/material/styles/createTheme'
-import { Dispatch, SetStateAction } from 'react'
+import "@mui/material/styles/createPalette";
 
 // interface ActiveElementArray<T> {};
 
+//declare module "@mui/material/styles" {
+//	export interface ThemeOptions {
+//		name?: string;
+//	}
+//	export interface Theme {
+//		name?: string;
+//	}
+//}
 
-// declare module '@mui/material/styles' {
-//   interface ThemeOptions {
-//     name?: string;
-//   }
-//   interface Theme {
-//     name?: string;
-//   }
-// }
+declare module "@mui/material/styles/createTheme" {
+	interface ThemeOptions {
+		name?: string;
+	}
 
-// function useMultipleThemes<Theme>(): MuiThemeState;
-// declare module '@mui/material/styles/createTheme' {
-//   interface ThemeOptions {
-//     name?: string;
-//   }
+	interface Theme {
+		name?: string;
+	}
+}
 
-//   interface Theme {
-//     name?: string;
-//   }
-// }
-import " @mui/material/styles/createTypography"
-
-import "@mui/material/styles/createPalette"
 declare module "@mui/material/styles/createPalette" {
-  interface CommonColors
-  {
-    // tan: string;
-    // lightRed: string;
-    // red: string;
-    // offBlack: string;
-  }
+	interface CommonColors {
+		// tan: string;
+		// lightRed: string;
+		// red: string;
+		// offBlack: string;
+	}
 }
 
 /* augmentations to facilitate a new custom Typography Variant */
-declare module '@mui/material/styles' {
-  interface TypographyVariants
-  {
-    //inputLabel: React.CSSProperties;
-    //inputPlaceholder: React.CSSProperties;
-    //inputTypedText: React.CSSProperties;
-  }
+declare module "@mui/material/styles" {
+	interface TypographyVariants {
+		//inputLabel: React.CSSProperties;
+		//inputPlaceholder: React.CSSProperties;
+		//inputTypedText: React.CSSProperties;
+	}
 
-  // allow configuration using `createTheme`
-  interface TypographyVariantsOptions
-  {
-    //inputLabel?: React.CSSProperties;
-    //inputPlaceholder?: React.CSSProperties
-    //inputTypedText?: React.CSSProperties
-    //h3: false;         <-- disable `h3' variant
-  }
+	// allow configuration using `createTheme`
+	interface TypographyVariantsOptions {
+		//inputLabel?: React.CSSProperties;
+		//inputPlaceholder?: React.CSSProperties
+		//inputTypedText?: React.CSSProperties
+		//h3: false;         <-- disable `h3' variant
+	}
 }
 
 // // Update the Typography's variant prop options
@@ -75,6 +70,12 @@ declare module '@mui/material/styles' {
 //   }
 // }
 
-type MuiThemeTuple = [Theme, Theme]
-type MuiThemeState = [Theme | undefined, React.Dispatch<React.SetStateAction<Theme | undefined>>]
-type MuiThemeStateTuple<Theme> = [Theme, Dispatch<SetStateAction<Theme>>]
+// biome-ignore lint/correctness/noUnusedVariables: <explanation>
+type MuiThemeTuple = [Theme, Theme];
+// biome-ignore lint/correctness/noUnusedVariables: <explanation>
+type MuiThemeState = [
+	Theme | undefined,
+	React.Dispatch<React.SetStateAction<Theme | undefined>>,
+];
+// biome-ignore lint/correctness/noUnusedVariables: <explanation>
+type MuiThemeStateTuple<Theme> = [Theme, Dispatch<SetStateAction<Theme>>];
