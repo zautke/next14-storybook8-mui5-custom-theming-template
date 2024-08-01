@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+import path from "path";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const bundleAnalyzer = withBundleAnalyzer({
@@ -8,9 +9,12 @@ const bundleAnalyzer = withBundleAnalyzer({
 console.log(`process.env.NODE_ENV: ${process.env.NODE_ENV}\n`);
 
 const nextConfig = {
-	//swcMinify: true,
-	experimental: {},
-	...(process.env.NODE_ENV === "production" ? { output: "standalone" } : {}),
+	experimental: {
+		//outputFileTracingRoot: path.join(__dirname, "../../"),
+		ppr: true,
+		turbotrace: {},
+	},
+	...(process.env.STANDALONE ? { output: "standalone" } : {}),
 	images: {
 		imageSizes: [16, 32, 48, 64, 96, 128, 256],
 		minimumCacheTTL: 3600,

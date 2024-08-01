@@ -1,51 +1,77 @@
 {
-	"compilerOptions": {
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"checkJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"esModuleInterop": true,
-		"module": "ESNext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"importHelpers": true,
-		"jsx": "preserve",
-		"experimentalDecorators": true,
-		"noImplicitThis": true,
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
-		"paths": {
-			"@components/*": ["./components/*"],
-			"@constants/*": ["./constants/*"],
-			"@helpers": ["./util/helpers"],
-			"@server/*": ["./server/*"],
-			"@typings/*": ["./components/typings/*"],
-			"@util/*": ["./util/*"],
-			"@theme/*": ["./customTheme/*"]
-		},
-		"typeRoots": ["components/types"],
-		"noEmit": true,
-		"incremental": true,
-		"isolatedModules": true
-	},
-	"include": [
-		"next-env.d.ts",
-		"mui-theme.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts",
-		"__tests__/**/*.ts",
-		"customTheme/mui5.d.ts",
-		"customTheme/z-depth.js",
-		"@typings/**/*.ts"
-		//"@mui/material/styles/index.d.ts"
-	],
-	"exclude": ["node_modules", "**/tmp/**", "public", "./app/blog/**"]
-	// "types": [
-	//   "app/**/*.d.ts",
-	// ]
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "checkJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "noImplicitThis": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@components/*": [
+        "./components/*"
+      ],
+      "@constants/*": [
+        "./constants/*"
+      ],
+      "@helpers": [
+        "./util/helpers"
+      ],
+      "@server/*": [
+        "./server/*"
+      ],
+      "@typings/*": [
+        "./components/typings/*"
+      ],
+      "@util/*": [
+        "./util/*"
+      ],
+      "@theme/*": [
+        "./customTheme/*"
+      ]
+    },
+    "typeRoots": [
+      "components/types"
+    ],
+    "noEmit": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "target": "ES2017"
+  },
+  "include": [
+    "next-env.d.ts",
+    "mui-theme.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "__tests__/**/*.ts",
+    "customTheme/mui5.d.ts",
+    "customTheme/z-depth.js",
+    "@typings/**/*.ts"
+    //"@mui/material/styles/index.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/tmp/**",
+    "public",
+    "./app/blog/**"
+  ]
+  // "types": [
+  //   "app/**/*.d.ts",
+  // ]
 }
