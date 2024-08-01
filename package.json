@@ -42,9 +42,9 @@
 		"@fontsource/victor-mono": "^5.0.13",
 		"@mdx-js/loader": "^3.0.1",
 		"@mdx-js/react": "^3.0.1",
-		"@mui/icons-material": "^5.16.6",
-		"@mui/material": "^5.16.6",
-		"@mui/material-nextjs": "^5.16.6",
+		"@mui/icons-material": "6.0.0-beta.4",
+		"@mui/material": "6.0.0-beta.4",
+		"@mui/material-nextjs": "6.0.0-beta.4",
 		"@next/mdx": "^14.2.5",
 		"cheerio": "^1.0.0-rc.12",
 		"dlx": "^0.2.1",
@@ -134,6 +134,10 @@
 	"resolutions": {
 		"jackspeak": "2.1.1",
 		"utf-8-validate": "^5.0.2"
+	},
+	"peerDependencies": {
+		"react": "^17.0.0 || ^18.0.0",
+		"react-dom": "^17.0.0 || ^18.0.0"
 	},
 	"type": "module"
 }
