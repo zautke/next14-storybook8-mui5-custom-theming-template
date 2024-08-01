@@ -1,7 +1,7 @@
-import React from "react";
-import ThemeRegistry from "@components/ThemeRegistry";
-import { Button } from "@mui/material";
 import TypographyExample from "@components/MuiComponentSamples/Samples/Typography";
+import ThemeRegistry from "@components/Theme/ThemeRegistry";
+import { Button } from "@mui/material";
+import React from "react";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
