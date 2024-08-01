@@ -1,8 +1,20 @@
+"use client";
+
 import RecipeCard from "@components/RecipeCard";
-import type { FC } from "react";
+import { RecipeSchema } from "@components/typings/schemaOrgRecipe";
+import {
+	type ReadonlyURLSearchParams,
+	useParams,
+	useSearchParams,
+} from "next/navigation";
 
-const Page: FC = () => (
-	<RecipeCard name={"blah"} recipeIngredient={[]} recipeInstructions={[]} />
-);
+function Recipe() {
+	const searchParams = useSearchParams();
 
-export default Page;
+	const recipeParam = searchParams.get("recipe");
+	const recipe = JSON.parse(recipeParam as string) as RecipeSchema;
+	console.log("recipe: ", recipe);
+	return <RecipeCard {...recipe} />;
+}
+
+export default Recipe;

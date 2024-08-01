@@ -1,4 +1,4 @@
-function deepMerge<
+export function deepMerge<
 	T extends Record<string, unknown>,
 	U extends Record<string, unknown>,
 >(obj1: T, obj2: U): Record<string, unknown> {
@@ -77,3 +77,7 @@ export function isHtml(str: string): boolean {
 		str,
 	);
 }
+
+export const isSSR = typeof window === "undefined";
+export const isProduction = process.env.NODE_ENV === "production";
+export const isDevelopment = process.env.NODE_ENV === "development";

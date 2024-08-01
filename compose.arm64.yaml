@@ -7,6 +7,7 @@ services:
     container_name: frontend
     environment:
       NODE_ENV: production
+      HOSTNAME: 10.0.0.3
     ports:
       - 3000:3000
 

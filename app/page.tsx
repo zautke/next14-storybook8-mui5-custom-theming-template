@@ -12,7 +12,10 @@ export default async function Page() {
 				return (
 					<div key={`${recipe.name}`}>
 						<Link
-							href={`/recipe/?${JSON.stringify(recipe)}`}
+							href={{
+								pathname: "/recipe",
+								query: { recipe: JSON.stringify(recipe) },
+							}}
 							color="secondary"
 							component={NextLink}
 						>

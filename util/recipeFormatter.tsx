@@ -1,4 +1,3 @@
-import React, { ReactNode, PropsWithChildren } from "react";
 import type {
 	HowToSectionType,
 	HowToStepType,
@@ -7,6 +6,7 @@ import type {
 	Review,
 } from "@typings/schemaOrgRecipe";
 import type { FullJsonArray, FullJsonValue } from "@typings/util";
+import React, { ReactNode, PropsWithChildren } from "react";
 
 export type RenderFunction = (...args: unknown[]) => ReactNode;
 
@@ -55,3 +55,6 @@ export const HowToSection = ({
 	))}
 </ul>;*/
 }
+
+export const normalizeJsonData = (json: string): string =>
+	decodeURI(json.replace(/\n/gm, "").trim());

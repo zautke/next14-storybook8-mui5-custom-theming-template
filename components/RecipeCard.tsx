@@ -51,9 +51,9 @@ export type ParsedHowToSectionType = {
 	[key: string]: string[];
 };
 
-export default function RecipeCard(
-	_recip: RecipeSchema = sampleRecipe_pozole,
-): ReactNode {
+export default function RecipeCard({
+	...recipe
+}: RecipeSchema = sampleRecipe_pozole): ReactNode {
 	//const recipe: RecipeSchema | null = await fetchRecipe(url);
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -70,7 +70,7 @@ export default function RecipeCard(
 		return retval;
 	};
 
-	const recipe = sampleRecipe_pozole;
+	//const recipe = sampleRecipe_pozole;
 	// console.log(`\n\nrecipe: ${JSON.stringify(recipe, null, 2)}\n\n`);
 	return (
 		<div>
