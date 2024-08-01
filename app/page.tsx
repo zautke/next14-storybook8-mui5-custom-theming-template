@@ -1,4 +1,4 @@
-import { RecipeSchema } from "@components/typings/schemaOrgRecipe";
+import type { RecipeSchema } from "@components/typings/schemaOrgRecipe";
 import { recipes } from "@constants/defaultRecipe";
 import Link from "@mui/material/Link";
 

@@ -3,6 +3,8 @@ import { config } from "./config";
 //import "./globals.css";
 //import { getFontWeights } from 'next/font';
 
+import Header from "@components/layout/Header";
+
 import { promises as fs } from "node:fs";
 import ThemeRegistry from "@components/ThemeRegistry";
 import { ThemeSwitcher } from "@components/ThemeSwitcher";
@@ -122,6 +124,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body suppressHydrationWarning>
+				<Header />
 				<ThemeSwitcher>{children}</ThemeSwitcher>
 				{/*{children}*/}
 			</body>
