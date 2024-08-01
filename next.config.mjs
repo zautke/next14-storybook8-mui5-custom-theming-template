@@ -11,7 +11,7 @@ console.log(`process.env.NODE_ENV: ${process.env.NODE_ENV}\n`);
 const nextConfig = {
 	experimental: {
 		//outputFileTracingRoot: path.join(__dirname, "../../"),
-		ppr: true,
+		//ppr: true,
 		turbotrace: {},
 	},
 	...(process.env.STANDALONE ? { output: "standalone" } : {}),
