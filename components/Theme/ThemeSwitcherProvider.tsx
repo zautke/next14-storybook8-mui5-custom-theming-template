@@ -1,13 +1,15 @@
 "use client";
 
+import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { type Theme, ThemeProvider } from "@mui/material/styles";
+import { type Theme } from "@mui/material/styles";
 
 import { MuiThemeTuple } from "@theme/mui5";
 import { Dispatch, ReactNode, SetStateAction, useMemo, useState } from "react";
 import { createContext } from "react";
 import theme, { defaultTheme } from "../../customTheme";
+//import { ThemeProvider as Emotion10ThemeProvider } from "emotion-theming";
 
 export interface ThemeSwitcherProps {
 	activeTheme: Theme;

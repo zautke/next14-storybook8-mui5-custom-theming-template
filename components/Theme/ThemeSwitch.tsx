@@ -1,10 +1,19 @@
 "use client";
 
-import { FormControlLabel, Switch } from "@mui/material";
-import React, { FC, PropsWithChildren } from "react";
+import { FormControlLabel, Switch, Theme } from "@mui/material";
+
+interface ThemeSwitchProps {
+	//activeTheme: Theme;
+	//toggleTheme: (newTheme: Theme) => void;
+	setactivetheme?: Dispatch<SetStateAction<Theme>>;
+	//themes: MuiThemeTuple;
+}
+import React, { Dispatch, FC, PropsWithChildren, SetStateAction } from "react";
 import { useThemeSwitcher } from "./useThemeSwitcher";
 
-export const ThemeSwitch: FC<PropsWithChildren<unknown>> = ({ ...props }) => {
+export const ThemeSwitch: FC<PropsWithChildren<ThemeSwitchProps>> = ({
+	...props
+}) => {
 	const { activeTheme, toggleTheme, themes } = useThemeSwitcher();
 
 	const isEnhancedTheme = activeTheme.name === "Enhanced";

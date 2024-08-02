@@ -1,6 +1,7 @@
 "use client";
 
 import { ThemeSwitch } from "@components/Theme/ThemeSwitch";
+import { useThemeSwitcher } from "@components/Theme/useThemeSwitcher";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -25,6 +26,7 @@ const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
 
 export default function DrawerAppBar(props: Props) {
+	const { setActiveTheme } = useThemeSwitcher();
 	const { window } = props;
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 
