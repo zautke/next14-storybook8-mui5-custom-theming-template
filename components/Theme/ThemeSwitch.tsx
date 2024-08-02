@@ -1,13 +1,17 @@
 import { FormControlLabel, Switch } from "@mui/material";
 import React, { FC, PropsWithChildren } from "react";
-import useThemeSwitcher from "./useThemeSwitcher";
+import { useThemeSwitcher } from "./useThemeSwitcher";
 
 export const ThemeSwitch: FC<PropsWithChildren<unknown>> = ({ ...props }) => {
-	const { activeTheme, setActiveTheme } = useThemeSwitcher();
+	const { activeTheme, toggleTheme, themes } = useThemeSwitcher();
+
+	const isEnhancedTheme = activeTheme.name === "Enhanced";
+
+	//const themes = [theme, defaultTheme];
 
 	const handleThemeSwitch = (
 		event: React.ChangeEvent<HTMLInputElement>,
-	): void => setActiveTheme(themes[+!event.target.checked]);
+	): void => toggleTheme(themes[+!event.target.checked]);
 
 	return (
 		<>

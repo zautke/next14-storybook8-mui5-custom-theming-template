@@ -1,16 +1,12 @@
 import { useContext } from "react";
-import ThemeSwitcherContext from "./ThemeSwitcherProvider";
+import { themeSwitcherContext } from "./ThemeSwitcherProvider";
 
-const useThemeSwitcher = () => {
-	const context = useContext(ThemeSwitcherContext);
-
-	if (context === undefined) {
+export const useThemeSwitcher = () => {
+	const themeSwitcher = useContext(themeSwitcherContext);
+	if (!themeSwitcher) {
 		throw new Error(
 			"useThemeSwitcher must be used within a ThemeSwitcherProvider",
 		);
 	}
-
-	return context;
+	return themeSwitcher;
 };
-
-export default useThemeSwitcher;

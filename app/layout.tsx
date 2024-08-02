@@ -6,7 +6,6 @@ import { config } from "./config";
 import Header from "@components/layout/Header";
 
 import { promises as fs } from "node:fs";
-import ThemeRegistry from "@components/Theme/ThemeRegistry";
 import ThemeSwitcherProvider from "@components/Theme/ThemeSwitcherProvider";
 
 const WEBSITE_HOST_URL = "https://brasienly.com";

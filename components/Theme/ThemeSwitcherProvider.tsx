@@ -1,35 +1,73 @@
 "use client";
 
-import { CssBaseline, FormControlLabel, Switch } from "@mui/material";
-import { type Theme, ThemeProvider } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { Theme } from "@mui/material/styles";
-import { FC, PropsWithChildren, useEffect, useState } from "react";
+import { type Theme, ThemeProvider } from "@mui/material/styles";
+
+import { MuiThemeTuple } from "@theme/mui5";
+import {
+	Dispatch,
+	FC,
+	PropsWithChildren,
+	ProviderProps,
+	ReactNode,
+	SetStateAction,
+	useContext,
+	useMemo,
+	useState,
+} from "react";
 import { createContext } from "react";
 import theme, { defaultTheme } from "../../customTheme";
-import type { MuiThemeStateTuple, MuiThemeTuple } from "../../customTheme/mui5";
-//import ThemeSwitcherContext from "./ThemeSwitcherContext";
 
-export const ThemeSwitcherProvider = ({ children }: ReactNode) => {
-	const [activeTheme, setActiveTheme] = useState(defaultTheme);
+export interface ThemeSwitcherProps {
+	activeTheme: Theme;
+	toggleTheme: (newTheme: Theme) => void;
+	themes: MuiThemeTuple;
+}
 
-	const ThemeSwitcherContext = createContext({
-		activeTheme,
-		setActiveTheme,
-		themes: [theme, defaultTheme],
-	});
+const initial = {
+	activeTheme: defaultTheme,
+	toggleTheme: () => null,
+};
+
+export type ThemeSwitcherType = [
+	typeof initial,
+	Dispatch<SetStateAction<Theme>> | null,
+];
+
+export const themeSwitcherContext = createContext<ThemeSwitcherProps>(
+	[] as unknown as ThemeSwitcherProps,
+	//activeTheme: defaultTheme,
+	//setActiveTheme: () => null,
+	//themes: [theme, defaultTheme],
+);
+
+interface _props {}
+
+export default function ThemeSwitcherProvider({
+	children,
+}: { children: ReactNode }) {
+	const [activeTheme, setActiveTheme] = useState<Theme>(defaultTheme);
+
+	const themes: MuiThemeTuple = [theme, defaultTheme];
+
+	const toggleTheme = (newTheme: Theme): void => {
+		setActiveTheme(newTheme);
+	};
+
+	const themeData = useMemo(
+		() => ({ activeTheme, toggleTheme, themes }),
+		[activeTheme],
+	);
 
 	return (
-		<ThemeSwitcherContext.Provider value={ThemeSwitcherContext}>
+		<themeSwitcherContext.Provider value={themeData}>
 			<AppRouterCacheProvider options={{ enableCssLayer: true }}>
 				<ThemeProvider theme={activeTheme}>
 					<CssBaseline />
 					{children && children}
 				</ThemeProvider>
 			</AppRouterCacheProvider>
-		</ThemeSwitcherContext.Provider>
+		</themeSwitcherContext.Provider>
 	);
-};
-export ThemeSwitcherContext;
-
-export default ThemeSwitcherProvider;
+}
