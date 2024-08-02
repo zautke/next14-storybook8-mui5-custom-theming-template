@@ -5,29 +5,22 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { type Theme, ThemeProvider } from "@mui/material/styles";
 
 import { MuiThemeTuple } from "@theme/mui5";
-import {
-	Dispatch,
-	FC,
-	PropsWithChildren,
-	ProviderProps,
-	ReactNode,
-	SetStateAction,
-	useContext,
-	useMemo,
-	useState,
-} from "react";
+import { Dispatch, ReactNode, SetStateAction, useMemo, useState } from "react";
 import { createContext } from "react";
 import theme, { defaultTheme } from "../../customTheme";
 
 export interface ThemeSwitcherProps {
 	activeTheme: Theme;
 	toggleTheme: (newTheme: Theme) => void;
+	setActiveTheme: Dispatch<SetStateAction<Theme>>;
 	themes: MuiThemeTuple;
 }
 
 const initial = {
 	activeTheme: defaultTheme,
 	toggleTheme: () => null,
+	setActiveTheme: null,
+	themes: [theme, defaultTheme],
 };
 
 export type ThemeSwitcherType = [
@@ -52,11 +45,15 @@ export default function ThemeSwitcherProvider({
 	const themes: MuiThemeTuple = [theme, defaultTheme];
 
 	const toggleTheme = (newTheme: Theme): void => {
-		setActiveTheme(newTheme);
+		//setActiveTheme(newTheme);
+		console.log(
+			"ThemeSwitcherProvider.tsx: toggleTheme: newTheme: ",
+			JSON.stringify(newTheme, null, 2),
+		);
 	};
 
 	const themeData = useMemo(
-		() => ({ activeTheme, toggleTheme, themes }),
+		() => ({ activeTheme, toggleTheme, themes, setActiveTheme }),
 		[activeTheme],
 	);
 

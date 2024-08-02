@@ -81,7 +81,7 @@ export default function DrawerAppBar(props: Props) {
 							</Button>
 						))}
 					</Box>
-					<Box sx={{ display: { xs: "none", sm: "block" } }}>
+					<Box sx={{ display: { sm: "block" } }}>
 						<ThemeSwitch />
 					</Box>
 				</Toolbar>
