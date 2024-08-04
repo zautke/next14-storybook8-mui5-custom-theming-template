@@ -12,7 +12,7 @@ const nextConfig = {
 	experimental: {
 		//outputFileTracingRoot: path.join(__dirname, "../../"),
 		//ppr: true,
-		turbotrace: {},
+		//turbotrace: {},
 	},
 	...(process.env.STANDALONE ? { output: "standalone" } : {}),
 	images: {
