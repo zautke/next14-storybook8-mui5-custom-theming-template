@@ -1,32 +1,29 @@
 "use client";
 
-import { FormControlLabel, Switch, Theme } from "@mui/material";
-
-interface ThemeSwitchProps {
-	activetheme: Theme;
-	//toggleTheme: (newTheme: Theme) => void;
-	setactivetheme?: Dispatch<SetStateAction<Theme>>;
-	//themes: MuiThemeTuple;
-}
-import React, { Dispatch, FC, PropsWithChildren, SetStateAction } from "react";
+import { FormControlLabel, Switch, type Theme } from "@mui/material";
 import { useThemeSwitcher } from "./useThemeSwitcher";
 
+import React, { Dispatch, FC, PropsWithChildren, SetStateAction } from "react";
+
+interface ThemeSwitchProps {
+	activeTheme: Theme;
+	//toggleTheme: (newTheme: Theme) => void;
+	setActiveTheme?: Dispatch<SetStateAction<Theme>>;
+	//themes: MuiThemeTuple;
+}
+
 export const ThemeSwitch: FC<PropsWithChildren<ThemeSwitchProps>> = ({
-	...props
-}) => {
-	const { activeTheme, toggleTheme, themes } = useThemeSwitcher();
-
-	const isEnhancedTheme = activeTheme.name === "Enhanced";
-
-	//console.log("ThemeSwitch.tsx: activeTheme.name: ", activeTheme.name);
+	activeTheme,
+	setActiveTheme,
+}: ThemeSwitchProps) => {
+	const { themes } = useThemeSwitcher();
+	const isEnhancedTheme = activeTheme === themes[0];
 	//console.log("ThemeSwitch.tsx: theme: ", JSON.stringify(activeTheme, null, 2));
 
 	const handleThemeSwitch = (
 		event: React.ChangeEvent<HTMLInputElement>,
 	): void =>
-		props.setactivetheme
-			? props.setactivetheme(themes[+!event.target.checked])
-			: undefined;
+		setActiveTheme ? setActiveTheme(themes[+!event.target.checked]) : undefined;
 
 	return (
 		<>

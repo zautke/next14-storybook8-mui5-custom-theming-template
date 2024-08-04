@@ -84,7 +84,10 @@ export default function DrawerAppBar(props: Props) {
 						))}
 					</Box>
 					<Box sx={{ display: { sm: "block" } }}>
-						<ThemeSwitch activetheme={activeTheme} />
+						<ThemeSwitch
+							activeTheme={activeTheme}
+							setActiveTheme={setActiveTheme}
+						/>
 					</Box>
 				</Toolbar>
 			</AppBar>
