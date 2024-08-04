@@ -26,7 +26,7 @@ const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
 
 export default function DrawerAppBar(props: Props) {
-	const { setActiveTheme } = useThemeSwitcher();
+	const { activeTheme, setActiveTheme } = useThemeSwitcher();
 	const { window } = props;
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -84,7 +84,7 @@ export default function DrawerAppBar(props: Props) {
 						))}
 					</Box>
 					<Box sx={{ display: { sm: "block" } }}>
-						<ThemeSwitch />
+						<ThemeSwitch activetheme={activeTheme} />
 					</Box>
 				</Toolbar>
 			</AppBar>

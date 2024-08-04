@@ -3,7 +3,7 @@
 import { FormControlLabel, Switch, Theme } from "@mui/material";
 
 interface ThemeSwitchProps {
-	//activeTheme: Theme;
+	activetheme: Theme;
 	//toggleTheme: (newTheme: Theme) => void;
 	setactivetheme?: Dispatch<SetStateAction<Theme>>;
 	//themes: MuiThemeTuple;
@@ -23,7 +23,10 @@ export const ThemeSwitch: FC<PropsWithChildren<ThemeSwitchProps>> = ({
 
 	const handleThemeSwitch = (
 		event: React.ChangeEvent<HTMLInputElement>,
-	): void => toggleTheme(themes[+!event.target.checked]);
+	): void =>
+		props.setactivetheme
+			? props.setactivetheme(themes[+!event.target.checked])
+			: undefined;
 
 	return (
 		<>
@@ -39,7 +42,6 @@ export const ThemeSwitch: FC<PropsWithChildren<ThemeSwitchProps>> = ({
 						size="small"
 					/>
 				}
-				{...props}
 			/>
 		</>
 	);
