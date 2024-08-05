@@ -3,7 +3,8 @@
 import { FormControlLabel, Switch, type Theme } from "@mui/material";
 import { useThemeSwitcher } from "./useThemeSwitcher";
 
-import React, { Dispatch, FC, PropsWithChildren, SetStateAction } from "react";
+import type React from "react";
+import type { Dispatch, FC, PropsWithChildren, SetStateAction } from "react";
 
 interface ThemeSwitchProps {
 	activeTheme: Theme;
@@ -35,7 +36,7 @@ export const ThemeSwitch: FC<PropsWithChildren<ThemeSwitchProps>> = ({
 					<Switch
 						checked={isEnhancedTheme}
 						onChange={handleThemeSwitch}
-						color="primary"
+						color="secondary"
 						size="small"
 					/>
 				}
