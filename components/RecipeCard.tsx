@@ -128,7 +128,7 @@ export default function RecipeCard(
 											<HowToSection
 												section={JSON.stringify(el as ParsedHowToSectionType)}
 												render={(section) => (
-													<li>
+													<li key={(section as HowToSectionType).name}>
 														<h4>
 															{
 																Object.keys(

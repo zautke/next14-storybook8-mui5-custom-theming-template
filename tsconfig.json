@@ -30,7 +30,8 @@
 		"typeRoots": ["components/types"],
 		"noEmit": true,
 		"incremental": true,
-		"isolatedModules": true
+		"isolatedModules": true,
+		"target": "ES2017"
 	},
 	"include": [
 		"next-env.d.ts",
