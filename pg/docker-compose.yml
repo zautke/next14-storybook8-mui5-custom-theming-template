@@ -1,18 +1,21 @@
-version: "3.7"
-
 services:
   pg:
+    image: ${PGIMAGE}
     build:
-      #image: ${PGIMAGE}
       context: .
-      dockerfile: Dockerfile.recipelab_pg
+      dockerfile: lab.postgres.${PGENV:-development}.Dockerfile
     hostname: "labpg`now`"
-    restart: unless-stopped
+    restart: always
+    env_file:
+      - .env
     environment:
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
-      - POSTGRES_DB
-      - PGDATA_LOCAL
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_DB_USER=${POSTGRES_DB}
+      - POSTGRES_HOST_AUTH_METHOD=trust
     healthcheck:
       # test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
       # timeout: 45s
@@ -23,7 +26,7 @@ services:
       timeout: 5s
       retries: 5
     ports:
-      - "${POSTGRES_HOST_PORT}:5432"
+      - "${POSTGRES_PORT}:5432"
     volumes:
       - ${PGDATA_LOCAL}:/var/lib/postgresql/data
       - ./pg_logs:/logs
@@ -37,11 +40,35 @@ services:
     networks:
       - backend
 
-volumes: 
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    env_file:
+      - .env
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_MAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PW}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    entrypoint:
+    - "/bin/sh"
+    - "-c"
+    - "/bin/echo 'postgres:5432:*:postgres:postgres' > /tmp/pgpassfile && chmod 600 /tmp/pgpassfile && /entrypoint.sh"
+    ports:
+      - "8888:80"
+    restart: always
+    networks:
+      - backend
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+      - ./docker_pgadmin_servers.json:/pgadmin4/servers.json
+
+volumes:
+  pgadmin-data:
   pgdata:
     name: ${VOLUME_ID}
-    
-    
+
+
 networks:
   backend:
     name: ${NETWORK_ID}
