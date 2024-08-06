@@ -10,7 +10,7 @@ COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile && pnpm add --global pm2; \
   else echo "Lockfile not found." && exit 1; \
   fi
 
@@ -67,7 +67,9 @@ USER nextjs
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["node", "server.js"]
+CMD [ "pm2-runtime", "node", "--", "server.js" ]
+
+# CMD ["node", "server.js"]
 
 #
 # docker build ... --progress=plain --no-cache

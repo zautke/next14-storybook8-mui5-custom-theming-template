@@ -5,6 +5,7 @@
 		"checkJs": true,
 		"skipLibCheck": true,
 		"strict": true,
+		"sourceMap": true,
 		"esModuleInterop": true,
 		"module": "ESNext",
 		"moduleResolution": "node",
