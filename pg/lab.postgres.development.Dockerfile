@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile
 FROM postgres:16-alpine
 
 RUN apk add --no-cache \
@@ -15,8 +14,8 @@ RUN apk add --no-cache \
 #  && cp -rP .bash/ /root/.bash \
 #  && ln -sf /root/.bash/.bashrc /root/.bashrc
 
-# Create a directory to store PostgreSQL data and logs
-RUN mkdir -p ${PGDATA} /tmp /var/log/postgresql && chown -R postgres:postgres ${PGDATA} /tmp /var/log/postgresql
+## Create a directory to store PostgreSQL data and logs
+#RUN mkdir -p ${PGDATA} /tmp /var/log/postgresql && chown -R postgres:postgres ${PGDATA} /tmp /var/log/postgresql
 
 #COPY entrypoint.sh /sbin/entrypoint.sh
 #RUN chmod 755 /sbin/entrypoint.sh
@@ -25,8 +24,8 @@ RUN mkdir -p ${PGDATA} /tmp /var/log/postgresql && chown -R postgres:postgres ${
 COPY pg_init/*.sql /docker-entrypoint-initdb.d/
 RUN chmod a+r /docker-entrypoint-initdb.d/*
 
-EXPOSE 5432/tcp
+
 
 
 # $ docker build -t example --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --squash .
-
+#

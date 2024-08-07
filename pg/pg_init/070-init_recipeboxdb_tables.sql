@@ -1,5 +1,7 @@
-
-\c recipebox chef;
+\connect recipebox;
+SET ROLE chef;
+SET SEARCH_PATH = kitchen;
+SHOW search_path;
 
 
 --DROP TABLE IF EXISTS quantities;
@@ -49,7 +51,7 @@ CREATE TABLE IF NOT EXISTS  ingredient_rows(
     measure_id            INTEGER REFERENCES measures (id),
     ingredient_id         INTEGER REFERENCES ingredients (id),
     position              SMALLINT,
-    --grouping              INTEGER, 
+    --grouping              INTEGER,
     prep_specifiers       text
     --CHECK (row_version is unique to recipe_id)
 );
@@ -99,7 +101,7 @@ CREATE TABLE IF NOT EXISTS recipes(
     metadata_id           INTEGER REFERENCES recipe_metadata (id),
     ingredient_row_id     INTEGER REFERENCES ingredient_rows (id),
     instruction_id        INTEGER REFERENCES instructions (id),
-	created_on            TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	  created_on            TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     last_updated          TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -1,7 +1,8 @@
+\connect test;
 SET ROLE taster;
 SHOW search_path;
 
-CREATE TABLE sanity(  
+CREATE TABLE sanity(
     id serial NOT NULL,
     uuid UUID DEFAULT gen_random_uuid(),
     marco varchar(4) NOT NULL DEFAULT 'POLO',
@@ -12,5 +13,5 @@ CREATE TABLE sanity(
         ),
     PRIMARY KEY(id)
 );
-  
+
 INSERT INTO sanity DEFAULT VALUES RETURNING *;

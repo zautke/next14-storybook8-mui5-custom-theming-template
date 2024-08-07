@@ -1,3 +1,7 @@
+\connect recipebox;
+SET ROLE chef;
+SHOW search_path;
+
 CREATE TABLE products
 (
     id SERIAL,
